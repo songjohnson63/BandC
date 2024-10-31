@@ -48,6 +48,8 @@ footer ul li{
 
 footer .footer2 h2{
     font-size: 25px;
+    font-weight: 700;
+    color: rgb(85, 85, 85);
 }
 footer .footer2 ul li a{
     text-decoration: none;
