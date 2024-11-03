@@ -1,8 +1,52 @@
 *{
-    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
     color: #717171;
     
 }
+
+.promotion {
+    background-color: white;
+    padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+ }
+ .promotion .text{
+     display: flex;
+     justify-content: space-between;
+     animation: animate_text 25s linear infinite;
+ }
+ .promotion .text span{
+     letter-spacing: 1.8px;
+     font-weight: 700;
+     font-size: 18px;
+     color: rgb(67, 67, 67);
+     margin-right: 40px;
+ }
+ @keyframes animate_text {
+     from {
+       transform: translate3d(0, 0, 0);
+     }
+     to {
+       transform: translate3d(-100%, 0, 0);
+     }
+}
+
+.navbar{
+    /* background-color: aqua; */
+     color: rgb(78, 78, 78);
+     padding: 15px;
+     background-color: rgb(239, 239, 239);
+     justify-content: space-between;
+     position: sticky;
+     top: 0;
+ 
+}
+
 body{
     /* background-color: #F5EFEB; */
     background-color: F5F5F5;
@@ -11,7 +55,11 @@ body{
 
 
 .slideshow{
+    margin: 0 auto;
     height: 50%;
+    margin-bottom: 3%;
+    margin-top: 1%;
+    width: 95%;
     
 }
 .slideshow .carousel-inner{
@@ -19,6 +67,16 @@ body{
     background-color: rgb(42, 42, 41);
     width: 100%;
     height: 550px;
+}
+
+.content .cart{
+    width: 25%;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+
+}
+.content .cart:hover{
+    transform: scale(1.1);
 }
 
 footer{
@@ -60,4 +118,5 @@ footer .footer2 ul li a{
     margin-bottom: 5px;
     color: rgb(105, 105, 105);
 }   
+
 
