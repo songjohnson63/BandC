@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "Glow Serum : Propolis + Niacinamide",
+      "brand":"beauty of joseon",
+      "description": "A serum-like chemical sunscreen that is super lightweight, hydrating, and quickly absorbed, with a non-greasy, dewy finish",
+      "IsCart":0,
+      "IsFavorite": false,
+      "volume":"30ml",
+      "KeyIngredient":"Propolis extract 60%, Niacinamide 2%, BHA 0.5%",
+      "price":"12.00",
+      "img":"img/serum/glow serum.jpg"
+    }
+  ]
