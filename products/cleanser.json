@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "TEA-TRICA BHA foam",
+      "brand":"skin1004",
+      "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+      "IsCart":0,
+      "IsFavorite": false,
+      "volume":"125ml",
+      "KeyIngredient":"Centella Asiatica Extract, Melaleuca Alternifolia (Tea Tree) Leaf Water, Salicylic Acid, Pinus Palustris Leaf Extract, Chamaecyparis Obtusa Water",
+      "price":"12.75",
+      "img":"img/cleanser/skin1004 bha.png"
+    }
+  ]

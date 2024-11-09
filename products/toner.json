@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "AHA/BHA Clarifying Treatment Toner",
+      "brand":"cosrx",
+      "description": "The formulation of AHA+BHA+Purifying Botanical ingredients help to improve skin texture, increase vitality, and control pores. Eliminate impurities, exfoliate, and hydrate all in one step.",
+      "IsCart":0,
+      "IsFavorite": false,
+      "volume":"150ml",
+      "KeyIngredient":"Salix Alba (Willow) Bark Water + Pyrus Malus (Apple) Fruit Water,Glycolic Acid,Betaine Salicylate ",
+      "price":"11.00",
+      "img":"img/toner/exfoliate toner.png"
+    }
+  ]
