@@ -112,11 +112,11 @@ footer{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4,4fr);
-    height: 60vh;
-    letter-spacing: 1.1px;
+    height: 50vh;
+    letter-spacing: 1px;
 }
 footer h1{
-    font-size: 20px;
+    
     font-weight: 500;
     margin-bottom: 5%;
     color: rgb(255, 255, 255);
@@ -141,14 +141,14 @@ footer i{
 }
 
 footer .footer2 h2{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     color: rgb(255, 255, 255);
 }
 footer .footer2 ul li a{
     text-decoration: none;
     list-style-type: none;
-    font-size: 19px;
+    font-size: 20px;
     display: block;
     margin-bottom: 5px;
     color: rgb(255, 255, 255);
