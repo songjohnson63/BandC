@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Centella Calming Daily Sunscreen",
+    "brand": "iUNIK",
+    "description": "Boasting SPF50+ PA++++ sun protection, this organic sunscreen is enriched with 49% centella asiatica extract to soothe heated skin while keeping harmful UV rays at bay. Chemical sunscreen in a cream texture contains beta-glucan and adenosine for moisturizing and anti-wrinkle benefits. The unscented and non-sticky formula leaves a natural finish without a white cast.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "60ml",
+    "KeyIngredient": "Centella Asiatica Extract 49%, Beta-glucan 1,000ppm, Adenosine, Niacinamide",
+    "price": "12.00",
+    "img": "../products/img/sunscreen/01.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Aloe Soothing Sun Cream",
+    "brand": "COSRX",
+    "description": "This soothing sun cream contains 5,500ppm of aloe vera leaf extract and provides SPF50+ PA+++ protection. It has a lightweight and hydrating formula, making it suitable for daily use without leaving a white cast.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Aloe Vera Leaf Extract 5,500ppm, Ethylhexyl Methoxycinnamate, Butylene Glycol, Glycerin",
+    "price": "10.00",
+    "img": "../products/img/sunscreen/02.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Soft Airy UV Essence",
+    "brand": "Klairs",
+    "description": "This water-based sun essence offers SPF50+ PA++++ protection and is formulated with mild ingredients, making it suitable for sensitive skin. It leaves a soft, airy finish without greasiness.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "80ml",
+    "KeyIngredient": "Niacinamide, Adenosine, Sodium Hyaluronate, Tocopherol",
+    "price": "18.00",
+    "img": "../products/img/sunscreen/03.jpg"
+  },
+  {
+    "id": 4,
+    "name": "All Around Safe Block Aqua Sun Gel",
+    "brand": "MISSHA",
+    "description": "This refreshing sun gel provides SPF50+ PA++++ protection and is enriched with glacial water and ice plant extract to hydrate and cool the skin. It absorbs quickly without leaving a sticky residue.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Glacial Water, Ice Plant Extract, Niacinamide, Adenosine",
+    "price": "13.00",
+    "img": "../products/img/sunscreen/04.webp"
+  },
+  {
+    "id": 5,
+    "name": "Daily Mild Sunscreen",
+    "brand": "Dr. Jart+",
+    "description": "This daily mild sunscreen offers SPF50+ PA++++ protection and is formulated with cica and tea tree extract to soothe and protect sensitive skin. It leaves a lightweight, non-sticky finish.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Centella Asiatica Extract, Tea Tree Extract, Niacinamide, Adenosine",
+    "price": "20.00",
+    "img": "../products/img/sunscreen/05.webp"
+  },
+  {
+    "id": 6,
+    "name": "Perfect UV Protection Cream Triple Care",
+    "brand": "Innisfree",
+    "description": "This sunscreen provides SPF50+ PA+++ protection and is enriched with sunflower oil and green tea extract. It helps to brighten the skin tone and offers anti-aging benefits.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Sunflower Oil, Green Tea Extract, Niacinamide, Adenosine",
+    "price": "16.00",
+    "img": "../products/img/sunscreen/06.webp"
+  },
+  {
+    "id": 7,
+    "name": "Air Fit UV Defense Sun Cream",
+    "brand": "Etude House",
+    "description": "This sun cream offers SPF50+ PA+++ protection and is formulated with silica powder to control excess sebum. It leaves a matte finish and is suitable for oily and combination skin types.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Silica Powder, Niacinamide, Adenosine, Sodium Hyaluronate",
+    "price": "11.00",
+    "img": "../products/img/sunscreen/07.webp"
+  },
+  {
+    "id": 8,
+    "name": "UV Defense Me. Daily Sun Essence",
+    "brand": "MAKE P:REM",
+    "description": "This lightweight sun essence offers SPF50+ PA++++ protection and is infused with moisturizing ingredients like panthenol and ceramides. It leaves a dewy finish without any white cast.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Panthenol, Ceramides, Niacinamide, Adenosine",
+    "price": "15.00",
+    "img": "../products/img/sunscreen/08.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Aqua Rich Watery Essence",
+    "brand": "Biore",
+    "description": "This watery essence sunscreen offers SPF50+ PA++++ protection and is enriched with hyaluronic acid and royal jelly extract for intense hydration. It absorbs quickly and leaves a refreshing finish.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Hyaluronic Acid, Royal Jelly Extract, Butylene Glycol, Glycerin",
+    "price": "14.00",
+    "img": "../products/img/sunscreen/09.jpg"
+  },
+  {
+    "id": 10,
+    "name": "UV Shield Essential Moisture Sun Cream",
+    "brand": "Laneige",
+    "description": "This moisture sun cream offers SPF50+ PA+++ protection and is infused with hydro ionized mineral water to deeply hydrate the skin. It provides a dewy, natural finish without a white cast.",
+    "IsCart": 0,
+    "IsFavorite": false,
+    "volume": "50ml",
+    "KeyIngredient": "Hydro Ionized Mineral Water, Niacinamide, Adenosine, Glycerin",
+    "price": "22.00",
+    "img": "../products/img/sunscreen/10.jpg"
+  }
+]

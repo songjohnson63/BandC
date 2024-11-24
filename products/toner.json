@@ -1,0 +1,122 @@
+[
+  {
+      "id": 1,
+      "name": "AHA/BHA Clarifying Treatment Toner",
+      "brand": "COSRX",
+      "description": "The formulation of AHA+BHA+Purifying Botanical ingredients help to improve skin texture, increase vitality, and control pores. Eliminate impurities, exfoliate, and hydrate all in one step.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "150ml",
+      "KeyIngredient": "Salix Alba (Willow) Bark Water, Pyrus Malus (Apple) Fruit Water, Glycolic Acid, Betaine Salicylate",
+      "price": "11.00",
+      "img": "../products/img/toner/01.png"
+  },
+  {
+      "id": 2,
+      "name": "Supple Preparation Facial Toner",
+      "brand": "Klairs",
+      "description": "A gentle, hydrating toner that balances the skin's pH level and enhances the effectiveness of your entire skincare routine.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "180ml",
+      "KeyIngredient": "Sodium Hyaluronate, Betaine, Panthenol",
+      "price": "21.00",
+      "img": "../products/img/toner/02.jpg"
+  },
+  {
+      "id": 3,
+      "name": "Wonder Pore Freshner",
+      "brand": "Etude House",
+      "description": "A multi-functional toner that deep cleanses pores, maintains pH balance, controls sebum, and provides a fresh, cooling sensation.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "250ml",
+      "KeyIngredient": "Camellia Sinensis Leaf Extract, Alcohol Denat., Glycerin",
+      "price": "15.00",
+      "img": "../products/img/toner/03.jpg"
+  },
+  {
+      "id": 4,
+      "name": "Green Tea Fresh Toner",
+      "brand": "Innisfree",
+      "description": "A refreshing toner made with Jeju green tea extract that hydrates and soothes the skin while controlling oil.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "200ml",
+      "KeyIngredient": "Camellia Sinensis Leaf Extract, Glycerin, Betaine",
+      "price": "18.00",
+      "img": "../products/img/toner/04.webp"
+  },
+  {
+      "id": 5,
+      "name": "Time Revolution The First Treatment Essence",
+      "brand": "Missha",
+      "description": "A highly concentrated essence that hydrates, restores, and rejuvenates the skin, leaving it smooth and radiant.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "150ml",
+      "KeyIngredient": "Saccharomyces Ferment Filtrate, Niacinamide, Adenosine",
+      "price": "49.00",
+      "img": "../products/img/toner/05.avif"
+  },
+  {
+      "id": 6,
+      "name": "Mugwort Essence",
+      "brand": "I'm From",
+      "description": "A calming essence made with 100% mugwort extract to soothe and hydrate irritated skin.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "160ml",
+      "KeyIngredient": "Artemisia Princeps Extract",
+      "price": "40.00",
+      "img": "../products/img/toner/06.jpg"
+  },
+  {
+      "id": 7,
+      "name": "Centella Unscented Toner",
+      "brand": "Purito",
+      "description": "A soothing toner that helps calm and strengthen the skin barrier with Centella Asiatica extract, ideal for sensitive skin.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "200ml",
+      "KeyIngredient": "Centella Asiatica Extract 10%, Panthenol, Hyaluronic Acid",
+      "price": "20.00",
+      "img": "../products/img/toner/07.jpg"
+  },
+  {
+      "id": 8,
+      "name": "Rice Toner",
+      "brand": "I'm From",
+      "description": "A brightening toner that harnesses the power of rice extract to provide hydration and improve skin tone.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "150ml",
+      "KeyIngredient": "Oryza Sativa (Rice) Extract 77.78%, Niacinamide, Allantoin",
+      "price": "28.00",
+      "img": "../products/img/toner/08.jpg"
+  },
+  {
+      "id": 9,
+      "name": "Essence Toner",
+      "brand": "Pyunkang Yul",
+      "description": "A nourishing toner that absorbs quickly into the skin, providing deep hydration and a glowing complexion.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "200ml",
+      "KeyIngredient": "Astragalus Membranaceus Root Extract, Butylene Glycol, Glycerin",
+      "price": "14.00",
+      "img": "../products/img/toner/09.png"
+  },
+  {
+      "id": 10,
+      "name": "Alcohol-Free Toner",
+      "brand": "Klairs",
+      "description": "A gentle toner that balances the skin's pH level and provides deep hydration without irritation, perfect for sensitive skin.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "180ml",
+      "KeyIngredient": "Sodium Hyaluronate, Betaine, Panthenol",
+      "price": "21.00",
+      "img": "../products/img/toner/10.jpg"
+  }
+]
