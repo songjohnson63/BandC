@@ -28,7 +28,69 @@ const products = [
       "price": "12.75",
       "img": "../Homepage/images/tree.jpg",
       "section": "new-arrival"
-    }
+    },
+    {
+        "id": 4,
+        "name": "TEA-TRICA BHA foam",
+        "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "price": "12.75",
+        "img": "../Homepage/images/tree.jpg",
+        "section": "best-seller"
+      },
+      {
+        "id": 5,
+        "name": "TEA-TRICA BHA foam",
+        "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "price": "12.75",
+        "img": "../Homepage/images/tree.jpg",
+        "section": "best-seller"
+      },
+
+      {
+        "id": 6,
+        "name": "TEA-TRICA BHA foam",
+        "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "price": "12.75",
+        "img": "../Homepage/images/tree.jpg",
+        "section": "all-product"
+      },
+      {
+        "id": 7,
+        "name": "TEA-TRICA BHA foam",
+        "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "price": "12.75",
+        "img": "../Homepage/images/tree.jpg",
+        "section": "all-product"
+      },
+      {
+        "id": 8,
+        "name": "TEA-TRICA BHA foam",
+        "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "price": "12.75",
+        "img": "../Homepage/images/tree.jpg",
+        "section": "promotions"
+      },
+      {
+        "id": 8,
+        "name": "TEA-TRICA BHA foam",
+        "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "price": "12.75",
+        "img": "../Homepage/images/tree.jpg",
+        "section": "new-arrival"
+      },
+   
   ];
   
   // Function to display products by section
