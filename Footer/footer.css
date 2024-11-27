@@ -15,6 +15,7 @@ footer{
     grid-template-columns: repeat(4,4fr);
     height: 50vh;
     letter-spacing: 1px;
+   
 }
 footer h1{
     
