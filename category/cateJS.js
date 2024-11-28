@@ -51,6 +51,7 @@ async function showProducts(category) {
         function toggleFavorite(productId){
             const product = products.find(p => p.id === productId);
             if(product){
+                console.log(product);
                 product.IsFavorite=!product.IsFavorite;
                 const heartIcon= document.getElementById(`heart-${productId}`);
                 if (product.IsFavorite) {
