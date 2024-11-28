@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     {
       "id": 1,
       "name": "Dynasty Cream",
@@ -25,3 +26,126 @@
     }
 
   ]
+=======
+  {
+      "id": 1,
+      "name": "Dynasty Cream",
+      "brand": "Beauty of Joseon",
+      "description": "Meet the 'Dynasty Cream,' our very first product here at Beauty of Joseon, and a long-time favorite of many of our customers. Its firm and creamy texture gives your skin deep, long-lasting moisture and nourishment. This all-in-one cream is filled with good-for-skin ingredients like rice bran water, ginseng water, squalane, and niacinamide. These ingredients help to keep your skin healthy, hydrated, and balanced. Its firm texture sinks into your skin, providing moisture and nourishment from deep within.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Rice bran water 29%, Ginseng root water 5%, Squalane 2%, Niacinamide 2%",
+      "price": "20.00",
+      "img": "../products/img/moisturizer/01.jpg"
+  },
+  {
+      "id": 2,
+      "name": "Water Bank Moisture Cream",
+      "brand": "Laneige",
+      "description": "A rich moisturizer that delivers long-lasting hydration, formulated with hydro ionized mineral water to deeply hydrate and strengthen the skin’s moisture barrier.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Hydro Ionized Mineral Water, Green Mineral Water, Glycerin",
+      "price": "35.00",
+      "img": "../products/img/moisturizer/02.jpg"
+  },
+  {
+      "id": 3,
+      "name": "Propolis Vitamin Sleeping Mask",
+      "brand": "COSRX",
+      "description": "A nourishing sleeping mask that revitalizes the skin overnight with propolis extract and vitamin E, leaving it hydrated and glowing.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "60ml",
+      "KeyIngredient": "Propolis Extract 87.26%, Hippophae Rhamnoides Fruit Extract, Sodium Hyaluronate",
+      "price": "22.00",
+      "img": "../products/img/moisturizer/03.webp"
+  },
+  {
+      "id": 4,
+      "name": "Ultra Facial Cream",
+      "brand": "Kiehl's",
+      "description": "A 24-hour, light-textured daily hydrator that leaves skin feeling comfortable and visibly well-balanced, particularly in harsh weather conditions.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Squalane, Glacial Glycoprotein, Imperata Cylindrica Root Extract",
+      "price": "32.00",
+      "img": "../products/img/moisturizer/04.jpg"
+  },
+  {
+      "id": 5,
+      "name": "Cica Cream",
+      "brand": "Dr. Jart+",
+      "description": "A fast-acting cream that calms sensitive skin, formulated with Centella Asiatica complex to soothe and hydrate irritated skin.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Centella Asiatica Extract, Niacinamide, Glycerin",
+      "price": "48.00",
+      "img": "../products/img/moisturizer/05.avif"
+  },
+  {
+      "id": 6,
+      "name": "Green Tea Balancing Cream",
+      "brand": "Innisfree",
+      "description": "A lightweight gel-cream that replenishes moisture and soothes the skin with Jeju green tea extract.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Camellia Sinensis Leaf Extract, Glycerin, Stearic Acid",
+      "price": "18.00",
+      "img": "../products/img/moisturizer/06.jpg"
+  },
+  {
+      "id": 7,
+      "name": "Moisture Surge 72-Hour Auto-Replenishing Hydrator",
+      "brand": "Clinique",
+      "description": "An enhanced moisture boost that works non-stop for 72 hours, even after washing your face, to keep skin almost twice as hydrated at the end of the day.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Aloe Vera Bioferment, Hyaluronic Acid, Activated Aloe Water",
+      "price": "39.00",
+      "img": "../products/img/moisturizer/07.jpg"
+  },
+  {
+      "id": 8,
+      "name": "Intensive Vitalizing Cream EX",
+      "brand": "Sulwhasoo",
+      "description": "A rich anti-aging cream that revitalizes skin, improves resilience, and strengthens the skin barrier, leaving it firm and smooth.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Ginseng Root Extract, Glycyrrhiza Uralensis (Licorice) Root Extract, Camellia Sinensis Leaf Extract",
+      "price": "150.00",
+      "img": "../products/img/moisturizer/08.webp"
+  },
+  {
+      "id": 9,
+      "name": "Rich Moist Soothing Cream",
+      "brand": "Klairs",
+      "description": "A rich cream that provides soothing moisture for sensitive skin, formulated with shea butter and ceramides to strengthen the skin barrier.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "60ml",
+      "KeyIngredient": "Shea Butter, Ceramide NP, Jojoba Seed Oil",
+      "price": "25.00",
+      "img": "../products/img/moisturizer/09.webp"
+  },
+  {
+      "id": 10,
+      "name": "Perfect Renew Regenerating Cream",
+      "brand": "Laneige",
+      "description": "An anti-aging cream that provides deep hydration and revitalization, improving the appearance of fine lines and wrinkles.",
+      "IsCart": 0,
+      "IsFavorite": false,
+      "volume": "50ml",
+      "KeyIngredient": "Squalane, Hydrolyzed Lupine Protein, Glycerin",
+      "price": "65.00",
+      "img": "../products/img/moisturizer/10.jpg"
+  }
+]
+>>>>>>> e5fecbf9b79138d35b004f9a0119ba142b75507b
