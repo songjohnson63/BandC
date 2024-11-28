@@ -93,6 +93,7 @@ const products = [
    
   ];
   
+  
   // Function to display products by section
   function displayProductsBySection(section, containerClass) {
     const productContainer = document.querySelector(`.${containerClass}`);
