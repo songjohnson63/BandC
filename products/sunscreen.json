@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
   {
     "id": 1,
     "name": "Centella Calming Daily Sunscreen",
@@ -120,3 +121,18 @@
     "img": "../products/img/sunscreen/10.jpg"
   }
 ]
+=======
+    {
+      "id": 1,
+      "name": "Centella Calming Daily Sunscreen ",
+      "brand":"iUNIK",
+      "description": "Boasting SPF50+ PA++++ sun protection, this organic sunscreen is enriched with 49% centella asistica extract to soothe heated skin while keeping harmful UV rays at bay. Chemical sunscreen in a cream texture contains beta-glucan and adenosine for moisturizing and anti-wrinkle benefits. The unscented and non-sticky formula leaves a natural finish without a white cast.",
+      "IsCart":0,
+      "IsFavorite": false,
+      "volume":"60ml",
+      "KeyIngredient":" Centella Asiatica Extract 49%,Beta-glucan 1,000ppm,Adenosine, Niacinamide",
+      "price":"12.00",
+      "img":"img/sunscreen/iunik.jpg"
+    }
+  ]
+>>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c

@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
   {
       "id": 1,
       "name": "Dynasty Cream",
@@ -120,3 +121,18 @@
       "img": "../products/img/moisturizer/10.jpg"
   }
 ]
+=======
+    {
+      "id": 1,
+      "name": "Dynasty Cream",
+      "brand":"beauty of joseon",
+      "description": "Meet the 'Dynasty Cream,' our very first product here at Beauty of Joseon, and a long-time favorite of many of our customers. Its firm and creamy texture gives your skin deep, long-lasting moisture and nourishment. This all-in-one cream is filled with good-for-skin ingredients like rice bran water, ginseng water, squalane, and niacinamide. These ingredients help to keep your skin healthy, hydrated, and balanced. Its firm texture sinks into your skin, providing moisture and nourishment from deep within.",
+      "IsCart":0,
+      "IsFavorite": false,
+      "volume":"50ml",
+      "KeyIngredient":"Rice bran water 29%, Ginseng root water 5%, Squalane 2%, Niacinamide 2%",
+      "price":"20.00",
+      "img":"img/moisturizer/beauty of Joeson.jpg"
+    }
+  ]
+>>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c

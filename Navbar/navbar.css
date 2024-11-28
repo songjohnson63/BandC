@@ -1,0 +1,48 @@
+/* Promotion Bar */
+.promotion {
+    background-color: white; /* Set a background to ensure visibility */
+    padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Fixed at the top */
+    top: 0; /* Sticks to the very top of the viewport */
+    width: 100%; /* Full width */
+    z-index: 1050; /* Higher than the navbar */
+    border-bottom: 1px solid #ddd; /* Optional for separation */
+}
+
+/* Promotion Text Animation */
+.promotion .text {
+    display: flex;
+    animation: animate_text 25s linear infinite;
+}
+
+.promotion .text span {
+    letter-spacing: 1.8px;
+    font-weight: 700;
+    font-size: 18px;
+    color: rgb(67, 67, 67);
+    margin-right: 40px;
+}
+
+/* Navbar */
+.navbar {
+    margin-top: 40px;
+    position: fixed; /* Sticks below the promotion bar */
+    width: 100%; /* Full width */
+    box-shadow: 1px 1px 2px 1px rgb(155, 155, 155);
+    background-color: white; /* Background for clarity */
+}
+
+
+@keyframes animate_text {
+     from {
+       transform: translate3d(0, 0, 0);
+     }
+     to {
+       transform: translate3d(-100%, 0, 0);
+     }
+}

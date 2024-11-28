@@ -8,8 +8,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Homepage/hompage.css">
+    
 </head>
 <body>
+<<<<<<< HEAD
   <div class="promotion">
     <div class="text">
         <span>Khmer New year 15% discount</span>
@@ -81,6 +83,9 @@
       </div> 
     </div>
   </nav>
+=======
+  <div id="navbar-container"></div>
+>>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c
 
 <!-- --------------------------------------------------- -->
     <div class="slideshow">
@@ -119,97 +124,96 @@
     </div>
 
 <!-- --------------------------------------------- -->
-  <div class="content">
-    <div class="container-fluid" style="width: 85%;">
+<div class="content">
+  <div class="container-fluid" style="width: 85%;">
       <h2 class="text-center fs-3 fw-bold">New Arrival</h2>
-      <div class="row" style="justify-content: space-between;">
-        <div class="cart col-sm-6 col-md-6 col-lg-3 mt-5">
-          <div class="card shadow-lg">
-                <img class="rounded" src="../Homepage/images/cica.jpg" alt="">
-                <div class="card-body">
-                    <div class="card-title">
-                        <h5>Toboco Sunstick</h5>
-                    </div>
-
-                    <div class="card-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, odit.</p>
-                    </div>
-
-                    <div class="card-price d-flex" style="justify-content: space-between;">
-                      <div class="price d-flex mt-4">
-                        <h5 class="text-decoration-line-through">$20.00</h5>
-                        <h5 class="mx-2 text-danger">$15.00</h5>
-                      </div>
-                      
-                      <button class="border-0 bg-transparent fs-4">
-                        <i class="fa-solid fa-cart-shopping mx-3"></i>
-                        <i class="fa-solid fa-heart"></i>
-                      </button>
-                    </div>
-                </div>
-          </div>
-        </div>
-
-        
-      
-        
-        </div>
-    </div>
-    <div class="d-grid gap-2 col-1 mx-auto mt-5" style="height: 50px;">
-      <button class="btn btn-secondary fs-6" type="button">View All <i class="fa-solid fa-arrow-right text-white"></i></button>
-    </div>
+      <div class="row new-arrival"></div>
   </div>
-   
-   
+  <div class="d-grid gap-2 col-1 mx-auto mt-5" style="height: 50px;">
+      <button class="btn btn-secondary fs-6 w-auto" type="button">
+          New Arrival <i class="fa-solid fa-arrow-right text-white"></i>
+      </button>
+  </div>
+
+
+  <div class="container-fluid" style="width: 85%;">
+      <h2 class="text-center fs-3 fw-bold mt-5">Best Sellers</h2>
+      <div class="row best-seller" ></div>
+  </div>
+  <div class="d-grid gap-2 col-1 mx-auto mt-5" style="height: 50px;">
+      <button class="btn btn-secondary fs-6 w-auto" type="button">
+          Best Sellers <i class="fa-solid fa-arrow-right text-white"></i>
+      </button>
+  </div>
+
+  <div class="container-fluid" style="width: 85%;">
+      <h2 class="text-center fs-3 fw-bold mt-5">Promotions</h2>
+      <div class="row promotions"></div>
+  </div>
+  <div class="d-grid gap-2 col-1 mx-auto mt-5" style="height: 50px;">
+      <button class="btn btn-secondary fs-6 w-auto" type="button">
+          Promotions <i class="fa-solid fa-arrow-right text-white"></i>
+      </button>
+  </div>
+
+  <div class="container-fluid" style="width: 85%;">
+      <h2 class="text-center fs-3 fw-bold mt-5">All Products</h2>
+      <div class="row all-product"></div>
+  </div>
+  <div class="d-grid gap-2 col-1 mx-auto mt-5" style="height: 50px;">
+      <button class="btn btn-secondary fs-6 w-auto" type="button">
+          All Product <i class="fa-solid fa-arrow-right text-white"></i>
+      </button>
+  </div>
+</div>
+
+
+  
+<div id="footer-container"></div>
+
 </body>
 
-<footer class="mt-5 p-5" style="background-color: #C6DCE4">
-  <div class="footer1">
-    <img src="../Homepage/images/logo1.png" alt="" style="width: 45%; margin-bottom:10%">
-    <h1><i class="fa-solid fa-location-dot"></i> Phnom Penh, Cambodia</h1>
-    <h1><i class="fa-regular fa-envelope"></i> bandc@gmail.com</h1>
 
-    <ul>
-      <li><a href="#"><i class="fa-brands fa-facebook" style="color: rgb(78, 78, 212);"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-telegram" style="color: rgb(48, 140, 237);"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-whatsapp" style="color: rgb(29, 176, 29);"></i></a></li>
-    </ul>
 
-  </div>
+<!-- ========= Call product from JSON  -->
+<script src="../products/homepage.js"></script>
 
-  <div class="footer2">
-    <h2>Company</h2>
-    <ul>
-      <li>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Blog</a>
-      </li>
-    </ul>
-  </div>
+<!-- ========= Call Navbar and Footer -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("../Navbar/navbar.html")
+      .then((response) => {
+        if (!response.ok) {
+          console.error("Failed to load navbar:", response.status, response.statusText);
+          return;
+        }
+        return response.text();
+      })
+      .then((html) => {
+        if (html) {
+          document.getElementById("navbar-container").innerHTML = html;
+        }
+      })
+      .catch((error) => console.error("Error loading navbar:", error));
+  });
 
-  <div class="footer2">
-    <h2>Solution</h2>
-    <ul>
-      <li>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Blog</a>
-      </li>
-    </ul>
-  </div>
+  
+    fetch("../Footer/footer.html")
+      .then((response) => {
+        if (!response.ok) {
+          console.error("Failed to load footer:", response.status, response.statusText);
+          return;
+        }
+        return response.text();
+      })
+      .then((html) => {
+        if (html) {
+          document.getElementById("footer-container").innerHTML = html;
+        }
+      })
+      .catch((error) => console.error("Error loading footer:", error));
+ 
+</script>
 
-  <div class="footer2">
-    <h2>Partner</h2>
-    <ul>
-      <li>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Blog</a>
-      </li>
-    </ul>
-  </div>
-
-</footer>
 
 </html>
