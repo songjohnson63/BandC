@@ -1,0 +1,12 @@
+
+
+.card {
+    /* width:calc(1050px / 4); */
+    width: 280px;
+    height: 100%; /* Stretch cards to the same height */
+    /* background-color: blue; */
+    padding: 10px;
+}
+img{
+    object-fit: cover;
+}
