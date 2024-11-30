@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,6 +12,7 @@ body{
     /* background-color: #F5EFEB; */
     background-color: F5F5F5;
     padding-top: 8%;
+    padding-top: 8%;
 }
 
 .slideshow{
@@ -21,7 +22,8 @@ body{
     margin-top: 1.5%;
     width: 93%;  
 }
-.slideshow .carousel-inner img{
+
+.slideshow .carousel-inner img {
     margin: 0 auto;
     background-color: rgb(42, 42, 41);
     width: 100%;
@@ -31,21 +33,23 @@ body{
 
 
 
-.content .cart{
+.content .cart {
     width: 25%;
+    /* justify-content: space-between; */
     /* justify-content: space-between; */
     transition: transform 0.3s ease;
 
 }
 
-.content .cart .card img{
-   height: 35vh;
-   width: 100%;
-   background-color: blue;
-    object-fit:cover;
+.content .cart .card img {
+    height: 35vh;
+    width: 100%;
+    background-color: blue;
+    object-fit: cover;
 }
 
-.content .cart .card .card-body .card-title, .card-text{
+.content .cart .card .card-body .card-title,
+.card-text {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -53,16 +57,16 @@ body{
     height: 50px;
 }
 
-.content .cart:hover{
+.content .cart:hover {
     transform: scale(1.1);
 }
 
-.cart .card-price button i{
+.cart .card-price button i {
     margin-top: 16px;
     color: rgb(125, 125, 125);
 }
 
-.cart .card-price button i:hover{
+.cart .card-price button i:hover {
     color: rgb(230, 5, 5);
 }
 

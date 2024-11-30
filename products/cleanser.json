@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-[
-=======
 
   [
->>>>>>> e5fecbf9b79138d35b004f9a0119ba142b75507b
     {
       "id": 1,
       "name": "TEA-TRICA BHA foam",
@@ -14,9 +10,8 @@
       "volume":"125ml",
       "KeyIngredient":"Centella Asiatica Extract, Melaleuca Alternifolia (Tea Tree) Leaf Water, Salicylic Acid, Pinus Palustris Leaf Extract, Chamaecyparis Obtusa Water",
       "price":"12.75",
-      "img":"img/cleanser/skin1004 bha.png"
-    }
-  ]
+      "img":"../products/img/cleanser/01.png"
+    },
     {
         "id": 2,
         "name": "Green Tea Cleansing Foam",
@@ -138,4 +133,3 @@
         "img": "../products/img/cleanser/11.webp"
     }
 ]
->>>>>>> e5fecbf9b79138d35b004f9a0119ba142b75507b
