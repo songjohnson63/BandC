@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 [
-=======
-
-  [
->>>>>>> e5fecbf9b79138d35b004f9a0119ba142b75507b
     {
       "id": 1,
       "name": "Glow Serum : Propolis + Niacinamide",
@@ -14,12 +9,7 @@
       "volume":"30ml",
       "KeyIngredient":"Propolis extract 60%, Niacinamide 2%, BHA 0.5%",
       "price":"12.00",
-<<<<<<< HEAD
       "img":"img/serum/glow serum.jpg"
-    }
-  ]
-=======
-      "img":"../products/img/serum/01.jpg"
     },
     {
         "id": 2,
@@ -130,4 +120,3 @@
         "img": "../products/img/serum/10.jpg"
     }
 ]
->>>>>>> e5fecbf9b79138d35b004f9a0119ba142b75507b

@@ -7,7 +7,8 @@ const products = [
       "IsFavorite": false,
       "price": "12.75",
       "img": "../Homepage/images/joeson.png",
-      "section": "new-arrival"
+      "section": "new-arrival",
+      "KeyIngredient": "Haloooooo"
     },
     {
       "id": 2,
@@ -17,7 +18,9 @@ const products = [
       "IsFavorite": false,
       "price": "12.75",
       "img": "../Homepage/images/cica.jpg",
-      "section": "new-arrival"
+      "section": "new-arrival",
+      "KeyIngredient": "Haloooooo"
+
     },
     {
       "id": 3,
@@ -27,7 +30,9 @@ const products = [
       "IsFavorite": false,
       "price": "12.75",
       "img": "../Homepage/images/tree.jpg",
-      "section": "new-arrival"
+      "section": "new-arrival",
+      "KeyIngredient": "Haloooooo"
+
     },
     {
         "id": 4,
@@ -37,7 +42,9 @@ const products = [
         "IsFavorite": false,
         "price": "12.75",
         "img": "../Homepage/images/tree.jpg",
-        "section": "best-seller"
+        "section": "best-seller",
+        "KeyIngredient": "Haloooooo"
+
       },
       {
         "id": 5,
@@ -47,7 +54,9 @@ const products = [
         "IsFavorite": false,
         "price": "12.75",
         "img": "../Homepage/images/tree.jpg",
-        "section": "best-seller"
+        "section": "best-seller",
+        "KeyIngredient": "Haloooooo"
+
       },
 
       {
@@ -58,7 +67,9 @@ const products = [
         "IsFavorite": false,
         "price": "12.75",
         "img": "../Homepage/images/tree.jpg",
-        "section": "all-product"
+        "section": "all-product",
+        "KeyIngredient": "Haloooooo"
+
       },
       {
         "id": 7,
@@ -68,7 +79,9 @@ const products = [
         "IsFavorite": false,
         "price": "12.75",
         "img": "../Homepage/images/tree.jpg",
-        "section": "all-product"
+        "section": "all-product",
+        "KeyIngredient": "Haloooooo"
+
       },
       {
         "id": 8,
@@ -78,20 +91,27 @@ const products = [
         "IsFavorite": false,
         "price": "12.75",
         "img": "../Homepage/images/tree.jpg",
-        "section": "promotions"
+        "section": "promotions",
+        "KeyIngredient": "Haloooooo"
+
       },
       {
-        "id": 8,
+        "id": 9,
         "name": "TEA-TRICA BHA foam",
         "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
         "IsCart": 0,
         "IsFavorite": false,
         "price": "12.75",
         "img": "../Homepage/images/tree.jpg",
-        "section": "new-arrival"
+        "section": "new-arrival",
+        "KeyIngredient": "Haloooooo"
+
       },
    
   ];
+
+  // export default products;  // Export the array so it can be used in other files
+
   
   
   // Function to display products by section
