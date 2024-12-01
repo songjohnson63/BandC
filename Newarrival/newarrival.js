@@ -69,10 +69,12 @@ function loadProducts(url, categoryName) {
           card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-6', 'col-lg-3');
   
 
-          // <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
+          
           card.innerHTML = `
             <div class="card shadow-lg">
+            <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
               <img class="rounded" src="${item.img}" alt="${item.name}">
+            </a>
               <div class="card-body">
                 <div class="card-title">
                   <h5>${item.name}</h5>
@@ -86,7 +88,7 @@ function loadProducts(url, categoryName) {
                     <h5 class="mx-2 text-danger">$${item.price}</h5>
                   </div>
                   <button class="border-0 bg-transparent fs-4">
-                    <i class="fa-solid fa-cart-shopping mx-3"></i>
+                    <i class="fa-solid fa-cart-shopping mx-3" id="heart-${item.id}" data-cateName="${item.cateName}" data-id="${item.id}" data-favorite="${item.IsFavorite}" onclick="toggleFavorite(event)"></i>
                     <i class="fa-solid fa-heart heart-icon" id="heart-${item.id}" data-cateName="${item.cateName}" data-id="${item.id}" data-favorite="${item.IsFavorite}" onclick="toggleFavorite(event)"></i>
 
                   </button>

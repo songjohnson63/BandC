@@ -105,7 +105,9 @@ function displayCategoryProducts(category, products) {
         productDiv.classList.add('cart', 'col-sm-6', 'col-md-6', 'col-lg-3', 'mt-5');
         productDiv.innerHTML = `
             <div class="card shadow-lg">
+            <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
                 <img class="rounded" src="${product.img}" alt="${product.name}">
+            </a>
                 <div class="card-body">
                     <div class="card-title">
                         <h5>${product.name}</h5>
@@ -119,7 +121,7 @@ function displayCategoryProducts(category, products) {
                             <h5 class="mx-2 text-danger">$${product.price}</h5>
                         </div>
                         <button class="border-0 bg-transparent fs-4">
-                            <i class="fa-solid fa-cart-shopping mx-3"></i>
+                            <i class="fa-solid fa-cart-shopping mx-3" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
                             <i class="fa-solid fa-heart heart-icon" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
                         </button>
                     </div>

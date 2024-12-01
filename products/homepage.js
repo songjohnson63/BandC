@@ -416,33 +416,32 @@ async function fetchProductData(category,productId) {
 //this function below is about when click on each product then it's create an object that store all the product with IsFavorite= true
 //toggle icon to be red or gray
 async function toggleFavorite(event) {
-    const heartIcon = event.target;
-    const cateName = heartIcon.getAttribute('data-cateName');
-    const productId = heartIcon.getAttribute('data-id');
-    let isFavorite = heartIcon.getAttribute('data-favorite') === 'true';
-    isFavorite = !isFavorite;
-    heartIcon.setAttribute('data-favorite', isFavorite);
-    heartIcon.style.color =isFavorite? 'red':'gray';
-    try {
-        const product = await fetchProductData(cateName,productId);
-        if (product) {
-            if (isFavorite) {
-// Assign a FavoriteId if it's marked as favorite
-                if (!product.FavoriteId) {
-                    product.FavoriteId = favoriteIdCounter++;
-                }
-                favProduct[productId] = product;
-            } else {
-                delete product.FavoriteId;
-                delete favProduct[productId];
-            }
-            console.log(favProduct); 
-           
-        }
-    } catch (error) {
-        console.error(`Error fetching product data for ID ${productId}:`, error);
-    }
-    }
+  const heartIcon = event.target;
+  const productId = heartIcon.getAttribute('data-id');
+  let isFavorite = heartIcon.getAttribute('data-favorite') === 'true';
+  isFavorite = !isFavorite;
+
+  // Update the icon color based on favorite status
+  heartIcon.setAttribute('data-favorite', isFavorite);
+  heartIcon.style.color = isFavorite ? 'red' : 'gray';
+
+  // Find the product in the local products array
+  const product = products.find(p => p.id === parseInt(productId));
+  if (product) {
+      product.IsFavorite = isFavorite; // Update the IsFavorite property
+
+      // Update the favProduct object
+      if (isFavorite) {
+          if (!favProduct[productId]) {
+              favProduct[productId] = product;
+          }
+      } else {
+          delete favProduct[productId];
+      }
+      console.log(favProduct); // Check the current favorite products
+  }
+}
+
 
   function displayProductsBySection(section, containerClass) {
     const productContainer = document.querySelector(`.${containerClass}`);
@@ -454,9 +453,10 @@ async function toggleFavorite(event) {
       const productCard = `
         <div class="cart col-sm-6 col-md-4 col-lg-3 mt-5">
           <div class="card shadow-lg">
-              <a href="../Detail/detail.html?id=${product.id}" class="text-decoration-none text-dark">
+            <a href="../Detail/detail.html?id=${product.id}" class="text-decoration-none text-dark">
 
               <img class="card-img-top rounded" src="${product.img}" alt="${product.name}">
+            </a>
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-text">${product.description}</p>
@@ -466,13 +466,13 @@ async function toggleFavorite(event) {
                     <h5 class="mx-2 text-danger">$${product.price}</h5>
                   </div>
                   <button class="border-0 bg-transparent fs-4">
-                    <i class="fa-solid fa-cart-shopping mx-3"></i>
+                    <i class="fa-solid fa-cart-shopping mx-3" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
                     <i class="fa-solid fa-heart heart-icon" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
 
                   </button>
                 </div>
               </div>
-            </a>
+            
           </div>
         </div>
       `;

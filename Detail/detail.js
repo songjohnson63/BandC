@@ -400,14 +400,13 @@ const products = [
 
 
 // import products from '../products/home';  // Import the product data
-
 document.addEventListener("DOMContentLoaded", () => {
   // Get product ID from the URL
   const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');  // Get the 'id' parameter from the URL
+  const productId = urlParams.get('id'); // Get the 'id' parameter from the URL
 
   // Find the product by ID
-  const product = products.find(p => p.id === parseInt(productId));  // Match ID
+  const product = products.find(p => p.id === parseInt(productId)); // Match ID
 
   // Check if the product is found
   if (product) {
@@ -431,11 +430,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 <div class="number d-flex mt-4">
-                  <button type="button" class="btn btn-secondary">-</button>
-                  <h1>0</h1>
-                  <button type="button" class="btn btn-secondary">+</button>
+                  <button type="button" class="btn btn-secondary" id="decrease-btn">-</button>
+                  <h1 id="quantity-display" class="mx-3">0</h1>
+                  <button type="button" class="btn btn-secondary" id="increase-btn">+</button>
 
-                  <button type="button" class="cart btn btn-secondary">
+                  <button type="button" class="cart btn btn-secondary mx-2">
                     <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                   </button>
                   <button type="button" class="cart btn btn-secondary">
@@ -454,6 +453,27 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `;
+
+    // Add event listeners for quantity control
+    let quantity = 0; // Initial quantity
+    const quantityDisplay = document.getElementById("quantity-display");
+    const increaseBtn = document.getElementById("increase-btn");
+    const decreaseBtn = document.getElementById("decrease-btn");
+
+    // Increase quantity
+    increaseBtn.addEventListener("click", () => {
+      quantity++;
+      quantityDisplay.textContent = quantity;
+    });
+
+    // Decrease quantity
+    decreaseBtn.addEventListener("click", () => {
+      if (quantity > 0) {
+        quantity--;
+        quantityDisplay.textContent = quantity;
+      }
+    });
+
   } else {
     // If product is not found, show an error message
     const container = document.getElementById("product-details");

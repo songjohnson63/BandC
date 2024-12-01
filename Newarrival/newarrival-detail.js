@@ -40,46 +40,67 @@ async function loadProductDetails() {
             // Render product details in the container
             const container = document.getElementById("product-details");
             container.innerHTML = `
-            <div class="container mt-4">
-                <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-6">
-                        <div class="img text-center">
-                        <img src="${product.img}">
+                <div class="container mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-6">
+                                    <div class="img text-center">
+                                        <img src="${product.img}" alt="${product.name}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-6">
+                                    <h3 class="box-title mt-4">${product.name}</h3>
+                                    <div class="price d-flex mt-4">
+                                        <h3 class="mx-2 text-danger">$${product.price}</h3>
+                                        <h3 class="text-decoration-line-through">$${product["ori-price"]}</h3>
+                                    </div>
+
+                                    <div class="number d-flex mt-4">
+                                        <button type="button" class="btn btn-secondary" id="decrease-btn">-</button>
+                                        <h1 id="quantity-display" class="mx-3">0</h1>
+                                        <button type="button" class="btn btn-secondary" id="increase-btn">+</button>
+
+                                        <button type="button" class="cart btn btn-secondary mx-2">
+                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                        </button>
+                                        <button type="button" class="cart btn btn-secondary">
+                                            <i class="fa-regular fa-heart"></i> Add to Favorite
+                                        </button>
+                                    </div>
+
+                                    <h5 class="box-title mt-5">Key Ingredients</h5>
+                                    <p>${product.KeyIngredient}</p>
+
+                                    <h5 class="box-title mt-4">Description</h5>
+                                    <p>${product.description}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-7 col-md-7 col-sm-6">
-                        <h3 class="box-title mt-4">${product.name}</h3>
-                        <div class="price d-flex mt-4">
-                        <h3 class="mx-2 text-danger">$${product.price}</h3>
-                        <h3 class="text-decoration-line-through">$${product["ori-price"]}</h3>
-                        </div>
-
-                        <div class="number d-flex mt-4">
-                        <button type="button" class="btn btn-secondary">-</button>
-                        <h1>0</h1>
-                        <button type="button" class="btn btn-secondary">+</button>
-
-                        <button type="button" class="cart btn btn-secondary">
-                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                        </button>
-                        <button type="button" class="cart btn btn-secondary">
-                            <i class="fa-regular fa-heart"></i> Add to Favorite
-                        </button>
-                        </div>
-
-                        <h5 class="box-title mt-5">Key Ingredients</h5>
-                        <p>${product.KeyIngredient}</p>
-
-                        <h5 class="box-title mt-4">Description</h5>
-                        <p>${product.description}</p>
-                    </div>
                     </div>
                 </div>
-                </div>
-            </div>
             `;
+
+            // Add event listeners for quantity control
+            let quantity = 0; // Initial quantity
+            const quantityDisplay = document.getElementById("quantity-display");
+            const increaseBtn = document.getElementById("increase-btn");
+            const decreaseBtn = document.getElementById("decrease-btn");
+
+            // Increase quantity
+            increaseBtn.addEventListener("click", () => {
+                quantity++;
+                quantityDisplay.textContent = quantity;
+            });
+
+            // Decrease quantity
+            decreaseBtn.addEventListener("click", () => {
+                if (quantity > 0) {
+                    quantity--;
+                    quantityDisplay.textContent = quantity;
+                }
+            });
+
         } else {
             // If product is not found, show an error message
             const container = document.getElementById("product-details");
