@@ -1,4 +1,5 @@
-[
+
+  [
     {
       "id": 1,
       "name": "TEA-TRICA BHA foam",
@@ -9,6 +10,126 @@
       "volume":"125ml",
       "KeyIngredient":"Centella Asiatica Extract, Melaleuca Alternifolia (Tea Tree) Leaf Water, Salicylic Acid, Pinus Palustris Leaf Extract, Chamaecyparis Obtusa Water",
       "price":"12.75",
-      "img":"img/cleanser/skin1004 bha.png"
+      "img":"../products/img/cleanser/01.png"
+    },
+    {
+        "id": 2,
+        "name": "Green Tea Cleansing Foam",
+        "brand": "Innisfree",
+        "description": "A gentle cleansing foam formulated with Jeju green tea extract that thoroughly removes impurities while keeping the skin hydrated.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "150ml",
+        "KeyIngredient": "Camellia Sinensis Leaf Extract, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
+        "price": "10.00",
+        "img": "../products/img/cleanser/02.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Low pH Good Morning Gel Cleanser",
+        "brand": "COSRX",
+        "description": "A gentle gel-type cleanser with a low pH that effectively cleanses without stripping the skin’s natural oils, perfect for sensitive skin.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "150ml",
+        "KeyIngredient": "Saccharomyces Ferment, Melaleuca Alternifolia (Tea Tree) Leaf Oil, Betaine Salicylate",
+        "price": "12.00",
+        "img": "../products/img/cleanser/03.webp"
+    },
+    {
+        "id": 4,
+        "name": "Rice Water Bright Foaming Cleanser",
+        "brand": "The Face Shop",
+        "description": "A brightening cleansing foam enriched with rice water that gently cleanses and hydrates for a radiant complexion.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "150ml",
+        "KeyIngredient": "Oryza Sativa (Rice) Extract, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
+        "price": "9.00",
+        "img": "../products/img/cleanser/04.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Super Volcanic Pore Micellar Cleansing Foam",
+        "brand": "Innisfree",
+        "description": "A deep cleansing foam with Jeju volcanic clusters and micellar particles to remove impurities and control sebum.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "150ml",
+        "KeyIngredient": "Jeju Volcanic Cluster, Glycerin, Myristic Acid, Lauric Acid",
+        "price": "15.00",
+        "img": "../products/img/cleanser/05.webp"
+    },
+    {
+        "id": 6,
+        "name": "Blueberry Rebalancing 5.5 Cleanser",
+        "brand": "Innisfree",
+        "description": "A rebalancing cleanser with a pH level of 5.5 that helps maintain the skin’s natural acidity while providing a fresh and hydrated finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "100ml",
+        "KeyIngredient": "Vaccinium Angustifolium (Blueberry) Fruit Extract, Glycerin, Myristic Acid, Lauric Acid",
+        "price": "8.00",
+        "img": "../products/img/cleanser/06.webp"
+    },
+    {
+        "id": 7,
+        "name": "Perfect Whip Foam",
+        "brand": "Senka",
+        "description": "A rich and creamy cleansing foam that deeply cleanses while leaving the skin soft and smooth.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "120g",
+        "KeyIngredient": "Sericin, Aqua, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
+        "price": "13.00",
+        "img": "../products/img/cleanser/07.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Egg White Pore Foam",
+        "brand": "Skinfood",
+        "description": "A pore-refining cleanser with egg white extract that removes dirt and oil while minimizing the appearance of pores.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "150ml",
+        "KeyIngredient": "Albumen Extract, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
+        "price": "11.00",
+        "img": "../products/img/cleanser/08.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Bija Trouble Facial Foam",
+        "brand": "Innisfree",
+        "description": "A trouble-care cleansing foam containing bija seed oil that helps soothe and care for troubled skin.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "150ml",
+        "KeyIngredient": "Torreya Nucifera Seed Oil, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
+        "price": "14.00",
+        "img": "../products/img/cleanser/09.webp"
+    },
+    {
+        "id": 10,
+        "name": "AHA/BHA Exfoliating Cleanser",
+        "brand": "COSRX",
+        "description": "A daily exfoliating cleanser with AHA and BHA that helps remove dead skin cells and unclog pores for a clearer complexion.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "150ml",
+        "KeyIngredient": "Glycolic Acid, Salicylic Acid, Betula Alba Juice, Tea Tree Leaf Oil",
+        "price": "18.00",
+        "img": "../products/img/cleanser/10.webp"
+    },
+    {
+        "id": 11,
+        "name": "Miracle Cleansing Foam",
+        "brand": "Some By Mi",
+        "description": "A miracle foam cleanser that contains AHA, BHA, and PHA to deeply cleanse and exfoliate for clearer skin.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "100ml",
+        "KeyIngredient": "Salicylic Acid, Niacinamide, Melaleuca Alternifolia (Tea Tree) Leaf Extract",
+        "price": "16.00",
+        "img": "../products/img/cleanser/11.webp"
     }
-  ]
+]

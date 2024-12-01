@@ -1,4 +1,5 @@
-[
+
+  [
     {
       "id": 1,
       "name": "Glow Serum : Propolis + Niacinamide",
@@ -9,6 +10,114 @@
       "volume":"30ml",
       "KeyIngredient":"Propolis extract 60%, Niacinamide 2%, BHA 0.5%",
       "price":"12.00",
-      "img":"img/serum/glow serum.jpg"
+      "img":"../products/img/serum/01.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Snail Repair Intensive Ampoule",
+        "brand": "Mizon",
+        "description": "A highly concentrated ampoule containing 80% snail mucin that helps repair damaged skin and improve skin texture.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "30ml",
+        "KeyIngredient": "Snail Secretion Filtrate 80%, Hyaluronic Acid, Peptide Complex",
+        "price": "15.00",
+        "img": "../products/img/serum/02.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Advanced Snail 96 Mucin Power Essence",
+        "brand": "COSRX",
+        "description": "A lightweight essence that contains 96% snail mucin to deeply hydrate and repair the skin.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "100ml",
+        "KeyIngredient": "Snail Secretion Filtrate 96%, Sodium Hyaluronate, Arginine",
+        "price": "18.00",
+        "img": "../products/img/serum/03.webp"
+    },
+    {
+        "id": 4,
+        "name": "Hydra B5 Soother Serum",
+        "brand": "AHC",
+        "description": "A hydrating serum with vitamin B5 that soothes and moisturizes the skin for a plump and healthy appearance.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "30ml",
+        "KeyIngredient": "Vitamin B5, Hyaluronic Acid, Centella Asiatica Extract",
+        "price": "20.00",
+        "img": "../products/img/serum/04.webp"
+    },
+    {
+        "id": 5,
+        "name": "C Pure Vitamin C Serum",
+        "brand": "Klairs",
+        "description": "A vitamin C serum that brightens the skin tone and improves the appearance of pigmentation and scars.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "35ml",
+        "KeyIngredient": "Ascorbic Acid 5%, Centella Asiatica Extract, Broccoli Extract",
+        "price": "22.00",
+        "img": "../products/img/serum/05.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Time Revolution Night Repair Ampoule",
+        "brand": "Missha",
+        "description": "A night repair ampoule that helps to improve skin elasticity and radiance while you sleep.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "50ml",
+        "KeyIngredient": "Bifida Ferment Lysate, Lactobacillus Ferment, Niacinamide",
+        "price": "28.00",
+        "img": "../products/img/serum/06.webp"
+    },
+    {
+        "id": 7,
+        "name": "Advanced Night Repair Synchronized Recovery Complex II",
+        "brand": "Estée Lauder",
+        "description": "A powerful nighttime serum that reduces the appearance of multiple signs of aging and gives the skin a smoother, more radiant look.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "50ml",
+        "KeyIngredient": "Bifida Ferment Lysate, Tripeptide-32, Hyaluronic Acid",
+        "price": "98.00",
+        "img": "../products/img/serum/07.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Moisture Ampoule",
+        "brand": "Isntree",
+        "description": "A hydrating ampoule that contains hyaluronic acid and botanical extracts to deeply moisturize and nourish the skin.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "50ml",
+        "KeyIngredient": "Hyaluronic Acid, Centella Asiatica Extract, Aloe Vera Extract",
+        "price": "25.00",
+        "img": "../products/img/serum/08.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Vitamin C 21.5% Advanced Serum",
+        "brand": "By Wishtrend",
+        "description": "A potent vitamin C serum that brightens the skin and improves the appearance of pigmentation and scars.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "30ml",
+        "KeyIngredient": "Ascorbic Acid 21.5%, Sodium Hyaluronate, Panthenol",
+        "price": "30.00",
+        "img": "../products/img/serum/09.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Propolis Light Ampoule",
+        "brand": "COSRX",
+        "description": "A lightweight ampoule enriched with propolis extract that provides intensive moisture and a radiant glow.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "20ml",
+        "KeyIngredient": "Propolis Extract 80%, Sodium Hyaluronate, Panthenol",
+        "price": "24.00",
+        "img": "../products/img/serum/10.jpg"
     }
-  ]
+]
