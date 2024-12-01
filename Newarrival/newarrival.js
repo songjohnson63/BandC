@@ -24,6 +24,7 @@ function loadProducts(url, categoryName) {
           card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-6', 'col-lg-3');
   
           card.innerHTML = `
+          <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
             <div class="card shadow-lg">
               <img class="rounded" src="${item.img}" alt="${item.name}">
               <div class="card-body">

@@ -10,7 +10,8 @@
       "volume":"125ml",
       "KeyIngredient":"Centella Asiatica Extract, Melaleuca Alternifolia (Tea Tree) Leaf Water, Salicylic Acid, Pinus Palustris Leaf Extract, Chamaecyparis Obtusa Water",
       "price":"12.75",
-      "img":"../products/img/cleanser/01.png"
+      "img":"../products/img/cleanser/01.png",
+      "ori-price": "13.00"
     },
     {
         "id": 2,
@@ -22,7 +23,9 @@
         "volume": "150ml",
         "KeyIngredient": "Camellia Sinensis Leaf Extract, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
         "price": "10.00",
-        "img": "../products/img/cleanser/02.jpg"
+        "img": "../products/img/cleanser/02.jpg",
+        "ori-price": "11.00"
+
     },
     {
         "id": 3,
@@ -34,7 +37,9 @@
         "volume": "150ml",
         "KeyIngredient": "Saccharomyces Ferment, Melaleuca Alternifolia (Tea Tree) Leaf Oil, Betaine Salicylate",
         "price": "12.00",
-        "img": "../products/img/cleanser/03.webp"
+        "img": "../products/img/cleanser/03.webp",
+        "ori-price": "13.00"
+
     },
     {
         "id": 4,
@@ -46,7 +51,9 @@
         "volume": "150ml",
         "KeyIngredient": "Oryza Sativa (Rice) Extract, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
         "price": "9.00",
-        "img": "../products/img/cleanser/04.jpg"
+        "img": "../products/img/cleanser/04.jpg",
+        "ori-price": "10.00"
+
     },
     {
         "id": 5,
@@ -58,7 +65,9 @@
         "volume": "150ml",
         "KeyIngredient": "Jeju Volcanic Cluster, Glycerin, Myristic Acid, Lauric Acid",
         "price": "15.00",
-        "img": "../products/img/cleanser/05.webp"
+        "img": "../products/img/cleanser/05.webp",
+        "ori-price": "15.99"
+
     },
     {
         "id": 6,
@@ -70,7 +79,9 @@
         "volume": "100ml",
         "KeyIngredient": "Vaccinium Angustifolium (Blueberry) Fruit Extract, Glycerin, Myristic Acid, Lauric Acid",
         "price": "8.00",
-        "img": "../products/img/cleanser/06.webp"
+        "img": "../products/img/cleanser/06.webp",
+        "ori-price": "10.00"
+
     },
     {
         "id": 7,
@@ -82,7 +93,9 @@
         "volume": "120g",
         "KeyIngredient": "Sericin, Aqua, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
         "price": "13.00",
-        "img": "../products/img/cleanser/07.jpg"
+        "img": "../products/img/cleanser/07.jpg",
+        "ori-price": "13.50"
+
     },
     {
         "id": 8,
@@ -94,7 +107,9 @@
         "volume": "150ml",
         "KeyIngredient": "Albumen Extract, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
         "price": "11.00",
-        "img": "../products/img/cleanser/08.jpg"
+        "img": "../products/img/cleanser/08.jpg",
+        "ori-price": "11.70"
+
     },
     {
         "id": 9,
@@ -106,7 +121,9 @@
         "volume": "150ml",
         "KeyIngredient": "Torreya Nucifera Seed Oil, Glycerin, Stearic Acid, Myristic Acid, Lauric Acid",
         "price": "14.00",
-        "img": "../products/img/cleanser/09.webp"
+        "img": "../products/img/cleanser/09.webp",
+        "ori-price": "15.00"
+
     },
     {
         "id": 10,
@@ -118,7 +135,9 @@
         "volume": "150ml",
         "KeyIngredient": "Glycolic Acid, Salicylic Acid, Betula Alba Juice, Tea Tree Leaf Oil",
         "price": "18.00",
-        "img": "../products/img/cleanser/10.webp"
+        "img": "../products/img/cleanser/10.webp",
+        "ori-price": "19.00"
+
     },
     {
         "id": 11,
@@ -130,6 +149,8 @@
         "volume": "100ml",
         "KeyIngredient": "Salicylic Acid, Niacinamide, Melaleuca Alternifolia (Tea Tree) Leaf Extract",
         "price": "16.00",
-        "img": "../products/img/cleanser/11.webp"
+        "img": "../products/img/cleanser/11.webp",
+        "ori-price": "16.80"
+
     }
 ]
