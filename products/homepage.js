@@ -400,6 +400,50 @@ const products = [
 
 export default products;
 
+const favProduct = {};
+let favoriteIdCounter = 1;
+async function fetchProductData(category,productId) {
+    const filePath = `../products/${category}.json`;
+    const response = await fetch(filePath);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
+    }
+
+    const categoryProducts = await response.json();
+    return categoryProducts.find(p => p.id === parseInt(productId));
+}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//this function below is about when click on each product then it's create an object that store all the product with IsFavorite= true
+//toggle icon to be red or gray
+async function toggleFavorite(event) {
+    const heartIcon = event.target;
+    const cateName = heartIcon.getAttribute('data-cateName');
+    const productId = heartIcon.getAttribute('data-id');
+    let isFavorite = heartIcon.getAttribute('data-favorite') === 'true';
+    isFavorite = !isFavorite;
+    heartIcon.setAttribute('data-favorite', isFavorite);
+    heartIcon.style.color =isFavorite? 'red':'gray';
+    try {
+        const product = await fetchProductData(cateName,productId);
+        if (product) {
+            if (isFavorite) {
+// Assign a FavoriteId if it's marked as favorite
+                if (!product.FavoriteId) {
+                    product.FavoriteId = favoriteIdCounter++;
+                }
+                favProduct[productId] = product;
+            } else {
+                delete product.FavoriteId;
+                delete favProduct[productId];
+            }
+            console.log(favProduct); 
+           
+        }
+    } catch (error) {
+        console.error(`Error fetching product data for ID ${productId}:`, error);
+    }
+    }
+
   function displayProductsBySection(section, containerClass) {
     const productContainer = document.querySelector(`.${containerClass}`);
     productContainer.innerHTML = ''; // Clear existing content
@@ -410,7 +454,8 @@ export default products;
       const productCard = `
         <div class="cart col-sm-6 col-md-4 col-lg-3 mt-5">
           <div class="card shadow-lg">
-            <a href="/Detail/detail.html?id=${product.id}" class="text-decoration-none text-dark">
+              <a href="../Detail/detail.html?id=${product.id}" class="text-decoration-none text-dark">
+
               <img class="card-img-top rounded" src="${product.img}" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
@@ -422,7 +467,8 @@ export default products;
                   </div>
                   <button class="border-0 bg-transparent fs-4">
                     <i class="fa-solid fa-cart-shopping mx-3"></i>
-                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart heart-icon" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+
                   </button>
                 </div>
               </div>

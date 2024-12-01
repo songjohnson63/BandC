@@ -1,3 +1,47 @@
+//fetch products that has Isfavorite= true and store all that product in favProduct {}
+const favProduct = {};
+let favoriteIdCounter = 1;
+async function fetchProductData(category,productId) {
+    const filePath = `../products/${category}.json`;
+    const response = await fetch(filePath);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
+    }
+
+    const categoryProducts = await response.json();
+    return categoryProducts.find(p => p.id === parseInt(productId));
+}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//this function below is about when click on each product then it's create an object that store all the product with IsFavorite= true
+//toggle icon to be red or gray
+async function toggleFavorite(event) {
+    const heartIcon = event.target;
+    const cateName = heartIcon.getAttribute('data-cateName');
+    const productId = heartIcon.getAttribute('data-id');
+    let isFavorite = heartIcon.getAttribute('data-favorite') === 'true';
+    isFavorite = !isFavorite;
+    heartIcon.setAttribute('data-favorite', isFavorite);
+    heartIcon.style.color =isFavorite? 'red':'gray';
+    try {
+        const product = await fetchProductData(cateName,productId);
+        if (product) {
+            if (isFavorite) {
+// Assign a FavoriteId if it's marked as favorite
+                if (!product.FavoriteId) {
+                    product.FavoriteId = favoriteIdCounter++;
+                }
+                favProduct[productId] = product;
+            } else {
+                delete product.FavoriteId;
+                delete favProduct[productId];
+            }
+            console.log(favProduct); 
+           
+        }
+    } catch (error) {
+        console.error(`Error fetching product data for ID ${productId}:`, error);
+    }
+    }
 
 function loadProducts(url, categoryName) {
     fetch(url)
@@ -27,7 +71,6 @@ function loadProducts(url, categoryName) {
           card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-6', 'col-lg-3'); // These classes will handle responsiveness
   
           card.innerHTML = `
-            <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
             <div class="card shadow-lg">
               <img class="rounded" src="${item.img}" alt="${item.name}">
               <div class="card-body">
@@ -44,7 +87,8 @@ function loadProducts(url, categoryName) {
                   </div>
                   <button class="border-0 bg-transparent fs-4">
                     <i class="fa-solid fa-cart-shopping mx-3"></i>
-                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart heart-icon" id="heart-${item.id}" data-cateName="${item.cateName}" data-id="${item.id}" data-favorite="${item.IsFavorite}" onclick="toggleFavorite(event)"></i>
+
                   </button>
                 </div>
               </div>
