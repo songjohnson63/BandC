@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 
   [
-=======
-[
->>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c
     {
       "id": 1,
+      "cateName": "serum",
       "name": "Glow Serum : Propolis + Niacinamide",
       "brand":"beauty of joseon",
       "description": "A serum-like chemical sunscreen that is super lightweight, hydrating, and quickly absorbed, with a non-greasy, dewy finish",
@@ -14,11 +11,11 @@
       "volume":"30ml",
       "KeyIngredient":"Propolis extract 60%, Niacinamide 2%, BHA 0.5%",
       "price":"12.00",
-<<<<<<< HEAD
       "img":"../products/img/serum/01.jpg"
     },
     {
         "id": 2,
+        "cateName": "serum",
         "name": "Snail Repair Intensive Ampoule",
         "brand": "Mizon",
         "description": "A highly concentrated ampoule containing 80% snail mucin that helps repair damaged skin and improve skin texture.",
@@ -31,6 +28,7 @@
     },
     {
         "id": 3,
+        "cateName": "serum",
         "name": "Advanced Snail 96 Mucin Power Essence",
         "brand": "COSRX",
         "description": "A lightweight essence that contains 96% snail mucin to deeply hydrate and repair the skin.",
@@ -43,6 +41,7 @@
     },
     {
         "id": 4,
+        "cateName": "serum",
         "name": "Hydra B5 Soother Serum",
         "brand": "AHC",
         "description": "A hydrating serum with vitamin B5 that soothes and moisturizes the skin for a plump and healthy appearance.",
@@ -55,6 +54,7 @@
     },
     {
         "id": 5,
+        "cateName": "serum",
         "name": "C Pure Vitamin C Serum",
         "brand": "Klairs",
         "description": "A vitamin C serum that brightens the skin tone and improves the appearance of pigmentation and scars.",
@@ -67,6 +67,7 @@
     },
     {
         "id": 6,
+        "cateName": "serum",
         "name": "Time Revolution Night Repair Ampoule",
         "brand": "Missha",
         "description": "A night repair ampoule that helps to improve skin elasticity and radiance while you sleep.",
@@ -79,6 +80,7 @@
     },
     {
         "id": 7,
+        "cateName": "serum",
         "name": "Advanced Night Repair Synchronized Recovery Complex II",
         "brand": "Estée Lauder",
         "description": "A powerful nighttime serum that reduces the appearance of multiple signs of aging and gives the skin a smoother, more radiant look.",
@@ -91,6 +93,7 @@
     },
     {
         "id": 8,
+        "cateName": "serum",
         "name": "Moisture Ampoule",
         "brand": "Isntree",
         "description": "A hydrating ampoule that contains hyaluronic acid and botanical extracts to deeply moisturize and nourish the skin.",
@@ -103,6 +106,7 @@
     },
     {
         "id": 9,
+        "cateName": "serum",
         "name": "Vitamin C 21.5% Advanced Serum",
         "brand": "By Wishtrend",
         "description": "A potent vitamin C serum that brightens the skin and improves the appearance of pigmentation and scars.",
@@ -115,6 +119,7 @@
     },
     {
         "id": 10,
+        "cateName": "serum",
         "name": "Propolis Light Ampoule",
         "brand": "COSRX",
         "description": "A lightweight ampoule enriched with propolis extract that provides intensive moisture and a radiant glow.",
@@ -126,8 +131,3 @@
         "img": "../products/img/serum/10.jpg"
     }
 ]
-=======
-      "img":"img/serum/glow serum.jpg"
-    }
-  ]
->>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c

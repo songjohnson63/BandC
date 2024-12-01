@@ -1,7 +1,7 @@
 [
-<<<<<<< HEAD
   {
       "id": 1,
+      "cateName": "moisturizer",
       "name": "Dynasty Cream",
       "brand": "Beauty of Joseon",
       "description": "Meet the 'Dynasty Cream,' our very first product here at Beauty of Joseon, and a long-time favorite of many of our customers. Its firm and creamy texture gives your skin deep, long-lasting moisture and nourishment. This all-in-one cream is filled with good-for-skin ingredients like rice bran water, ginseng water, squalane, and niacinamide. These ingredients help to keep your skin healthy, hydrated, and balanced. Its firm texture sinks into your skin, providing moisture and nourishment from deep within.",
@@ -14,6 +14,7 @@
   },
   {
       "id": 2,
+      "cateName": "moisturizer",
       "name": "Water Bank Moisture Cream",
       "brand": "Laneige",
       "description": "A rich moisturizer that delivers long-lasting hydration, formulated with hydro ionized mineral water to deeply hydrate and strengthen the skin’s moisture barrier.",
@@ -26,6 +27,7 @@
   },
   {
       "id": 3,
+      "cateName": "moisturizer",
       "name": "Propolis Vitamin Sleeping Mask",
       "brand": "COSRX",
       "description": "A nourishing sleeping mask that revitalizes the skin overnight with propolis extract and vitamin E, leaving it hydrated and glowing.",
@@ -38,6 +40,7 @@
   },
   {
       "id": 4,
+      "cateName": "moisturizer",
       "name": "Ultra Facial Cream",
       "brand": "Kiehl's",
       "description": "A 24-hour, light-textured daily hydrator that leaves skin feeling comfortable and visibly well-balanced, particularly in harsh weather conditions.",
@@ -50,6 +53,7 @@
   },
   {
       "id": 5,
+      "cateName": "moisturizer",
       "name": "Cica Cream",
       "brand": "Dr. Jart+",
       "description": "A fast-acting cream that calms sensitive skin, formulated with Centella Asiatica complex to soothe and hydrate irritated skin.",
@@ -62,6 +66,7 @@
   },
   {
       "id": 6,
+      "cateName": "moisturizer",
       "name": "Green Tea Balancing Cream",
       "brand": "Innisfree",
       "description": "A lightweight gel-cream that replenishes moisture and soothes the skin with Jeju green tea extract.",
@@ -74,6 +79,7 @@
   },
   {
       "id": 7,
+      "cateName": "moisturizer",
       "name": "Moisture Surge 72-Hour Auto-Replenishing Hydrator",
       "brand": "Clinique",
       "description": "An enhanced moisture boost that works non-stop for 72 hours, even after washing your face, to keep skin almost twice as hydrated at the end of the day.",
@@ -86,6 +92,7 @@
   },
   {
       "id": 8,
+      "cateName": "moisturizer",
       "name": "Intensive Vitalizing Cream EX",
       "brand": "Sulwhasoo",
       "description": "A rich anti-aging cream that revitalizes skin, improves resilience, and strengthens the skin barrier, leaving it firm and smooth.",
@@ -98,6 +105,7 @@
   },
   {
       "id": 9,
+      "cateName": "moisturizer",
       "name": "Rich Moist Soothing Cream",
       "brand": "Klairs",
       "description": "A rich cream that provides soothing moisture for sensitive skin, formulated with shea butter and ceramides to strengthen the skin barrier.",
@@ -110,6 +118,7 @@
   },
   {
       "id": 10,
+      "cateName": "moisturizer",
       "name": "Perfect Renew Regenerating Cream",
       "brand": "Laneige",
       "description": "An anti-aging cream that provides deep hydration and revitalization, improving the appearance of fine lines and wrinkles.",
@@ -121,18 +130,3 @@
       "img": "../products/img/moisturizer/10.jpg"
   }
 ]
-=======
-    {
-      "id": 1,
-      "name": "Dynasty Cream",
-      "brand":"beauty of joseon",
-      "description": "Meet the 'Dynasty Cream,' our very first product here at Beauty of Joseon, and a long-time favorite of many of our customers. Its firm and creamy texture gives your skin deep, long-lasting moisture and nourishment. This all-in-one cream is filled with good-for-skin ingredients like rice bran water, ginseng water, squalane, and niacinamide. These ingredients help to keep your skin healthy, hydrated, and balanced. Its firm texture sinks into your skin, providing moisture and nourishment from deep within.",
-      "IsCart":0,
-      "IsFavorite": false,
-      "volume":"50ml",
-      "KeyIngredient":"Rice bran water 29%, Ginseng root water 5%, Squalane 2%, Niacinamide 2%",
-      "price":"20.00",
-      "img":"img/moisturizer/beauty of Joeson.jpg"
-    }
-  ]
->>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c

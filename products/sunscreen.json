@@ -1,7 +1,7 @@
 [
-<<<<<<< HEAD
   {
     "id": 1,
+    "cateName": "sunscreen",
     "name": "Centella Calming Daily Sunscreen",
     "brand": "iUNIK",
     "description": "Boasting SPF50+ PA++++ sun protection, this organic sunscreen is enriched with 49% centella asiatica extract to soothe heated skin while keeping harmful UV rays at bay. Chemical sunscreen in a cream texture contains beta-glucan and adenosine for moisturizing and anti-wrinkle benefits. The unscented and non-sticky formula leaves a natural finish without a white cast.",
@@ -14,6 +14,7 @@
   },
   {
     "id": 2,
+    "cateName": "sunscreen",
     "name": "Aloe Soothing Sun Cream",
     "brand": "COSRX",
     "description": "This soothing sun cream contains 5,500ppm of aloe vera leaf extract and provides SPF50+ PA+++ protection. It has a lightweight and hydrating formula, making it suitable for daily use without leaving a white cast.",
@@ -26,6 +27,7 @@
   },
   {
     "id": 3,
+    "cateName": "sunscreen",
     "name": "Soft Airy UV Essence",
     "brand": "Klairs",
     "description": "This water-based sun essence offers SPF50+ PA++++ protection and is formulated with mild ingredients, making it suitable for sensitive skin. It leaves a soft, airy finish without greasiness.",
@@ -38,6 +40,7 @@
   },
   {
     "id": 4,
+    "cateName": "sunscreen",
     "name": "All Around Safe Block Aqua Sun Gel",
     "brand": "MISSHA",
     "description": "This refreshing sun gel provides SPF50+ PA++++ protection and is enriched with glacial water and ice plant extract to hydrate and cool the skin. It absorbs quickly without leaving a sticky residue.",
@@ -50,6 +53,7 @@
   },
   {
     "id": 5,
+    "cateName": "sunscreen",
     "name": "Daily Mild Sunscreen",
     "brand": "Dr. Jart+",
     "description": "This daily mild sunscreen offers SPF50+ PA++++ protection and is formulated with cica and tea tree extract to soothe and protect sensitive skin. It leaves a lightweight, non-sticky finish.",
@@ -62,6 +66,7 @@
   },
   {
     "id": 6,
+    "cateName": "sunscreen",
     "name": "Perfect UV Protection Cream Triple Care",
     "brand": "Innisfree",
     "description": "This sunscreen provides SPF50+ PA+++ protection and is enriched with sunflower oil and green tea extract. It helps to brighten the skin tone and offers anti-aging benefits.",
@@ -74,6 +79,7 @@
   },
   {
     "id": 7,
+    "cateName": "sunscreen",
     "name": "Air Fit UV Defense Sun Cream",
     "brand": "Etude House",
     "description": "This sun cream offers SPF50+ PA+++ protection and is formulated with silica powder to control excess sebum. It leaves a matte finish and is suitable for oily and combination skin types.",
@@ -86,6 +92,7 @@
   },
   {
     "id": 8,
+    "cateName": "sunscreen",
     "name": "UV Defense Me. Daily Sun Essence",
     "brand": "MAKE P:REM",
     "description": "This lightweight sun essence offers SPF50+ PA++++ protection and is infused with moisturizing ingredients like panthenol and ceramides. It leaves a dewy finish without any white cast.",
@@ -98,6 +105,7 @@
   },
   {
     "id": 9,
+    "cateName": "sunscreen",
     "name": "Aqua Rich Watery Essence",
     "brand": "Biore",
     "description": "This watery essence sunscreen offers SPF50+ PA++++ protection and is enriched with hyaluronic acid and royal jelly extract for intense hydration. It absorbs quickly and leaves a refreshing finish.",
@@ -110,6 +118,7 @@
   },
   {
     "id": 10,
+    "cateName": "sunscreen",
     "name": "UV Shield Essential Moisture Sun Cream",
     "brand": "Laneige",
     "description": "This moisture sun cream offers SPF50+ PA+++ protection and is infused with hydro ionized mineral water to deeply hydrate the skin. It provides a dewy, natural finish without a white cast.",
@@ -121,18 +130,3 @@
     "img": "../products/img/sunscreen/10.jpg"
   }
 ]
-=======
-    {
-      "id": 1,
-      "name": "Centella Calming Daily Sunscreen ",
-      "brand":"iUNIK",
-      "description": "Boasting SPF50+ PA++++ sun protection, this organic sunscreen is enriched with 49% centella asistica extract to soothe heated skin while keeping harmful UV rays at bay. Chemical sunscreen in a cream texture contains beta-glucan and adenosine for moisturizing and anti-wrinkle benefits. The unscented and non-sticky formula leaves a natural finish without a white cast.",
-      "IsCart":0,
-      "IsFavorite": false,
-      "volume":"60ml",
-      "KeyIngredient":" Centella Asiatica Extract 49%,Beta-glucan 1,000ppm,Adenosine, Niacinamide",
-      "price":"12.00",
-      "img":"img/sunscreen/iunik.jpg"
-    }
-  ]
->>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c

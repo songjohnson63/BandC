@@ -1,24 +1,20 @@
-<<<<<<< HEAD
-
-  [
-=======
 [
->>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c
     {
-      "id": 1,
-      "name": "TEA-TRICA BHA foam",
-      "brand":"skin1004",
-      "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
-      "IsCart":0,
-      "IsFavorite": false,
-      "volume":"125ml",
-      "KeyIngredient":"Centella Asiatica Extract, Melaleuca Alternifolia (Tea Tree) Leaf Water, Salicylic Acid, Pinus Palustris Leaf Extract, Chamaecyparis Obtusa Water",
-      "price":"12.75",
-<<<<<<< HEAD
-      "img":"../products/img/cleanser/01.png"
+        "id": 1,
+        "cateName": "cleanser",
+        "name": "TEA-TRICA BHA foam",
+        "brand": "skin1004",
+        "description": "A deep cleansing foam with BHA and Tea tree unclogs pores and exfoliates dead skin cells, leaving a refreshed finish.",
+        "IsCart": 0,
+        "IsFavorite": false,
+        "volume": "125ml",
+        "KeyIngredient": "Centella Asiatica Extract, Melaleuca Alternifolia (Tea Tree) Leaf Water, Salicylic Acid, Pinus Palustris Leaf Extract, Chamaecyparis Obtusa Water",
+        "price": "12.75",
+        "img": "../products/img/cleanser/01.png"
     },
     {
         "id": 2,
+        "cateName": "cleanser",
         "name": "Green Tea Cleansing Foam",
         "brand": "Innisfree",
         "description": "A gentle cleansing foam formulated with Jeju green tea extract that thoroughly removes impurities while keeping the skin hydrated.",
@@ -31,6 +27,7 @@
     },
     {
         "id": 3,
+        "cateName": "cleanser",
         "name": "Low pH Good Morning Gel Cleanser",
         "brand": "COSRX",
         "description": "A gentle gel-type cleanser with a low pH that effectively cleanses without stripping the skin’s natural oils, perfect for sensitive skin.",
@@ -43,6 +40,7 @@
     },
     {
         "id": 4,
+        "cateName": "cleanser",
         "name": "Rice Water Bright Foaming Cleanser",
         "brand": "The Face Shop",
         "description": "A brightening cleansing foam enriched with rice water that gently cleanses and hydrates for a radiant complexion.",
@@ -55,6 +53,7 @@
     },
     {
         "id": 5,
+        "cateName": "cleanser",
         "name": "Super Volcanic Pore Micellar Cleansing Foam",
         "brand": "Innisfree",
         "description": "A deep cleansing foam with Jeju volcanic clusters and micellar particles to remove impurities and control sebum.",
@@ -67,6 +66,7 @@
     },
     {
         "id": 6,
+        "cateName": "cleanser",
         "name": "Blueberry Rebalancing 5.5 Cleanser",
         "brand": "Innisfree",
         "description": "A rebalancing cleanser with a pH level of 5.5 that helps maintain the skin’s natural acidity while providing a fresh and hydrated finish.",
@@ -79,6 +79,7 @@
     },
     {
         "id": 7,
+        "cateName": "cleanser",
         "name": "Perfect Whip Foam",
         "brand": "Senka",
         "description": "A rich and creamy cleansing foam that deeply cleanses while leaving the skin soft and smooth.",
@@ -91,6 +92,7 @@
     },
     {
         "id": 8,
+        "cateName": "cleanser",
         "name": "Egg White Pore Foam",
         "brand": "Skinfood",
         "description": "A pore-refining cleanser with egg white extract that removes dirt and oil while minimizing the appearance of pores.",
@@ -103,6 +105,7 @@
     },
     {
         "id": 9,
+        "cateName": "cleanser",
         "name": "Bija Trouble Facial Foam",
         "brand": "Innisfree",
         "description": "A trouble-care cleansing foam containing bija seed oil that helps soothe and care for troubled skin.",
@@ -115,6 +118,7 @@
     },
     {
         "id": 10,
+        "cateName": "cleanser",
         "name": "AHA/BHA Exfoliating Cleanser",
         "brand": "COSRX",
         "description": "A daily exfoliating cleanser with AHA and BHA that helps remove dead skin cells and unclog pores for a clearer complexion.",
@@ -127,6 +131,7 @@
     },
     {
         "id": 11,
+        "cateName": "cleanser",
         "name": "Miracle Cleansing Foam",
         "brand": "Some By Mi",
         "description": "A miracle foam cleanser that contains AHA, BHA, and PHA to deeply cleanse and exfoliate for clearer skin.",
@@ -138,8 +143,3 @@
         "img": "../products/img/cleanser/11.webp"
     }
 ]
-=======
-      "img":"img/cleanser/skin1004 bha.png"
-    }
-  ]
->>>>>>> 999c7bc3f2d7c3c959cd2f1527572955026dfa1c
