@@ -44,7 +44,7 @@ body{
 .content .cart .card img {
     height: 35vh;
     width: 100%;
-    background-color: blue;
+    /* background-color: blue; */
     object-fit: cover;
 }
 
@@ -69,4 +69,12 @@ body{
 .cart .card-price button i:hover {
     color: rgb(230, 5, 5);
 }
+
+.brand img{
+   
+    width: 100%
+    
+}
+
+
 
