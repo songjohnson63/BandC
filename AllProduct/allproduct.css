@@ -1,0 +1,19 @@
+.time-deal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between the text and lines */
+  }
+  
+  .time-deal-container .line {
+    flex: 1;
+    height: 1px;
+    background-color: #000; /* Adjust the color as needed */
+  }
+  
+  .time-deal-container .text {
+    font-family: 'Arial', sans-serif; /* Adjust font if needed */
+    font-size: 16px; /* Adjust size if needed */
+    font-weight: bold;
+    color: #000; /* Text color */
+  }
