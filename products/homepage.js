@@ -16,23 +16,39 @@ document.addEventListener("DOMContentLoaded", () => {
       // Flatten and combine all products from different files
       allProducts = dataArrays.flat();
       
-      // Populate sections with random products
-      populateSection('.all-product', 12);       // Popular Now
-      populateSection('.promotions', 8);         // Mega Sale
-      populateSection('.best-seller', 12);       // Best Sellers
-      populateSection('.new-arrival', 12);       // New Arrivals
+      // Load products from localStorage or generate and save them
+      loadOrGenerateSection('.all-product', 12, 'popularNow');
+      loadOrGenerateSection('.promotions', 8, 'megaSale');
+      loadOrGenerateSection('.best-seller', 12, 'bestSellers');
+      loadOrGenerateSection('.new-arrival', 12, 'newArrivals');
     })
     .catch(error => {
       console.error("Error loading or parsing JSON files:", error);
     });
 
-  // Function to randomly select products and display in a section
-  function populateSection(containerSelector, count) {
+  // Function to load products from localStorage or generate and save them
+  function loadOrGenerateSection(containerSelector, count, storageKey) {
+    const storedProducts = localStorage.getItem(storageKey);
+    let selectedProducts;
+
+    if (storedProducts) {
+      // Load products from localStorage if they exist
+      selectedProducts = JSON.parse(storedProducts);
+    } else {
+      // Generate random products and save to localStorage
+      selectedProducts = getRandomProducts(allProducts, count);
+      localStorage.setItem(storageKey, JSON.stringify(selectedProducts));
+    }
+
+    populateSection(containerSelector, selectedProducts);
+  }
+
+  // Function to populate a section with selected products
+  function populateSection(containerSelector, products) {
     const container = document.querySelector(containerSelector);
     container.innerHTML = ''; // Clear previous content
-    const selectedProducts = getRandomProducts(allProducts, count);
     
-    selectedProducts.forEach(product => {
+    products.forEach(product => {
       const productCard = `
         <div class="cart col-sm-6 col-md-4 col-lg-3 mt-5">
           <div class="card shadow-lg">
@@ -59,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
       container.innerHTML += productCard;
     });
   }
-  
 
   // Function to shuffle and get random products
   function getRandomProducts(products, count) {
