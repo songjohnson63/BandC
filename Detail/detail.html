@@ -9,55 +9,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Homepage/hompage.css">
     <link rel="stylesheet" href="../Detail/detail.css">
-
 </head>
 <body>
 
+    <!-- Navbar Placeholder -->
     <div id="navbar-container"></div>
-    
-    <div id="product-details"></div> 
 
- 
-    <script type="module" src="../Detail/detail.js"></script> <!-- Load product details -->
+    <!-- Product Details Section -->
+    <div id="product-details" class="container mt-5"></div> 
 
-  <div id="footer-container"></div>
+    <script type="module" src="../Newarrival/newarrival-detail.js"></script> <!-- Load product details -->
+
+    <!-- Footer Placeholder -->
+    <div id="footer-container"></div>
 
 </body>
 
 <script>
+    // Dynamic loading of Navbar and Footer from external files
     document.addEventListener("DOMContentLoaded", function () {
-      fetch("../Navbar/navbar.html")
-        .then((response) => {
-          if (!response.ok) {
-            console.error("Failed to load navbar:", response.status, response.statusText);
-            return;
-          }
-          return response.text();
-        })
-        .then((html) => {
-          if (html) {
-            document.getElementById("navbar-container").innerHTML = html;
-          }
-        })
-        .catch((error) => console.error("Error loading navbar:", error));
+        // Load Navbar
+        fetch("../Navbar/navbar.html")
+            .then((response) => {
+                if (!response.ok) {
+                    console.error("Failed to load navbar:", response.status, response.statusText);
+                    return;
+                }
+                return response.text();
+            })
+            .then((html) => {
+                if (html) {
+                    document.getElementById("navbar-container").innerHTML = html;
+                }
+            })
+            .catch((error) => console.error("Error loading navbar:", error));
+
+        // Load Footer
+        fetch("../Footer/footer.html")
+            .then((response) => {
+                if (!response.ok) {
+                    console.error("Failed to load footer:", response.status, response.statusText);
+                    return;
+                }
+                return response.text();
+            })
+            .then((html) => {
+                if (html) {
+                    document.getElementById("footer-container").innerHTML = html;
+                }
+            })
+            .catch((error) => console.error("Error loading footer:", error));
     });
-  
-    
-      fetch("../Footer/footer.html")
-        .then((response) => {
-          if (!response.ok) {
-            console.error("Failed to load footer:", response.status, response.statusText);
-            return;
-          }
-          return response.text();
-        })
-        .then((html) => {
-          if (html) {
-            document.getElementById("footer-container").innerHTML = html;
-          }
-        })
-        .catch((error) => console.error("Error loading footer:", error));
-   
-  </script>
+</script>
   
 </html>
