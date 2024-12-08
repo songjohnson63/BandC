@@ -26,9 +26,7 @@
 </body>
 
 <script>
-    // Dynamic loading of Navbar and Footer from external files
     document.addEventListener("DOMContentLoaded", function () {
-        // Load Navbar
         fetch("../Navbar/navbar.html")
             .then((response) => {
                 if (!response.ok) {
@@ -39,10 +37,23 @@
             })
             .then((html) => {
                 if (html) {
+                    // Add the navbar HTML to the DOM
                     document.getElementById("navbar-container").innerHTML = html;
+    
+                    // Dynamically load the navbar.js file
+                    const script = document.createElement("script");
+                    script.src = "../Navbar/navbar.js";
+                    script.onload = () => {
+                        console.log("Navbar script loaded successfully.");
+                    };
+                    script.onerror = (error) => {
+                        console.error("Failed to load navbar.js:", error);
+                    };
+                    document.body.appendChild(script); // Add the script to the document
                 }
             })
             .catch((error) => console.error("Error loading navbar:", error));
+        });
 
         // Load Footer
         fetch("../Footer/footer.html")
@@ -59,7 +70,7 @@
                 }
             })
             .catch((error) => console.error("Error loading footer:", error));
-    });
+    
 </script>
   
 </html>

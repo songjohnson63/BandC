@@ -36,20 +36,32 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     fetch("../Navbar/navbar.html")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load navbar:", response.status, response.statusText);
-          return;
-        }
-        return response.text();
-      })
-      .then((html) => {
-        if (html) {
-          document.getElementById("navbar-container").innerHTML = html;
-        }
-      })
-      .catch((error) => console.error("Error loading navbar:", error));
-  });
+        .then((response) => {
+            if (!response.ok) {
+                console.error("Failed to load navbar:", response.status, response.statusText);
+                return;
+            }
+            return response.text();
+        })
+        .then((html) => {
+            if (html) {
+                // Add the navbar HTML to the DOM
+                document.getElementById("navbar-container").innerHTML = html;
+
+                // Dynamically load the navbar.js file
+                const script = document.createElement("script");
+                script.src = "../Navbar/navbar.js";
+                script.onload = () => {
+                    console.log("Navbar script loaded successfully.");
+                };
+                script.onerror = (error) => {
+                    console.error("Failed to load navbar.js:", error);
+                };
+                document.body.appendChild(script); // Add the script to the document
+            }
+        })
+        .catch((error) => console.error("Error loading navbar:", error));
+    });
 
   
     fetch("../Footer/footer.html")

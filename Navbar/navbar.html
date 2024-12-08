@@ -13,20 +13,21 @@
    
     <div class="promotion">
         <div class="text">
-            <span>Khmer New year 15% discount</span>
-            <span>Khmer New year 15% discount</span>
-            <span>Khmer New year 15% discount</span>
-            <span>Khmer New year 15% discount</span>
+            <span>New year promotions 15% discount</span>
+            <span>New year promotions 15% discount</span>
+            <span>New year promotions 15% discount</span>
+            <span>New year promotions 15% discount</span>
         </div>
         
         <div class="text">
-            <span>Khmer New year 15% discount</span>
-            <span>Khmer New year 15% discount</span>
-            <span>Khmer New year 15% discount</span>
-            <span>Khmer New year 15% discount</span>
+            <span>New year promotions 15% discount</span>
+            <span>New year promotions 15% discount</span>
+            <span>New year promotions 15% discount</span>
+            <span>New year promotions 15% discount</span>
         </div>
     </div>
     
+
     <nav class="navbar navbar-expand-lg px-5 fixed-top" style="box-shadow: 1px 1px 2px 1px rgb(155, 155, 155); background-color:white; height:90px;">
       <div class="container-fluid">
           <!-- LOGO -->
@@ -80,7 +81,12 @@
 
               <!-- Right Side Icons -->
               <ul class="navbar-nav mb-2 mb-lg-0">
-                  <li><a class="nav-link fs-4 mx-2" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <form class="form-inline search-form" style="display: none; position: absolute; top: 110px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 50%;">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                </form>
+                <div class="overlay"></div> <!-- Overlay to handle clicks and blur the background -->
+
+                  <li><a class="nav-link fs-4 mx-2 search-icon" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
                   <li><a class="nav-link fs-4 mx-2" href="../favorite/favorite.html"><i class="fa-regular fa-heart"></i></a></li>
                   <li><a class="nav-link fs-4 mx-2" href="../Cart/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
                   <li><a class="nav-link fs-4 mx-2" href="#"><i class="fa-regular fa-user"></i></a></li>
@@ -89,4 +95,7 @@
       </div>
   </nav>
 </body>
+
+<script src="../Navbar/navbar.js"></script>
+
 </html>
