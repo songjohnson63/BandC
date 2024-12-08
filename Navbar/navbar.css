@@ -95,3 +95,48 @@
 .form-control {
   border-radius: 20px; /* Adds rounded corners to the search input */
 }
+
+
+#search-results {
+  margin-top: 20px;
+}
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+
+.search-container {
+  position: relative;
+  max-width: 400px;
+  margin: auto;
+}
+
+#search-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#search-dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  display: none; /* Initially hidden */
+}
+
+#search-dropdown li {
+  padding: 20px;
+  cursor: pointer;
+}
+
+#search-dropdown li:hover {
+  background-color: #f0f0f0;
+}

@@ -82,10 +82,13 @@
               <!-- Right Side Icons -->
               <ul class="navbar-nav mb-2 mb-lg-0">
                 <form class="form-inline search-form" style="display: none; position: absolute; top: 110px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 50%;">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" id="existing-search-box" placeholder="Search..." aria-label="Search">
+                    <ul id="search-dropdown" style="display: none; position: absolute; background: white; border: 1px solid #ccc; max-height: 200px;left: 50%; transform: translateX(-50%); overflow-y: auto; margin-top: 10px; width: 100%;"></ul>
                 </form>
+                              
+                
                 <div class="overlay"></div> <!-- Overlay to handle clicks and blur the background -->
-
+                
                   <li><a class="nav-link fs-4 mx-2 search-icon" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
                   <li><a class="nav-link fs-4 mx-2" href="../favorite/favorite.html"><i class="fa-regular fa-heart"></i></a></li>
                   <li><a class="nav-link fs-4 mx-2" href="../Cart/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
