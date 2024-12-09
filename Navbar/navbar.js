@@ -60,6 +60,7 @@ function filterProducts(query) {
 }
 
 // Function to update the dropdown with the filtered products
+// Function to update the dropdown with the filtered products
 function updateDropdown(filteredProducts) {
     const dropdown = document.getElementById("search-dropdown");
     dropdown.innerHTML = ""; // Clear previous results
@@ -75,21 +76,23 @@ function updateDropdown(filteredProducts) {
         listItem.style.padding = "5px 10px";
         listItem.style.cursor = "pointer";
 
-        listItem.innerHTML = `
+        // Create a link element for each product
+        const link = document.createElement("a");
+        link.href = `../Newarrival/newarrival-detail.html?id=${product.id}`;  // Product detail page URL
+        link.style.textDecoration = "none";
+        link.style.color = "inherit";
+
+        // Add product details inside the link
+        link.innerHTML = `
             <img src="${product.img}" alt="${product.name}" style="width: 40px; height: 40px; margin-right: 10px; vertical-align: middle;">
             <span>${product.name} - $${product.price}</span>
         `;
 
+        listItem.appendChild(link);
         dropdown.appendChild(listItem);
-
-        // Optional: Add click event to handle selection
-        listItem.addEventListener("click", () => {
-            const searchBox = document.querySelector(".form-control");
-            searchBox.value = product.name; // Set selected product in input
-            dropdown.style.display = "none"; // Hide dropdown
-        });
     });
 }
+
 
 // Handle input events in the search box
 const searchBox = document.querySelector(".form-control");

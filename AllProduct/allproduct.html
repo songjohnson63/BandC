@@ -32,6 +32,7 @@
 
   </div>
   <div id="footer-container"></div>
+
 </body>
 
 
@@ -48,7 +49,6 @@
         })
         .then((html) => {
             if (html) {
-                // Add the navbar HTML to the DOM
                 document.getElementById("navbar-container").innerHTML = html;
 
                 // Dynamically load the navbar.js file
@@ -64,8 +64,7 @@
             }
         })
         .catch((error) => console.error("Error loading navbar:", error));
-    });
-
+});
 
   fetch("../Footer/footer.html")
     .then((response) => {
