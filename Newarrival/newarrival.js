@@ -14,7 +14,7 @@ async function fetchProductData(category,productId) {
     if (!response.ok) {
         throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
     }
-
+    
     const categoryProducts = await response.json();
     return categoryProducts.find(p => p.id === parseInt(productId));
 }

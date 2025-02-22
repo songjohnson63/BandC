@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Login/login.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="login">
+        <div class="left">
+            <!-- <h1>Welcome to</h1><br>
+            <h1>Beauty and Confidence</h1> -->
+            <video src="../video/Y2meta.app-Sulwhasoo _ ROSÉ and THE ULTIMATE S CREAM _ 로제와 진설크림 (30s VERSION)-(1080p).mp4" autoplay muted loop></video>
+        </div>
+        <div class="right">
+            <h1>Login</h1>
+
+            <label for="name">Email : </label><br>
+            <input type="email" name="name" id="name"><br>
+            <label for="password">Password : </label><br>
+            <input type="text" name="password" id="password">
+
+            <button type="submit">Login</button>
+
+            <h2>Don't have an account? <a href="">Sign Up</a></h2>
+            
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("../Navbar/navbar.html")
+          .then((response) => {
+              if (!response.ok) {
+                  console.error("Failed to load navbar:", response.status, response.statusText);
+                  return;
+              }
+              return response.text();
+          })
+          .then((html) => {
+              if (html) {
+                  document.getElementById("navbar-container").innerHTML = html;
+  
+                  // Dynamically load the navbar.js file
+                  const script = document.createElement("script");
+                  script.src = "../Navbar/navbar.js";
+                  script.onload = () => {
+                      console.log("Navbar script loaded successfully.");
+                  };
+                  script.onerror = (error) => {
+                      console.error("Failed to load navbar.js:", error);
+                  };
+                  document.body.appendChild(script); // Add the script to the document
+              }
+          })
+          .catch((error) => console.error("Error loading navbar:", error));
+  });
+  
+      fetch("../Footer/footer.html")
+        .then((response) => {
+          if (!response.ok) {
+            console.error("Failed to load footer:", response.status, response.statusText);
+            return;
+          }
+          return response.text();
+        })
+        .then((html) => {
+          if (html) {
+            document.getElementById("footer-container").innerHTML = html;
+          }
+        })
+        .catch((error) => console.error("Error loading footer:", error));
+   
+</script>
+</html>

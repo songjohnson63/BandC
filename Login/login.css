@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    color: #717171;
+}
+
+.login{
+    margin: 0 auto;
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: 75vh;
+    width:70%;
+    box-shadow: 2px 4px 8px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+
+}
+.login h1{
+    color: white;
+    font-size: 30px;
+}
+
+.login .left{
+    background-color: #8baa74;
+    border-radius: 15px;   
+}
+.login .left video{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.login .right{
+    /* background-color: blue; */
+    padding: 10%;
+    margin: 0 auto;
+    width: 90%;
+   
+}
+
+.login .right h1{
+    color: #8baa74;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+.login .right label{
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 15px;
+}
+.login .right input{
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border:2px solid rgb(195, 195, 195);
+}
+.login .right button{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    margin-top: 30px;
+    border: none;
+    background-color: #8baa74;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.login .right h2{
+    font-size: 18px;
+    margin-top: 35px;
+    text-align: center;
+    color: #999999;
+}
+
+.login .right h2 a{
+    color: #8baa74;
+    font-weight: 600;
+    text-decoration: none;
+}
