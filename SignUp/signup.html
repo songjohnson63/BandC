@@ -24,7 +24,7 @@
             <label for="name">Phone Number : </label><br>
             <input type="text" name="phonenum" id="phonenum"><br>
             <label for="password">Password : </label><br>
-            <input type="text" name="password" id="password">
+            <input type="password" name="password" id="password">
 
             <button type="submit">Create an account</button>
 
@@ -33,6 +33,66 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ensure script runs after DOM is fully loaded
+            const signUpButton = document.querySelector("button[type='submit']");
+        
+            if (signUpButton) {
+                signUpButton.addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent page refresh
+        
+                    // Get input values
+                    const name = document.getElementById("name").value.trim();
+                    const phonenumber = document.getElementById("phonenum").value.trim();
+                    const password = document.getElementById("password").value.trim();
+        
+                    // Validate inputs
+                    if (!name || !phonenumber || !password) {
+                        alert("Please fill in all fields.");
+                        return;
+                    }
+        
+                    // Create data object
+                    const requestData = {
+                        name: name,
+                        phonenumber: phonenumber,
+                        password: password
+                    };
+        
+                    // API endpoint (replace with actual URL)
+                    const apiUrl = "http://127.0.0.1:8000/api/customer";
+        
+                    // Send POST request
+                    fetch(apiUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(requestData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Response:", data);
+                    
+                        // Check if the response contains the correct success message
+                        if (data.message && data.message.toLowerCase().includes("customer created successfully")) { 
+                            alert("Sign-up successful! Redirecting to login...");
+                            window.location.href = "../Login/login.html"; // Redirect to login page
+                        } else {
+                            alert("Sign-up failed: " + (data.message || "Unknown error"));
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        alert("Something went wrong. Please try again.");
+                    });
+                    
+                });
+            }
+        });
+        
+    </script>
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
