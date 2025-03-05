@@ -12,6 +12,27 @@ function getParameterByName(name){                                            //
     return urlPar.get(name);   // this will return the value of category(name)=  
   }
 document.addEventListener("DOMContentLoaded", async function() {
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//test
+    // console.log(favProduct);
+    // const savedFavorites = localStorage.getItem('favProduct');
+    // if (savedFavorites) {
+    //     favProduct = JSON.parse(savedFavorites);
+    //     initializeFavoritesUI(favProduct);
+    // }
+
+    // function initializeFavoritesUI(favProduct) {
+    //     Object.keys(favProduct).forEach(productId => {
+    //         const product = favProduct[productId];
+    //         const heartIcon = document.querySelector(`.heart-icon[data-id='${productId}']`);
+    //         if (heartIcon) {
+    //             heartIcon.setAttribute('data-favorite', 'true');
+    //             heartIcon.style.color = 'red'; // Set the favorite color
+    //         }
+    //     });
+    // }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
      const categoryTitle = document.getElementById("category-title");
     const category = getParameterByName('category');
   if(categoryTitle.textContent && category){
@@ -55,6 +76,7 @@ async function fetchAllProducts() {
 const favProduct = {};
 let favoriteIdCounter = 1;
 async function fetchProductData(category,productId) {
+    console.log(category);
     const filePath = `../products/${category}.json`;
     const response = await fetch(filePath);
     if (!response.ok) {
@@ -76,6 +98,8 @@ async function toggleFavorite(event) {
     heartIcon.setAttribute('data-favorite', isFavorite);
     heartIcon.style.color =isFavorite? 'red':'gray';
     try {
+        console.log(cateName);
+        console.log(productId);
         const product = await fetchProductData(cateName,productId);
         if (product) {
             if (isFavorite) {
@@ -88,6 +112,7 @@ async function toggleFavorite(event) {
                 delete product.FavoriteId;
                 delete favProduct[productId];
             }
+      //      localStorage.setItem('favProduct', JSON.stringify(favProduct));
             console.log(favProduct); 
            
         }
@@ -121,7 +146,7 @@ function displayCategoryProducts(category, products) {
                             <h5 class="mx-2 text-danger">$${product.price}</h5>
                         </div>
                         <button class="border-0 bg-transparent fs-4">
-                            <i class="fa-solid fa-cart-shopping mx-3" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+                            <i class="fa-solid fa-cart-shopping mx-3" id="heart-${product.id}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
                             <i class="fa-solid fa-heart heart-icon" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
                         </button>
                     </div>
