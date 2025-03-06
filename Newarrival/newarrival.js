@@ -1,3 +1,11 @@
+const jsonFiles = [
+  ['../products/cleanser.json', 'Cleanser'],
+  ['../products/sunscreen.json', 'Sunscreen'],
+  ['../products/serum.json', 'Serum'],
+  ['../products/toner.json', 'Toner'],
+  ['../products/moisturizer.json', 'Moisturizer']
+];
+
 const favProduct = {};
 let favoriteIdCounter = 1;
 async function fetchProductData(category,productId) {
@@ -6,7 +14,7 @@ async function fetchProductData(category,productId) {
     if (!response.ok) {
         throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
     }
-
+    
     const categoryProducts = await response.json();
     return categoryProducts.find(p => p.id === parseInt(productId));
 }
@@ -102,13 +110,6 @@ function loadProducts(url, categoryName) {
       .catch(error => console.error('Error loading JSON:', error));
   }
   
-  const jsonFiles = [
-    ['../products/cleanser.json', 'Cleanser'],
-    ['../products/sunscreen.json', 'Sunscreen'],
-    ['../products/serum.json', 'Serum'],
-    ['../products/toner.json', 'Toner'],
-    ['../products/moisturizer.json', 'Moisturizer']
-  ];
   
   jsonFiles.forEach(([url, categoryName]) => {
     loadProducts(url, categoryName);

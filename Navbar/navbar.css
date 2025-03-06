@@ -35,6 +35,7 @@
     width: 100%; /* Full width */
     box-shadow: 1px 1px 2px 1px rgb(155, 155, 155);
     background-color: white; /* Background for clarity */
+    z-index: 1; /* Set the navbar behind the search form */
 }
 
 
@@ -52,4 +53,90 @@
 
 .dropdown-menu {
   margin-top: 0; /* Remove default margin */
+}
+
+
+/* Overlay for Blur Effect */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  backdrop-filter: blur(5px); /* Apply blur effect to the background */
+  z-index: 998; /* Ensure it stays below the search form */
+  display: none; /* Initially hidden */
+}
+
+/* Search Form Styling */
+.search-form {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999; /* Ensure it stays above the overlay */
+  width: 50%; /* Adjust as needed */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ddd; /* Optional: Add border */
+}
+
+
+/* When Blur Is Active */
+.overlay.active {
+  display: block; /* Show overlay */
+}
+
+
+.form-control {
+  border-radius: 20px; /* Adds rounded corners to the search input */
+}
+
+
+#search-results {
+  margin-top: 20px;
+}
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+
+.search-container {
+  position: relative;
+  max-width: 400px;
+  margin: auto;
+}
+
+#search-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#search-dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  display: none; /* Initially hidden */
+}
+
+#search-dropdown li {
+  padding: 20px;
+  cursor: pointer;
+}
+
+#search-dropdown li:hover {
+  background-color: #f0f0f0;
 }

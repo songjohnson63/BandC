@@ -52,11 +52,49 @@
       .then((html) => {
         if (html) {
           document.getElementById("navbar-container").innerHTML = html;
+          console.log("Navbar loaded successfully.");
+
+          // Load navbar.js dynamically (so search works)
+          const script = document.createElement("script");
+          script.src = "../Navbar/navbar.js";
+          script.onload = () => {
+            console.log("Navbar script loaded successfully.");
+            initializeNavbar(); // Now call the function after navbar.js is loaded
+          };
+          script.onerror = (error) => {
+            console.error("Failed to load navbar.js:", error);
+          };
+          document.body.appendChild(script);
         }
       })
       .catch((error) => console.error("Error loading navbar:", error));
-  });
 
+      function initializeNavbar() {
+        console.log("Initializing navbar...");
+      
+        const userGreeting = document.getElementById("userGreeting");
+        const userName = localStorage.getItem("userName");
+        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+      
+        console.log("Stored userName:", userName);
+        console.log("Stored loggedIn:", isLoggedIn);
+      
+        if (userGreeting) {
+          if (isLoggedIn && userName) {
+            // Convert "Hello, Name" into a clickable link
+            userGreeting.innerHTML = `<a href="../Login/login.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Login/login.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+            console.log("User logged in: ", userName);
+          } else {
+            userGreeting.innerHTML = `<a class="nav-link fs-4 mx-2" href="../Login/login.html">
+                <i id="userIcon" class="fa-regular fa-user"></i>
+            </a>`;
+            console.log("User not logged in");
+          }
+        } else {
+          console.error("userGreeting element not found!");
+        }
+      }
+    });      
 
   fetch("../Footer/footer.html")
     .then((response) => {
