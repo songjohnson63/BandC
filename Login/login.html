@@ -3,35 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../Login/login.css">
 </head>
+
+
 <body>
     <div id="navbar-container"></div>
 
     <div class="login">
         <div class="left">
-            <!-- <h1>Welcome to</h1><br>
-            <h1>Beauty and Confidence</h1> -->
             <video src="../video/Y2meta.app-Sulwhasoo _ ROSÉ and THE ULTIMATE S CREAM _ 로제와 진설크림 (30s VERSION)-(1080p).mp4" autoplay muted loop></video>
         </div>
+        
         <div class="right">
             <h1>Login</h1>
 
-            <label for="name">Email : </label><br>
-            <input type="email" name="name" id="name"><br>
+            <label for="name">Phone Number : </label><br>
+            <input type="text" name="phonenumber" id="phonenumber"><br>
             <label for="password">Password : </label><br>
-            <input type="text" name="password" id="password">
+            <input type="password" name="password" id="password">
 
-            <button type="submit">Login</button>
+            <button type="submit" id="login-btn">Login</button>
 
-            <h2>Don't have an account? <a href="">Sign Up</a></h2>
+            <h2>Don't have an account? <a href="../SignUp/signup.html">Sign Up</a></h2>
             
         </div>
     </div>
 
-
 </body>
+
+<script> 
+    document.getElementById("login-btn").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent page refresh
+
+        const phonenumber = document.getElementById("phonenumber").value;
+        const password = document.getElementById("password").value;
+
+        console.log({ phonenumber, password }); // Debugging
+
+        fetch("http://127.0.0.1:8000/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({ phonenumber: phonenumber, password: password }),
+        })
+        .then(response => {
+            console.log('Response Status:', response.status);
+            
+            if (!response.ok) {
+                throw new Error("Failed to login, status: " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response Data:', data); 
+            
+            if (data.token) {
+                localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("authToken", data.token);
+                localStorage.setItem("userName", data.customer.name); // Fix here!
+                window.location.href = "../Homepage/homepage.html"; 
+            } else {
+                alert("Login failed. Please check your credentials.");
+            }
+        })
+        
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred: " + error.message);
+        });
+    });
+</script>
+
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
