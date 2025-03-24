@@ -32,8 +32,8 @@ async function FavProducts() {
                     <div class="card-title" style="height: 17%;">
                         <h6 class="fs-5" style="font-weight: bold;">${product.name}</h6>
                     </div>
-                        <div class="card-title" style="height: 40%; font-size: 13px;">
-                          <p > <span style="font-weight: bold;">Description:</span>${product.description}</p>
+                          <div class="card-title" style="height: 40%; font-size: 13px;">
+                            <p > <span style="font-weight: bold;">Description:</span>${product.description}</p>
                            </div>
                            <div class="card-text" style=" height: 15%; font-size: 13px;">
                             <p> <span style="font-weight: bold;"> Key Ingredient: </span>${product.KeyIngredient}</p>
