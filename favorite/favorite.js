@@ -67,8 +67,8 @@ async function loadFavoriteProducts() {
                             </div>
                             <div class="card-price d-flex mt-1" style="justify-content: space-between; height: 10%; align-items: center;">
                                 <div class="price d-flex">
-                                    <h5 class="text-decoration-line-through">$${(parseFloat(product.price) * 1.2).toFixed(2)}</h5>
-                                    <h5 class="mx-2 text-danger">$${product.price}</h5>
+                                    <h5 class="text-decoration-line-through">$${product.price}</h5>
+                                    <h5 class="mx-2 text-danger">$${product.price_after_discount}</h5>
                                 </div>
                                 <button class="border-0 fs-4 bg-transparent mb-3">
                                     <i class="fa-solid fa-cart-shopping" data-cateName="${product.cateName}" data-id="${product.id}"></i>
