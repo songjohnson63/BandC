@@ -2,7 +2,7 @@ body{
     background-color: #edf1f5;
 }
 .card-body {
-    height: 100vh;
+    height: auto;
     /* margin-top:60px; */
 }
 .card {

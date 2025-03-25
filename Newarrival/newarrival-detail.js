@@ -30,7 +30,7 @@ async function loadProductDetails() {
     if (product) {
         const container = document.getElementById("product-details");
         container.innerHTML = `
-            <div class="container mt-4">
+            <div class="container mt-0">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
