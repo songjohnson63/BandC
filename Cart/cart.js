@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", async function () {
     console.log("🚀 Page Loaded - Fetching Cart Products...");
     await loadCartProducts();
+
+    await loadCartProducts();
+
+    // Attach event listener for "Purchase Now" button
+    document.querySelector("[data-bs-target='#paymentModal']").addEventListener("click", loadPaymentModal);
 });
+
 
 async function loadCartProducts() {
     try {
@@ -98,6 +104,7 @@ async function loadCartProducts() {
         document.getElementById("product-container").innerHTML = "<p class='text-center text-danger'>Failed to load cart products. Please try again later.</p>";
     }
 }
+let updateTimeout; // Global variable to manage debounce
 
 async function updateQuantity(cartItemId, action, manualValue = null) {
     const authToken = localStorage.getItem("authToken");
@@ -119,27 +126,36 @@ async function updateQuantity(cartItemId, action, manualValue = null) {
         }
 
         quantityInput.value = currentQuantity;
-
-        // Update the total price for this product
         updateTotalPrice(cartItemId);
-
-        // Recalculate the total price for the entire cart
         updateCartTotalPrice();
 
-        // Update the backend with the new quantity
+        // 🔹 Ensure quantity is sent to the backend before refreshing cart
         const apiURL = `http://127.0.0.1:8000/api/cart/update/${cartItemId}`;
-        await fetch(apiURL, {
-            method: "POST",
+        console.log(`🚀 Updating cart item ${cartItemId} with quantity:`, currentQuantity);
+
+        const response = await fetch(apiURL, {
+            method: "POST", // ✅ Make sure this matches the Laravel route method
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${authToken}`
             },
-            body: JSON.stringify({ quantity: currentQuantity })
+            body: JSON.stringify({ quantity: currentQuantity }) // ✅ Send updated quantity
         });
+
+        if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+
+        const result = await response.json();
+        console.log("✅ API Response:", result);
+
+        // 🔄 Refresh cart AFTER saving the quantity
+        await loadCartProducts();
+
     } catch (error) {
         console.error("❌ Error updating quantity:", error);
     }
 }
+
+
 
 function updateTotalPrice(cartItemId) {
     const quantityInput = document.getElementById(`quantity-display-${cartItemId}`);
@@ -171,3 +187,41 @@ function updateCartTotalPrice() {
     // Update the total price displayed outside the cart
     document.getElementById("total-price").innerText = `Total: $${totalCartPrice.toFixed(2)}`;
 }
+
+async function loadPaymentModal() {
+    console.log("🛒 Updating Payment Modal...");
+    const cartItems = document.querySelectorAll("#product-container .cart");
+    const paymentTableBody = document.querySelector("#payment-table tbody");
+    paymentTableBody.innerHTML = ""; // Clear previous modal content
+
+    let totalPaymentAmount = 0;
+
+    cartItems.forEach((cartItem) => {
+        const productImage = cartItem.querySelector("img").src; // Get the product image source
+        const productName = cartItem.querySelector(".fs-5").innerText;
+        const quantity = cartItem.querySelector("input[type='number']").value;
+        const discountPrice = cartItem.querySelector(".text-danger").innerText.replace("$", "");
+        const totalPrice = (parseFloat(discountPrice) * parseInt(quantity)).toFixed(2);
+
+        totalPaymentAmount += parseFloat(totalPrice);
+
+        // Append a new row for each product with image + name in the Payment Modal
+        const row = `
+            <tr>
+                <td>
+                    <img src="${productImage}" alt="${productName}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                    ${productName}
+                </td>
+                <td>${quantity}</td>
+                <td>$${discountPrice}</td>
+                <td id="td-price">$${totalPrice}</td>
+            </tr>
+        `;
+        paymentTableBody.innerHTML += row;
+    });
+
+    // Update total amount in the payment modal
+    document.getElementById("total-amount").innerText = `Total: $${totalPaymentAmount.toFixed(2)}`;
+}
+
+
