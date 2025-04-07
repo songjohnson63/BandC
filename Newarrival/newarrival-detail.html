@@ -71,7 +71,7 @@
                                             <h1 id="quantity-display" class="mx-3">0</h1>
                                             <button type="button" class="btn btn-secondary" id="increase-btn">+</button>
 
-                                            <button type="button" class="cart btn btn-secondary mx-2">
+                                            <button type="button" class="cart btn btn-secondary mx-2" id="add-to-cart-btn">
                                                 <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                             </button>
                                             <button type="button" class="cart btn btn-secondary">
@@ -111,6 +111,52 @@
                         quantityDisplay.textContent = quantity;
                     }
                 });
+
+                const addToCartBtn = document.getElementById("add-to-cart-btn");
+
+                addToCartBtn.addEventListener("click", async () => {
+                    const authToken = localStorage.getItem("authToken");
+                    if (!authToken) {
+                        alert("Please log in first.");
+                        return;
+                    }
+
+                    if (quantity < 1) {
+                        alert("Please select at least 1 item before adding to cart.");
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch("http://127.0.0.1:8000/api/cart/add", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${authToken}`,
+                            },
+                            body: JSON.stringify({
+                                products: [
+                                    {
+                                        product_id: product.id,
+                                        quantity: quantity,
+                                    }
+                                ]
+                            }),
+                        });
+
+                        const result = await response.json();
+                        console.log("Cart response:", result);
+
+                        if (response.ok) {
+                            alert("Added to cart successfully! 🛒");
+                        } else {
+                            alert("Failed to add to cart: " + (result.message || "Unknown error"));
+                        }
+                    } catch (error) {
+                        console.error("Error adding to cart:", error);
+                        alert("Something went wrong while adding to cart.");
+                    }
+                });
+
             } else {
                 document.getElementById("product-details").innerHTML = "<p class='text-danger'>Product not found!</p>";
             }
