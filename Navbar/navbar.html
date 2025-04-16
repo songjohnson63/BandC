@@ -92,13 +92,8 @@
                   <li><a class="nav-link fs-4 mx-2 search-icon" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
                   <li><a class="nav-link fs-4 mx-2" href="../favorite/favorite.html"><i class="fa-regular fa-heart"></i></a></li>
                   <li><a class="nav-link fs-4 mx-2" href="../Cart/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                  <!-- <li><a class="nav-link fs-4 mx-2" href="../Login/login.html"><i class="fa-regular fa-user"></i></a></li> -->
-                  <li id="userGreeting">
-                    <a class="nav-link fs-4 mx-2" href="../Login/login.html">
-                        <i id="userIcon" class="fa-regular fa-user"></i>
-                    </a>
-                </li>
-                
+                  <li id="userGreeting"><a class="nav-link fs-4 mx-2" href="../OrderHistory/OrderHistory.html"><i class="fa-regular fa-user"></i></a></li>
+                 
               </ul>
           </div> 
       </div>
@@ -107,24 +102,24 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        console.log("Navbar script loaded"); // Debugging
-
         const userGreeting = document.getElementById("userGreeting");
         const userName = localStorage.getItem("userName");
         const isLoggedIn = localStorage.getItem("loggedIn") === "true";
 
-        console.log("Stored userName:", userName); // Debugging
-        console.log("Stored loggedIn:", isLoggedIn); // Debugging
-
         if (isLoggedIn && userName) {
-            userGreeting.innerHTML = `<span class="fw-bold">Hello, ${userName}</span>`;
-            console.log("User logged in: ", userName); // Debugging
+            userGreeting.innerHTML = `
+                <a class="nav-link fs-5 mx-2 fw-bold" href="../OrderHistory/OrderHistory.html">
+                    Hello, ${userName}
+                </a>`;
         } else {
-            userGreeting.innerHTML = `<a class="nav-link fs-4 mx-2" href="../Login/login.html">
-                <i id="userIcon" class="fa-regular fa-user"></i>
-            </a>`;
-            console.log("User not logged in"); // Debugging
+            userGreeting.innerHTML = `
+                <a class="nav-link fs-4 mx-2" href="../Login/login.html">
+                    <i class="fa-regular fa-user"></i>
+                </a>`;
         }
+
+        // Optional: ensure <li> stays consistent
+        userGreeting.classList.add("nav-item");
     });
 </script>
 

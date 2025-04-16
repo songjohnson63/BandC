@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.querySelector("[data-bs-target='#paymentModal']").addEventListener("click", loadPaymentModal);
 });
 
-
 async function loadCartProducts() {
     try {
         const apiURL = "http://127.0.0.1:8000/api/cart";
@@ -55,12 +54,18 @@ async function loadCartProducts() {
             const productDiv = document.createElement("div");
             productDiv.classList.add("cart", "col-sm-6", "col-md-6", "col-lg-3", "mt-5");
             productDiv.style.width = "49%";
+            productDiv.style.position = "relative"; // Set relative positioning for the container
 
             productDiv.innerHTML = `
                 <div class="card shadow-lg" style="flex-direction: row;">
                     <img class="rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="Product Image" style="width: 30%; height: 40vh">
                     <div class="card-body" style="width: 70%">
-                        <div class="card-title" style="height: 17%;">
+                        <button type="button" class="btn" id="delete-btn-${item.id}" style="position: absolute; top: 1px; left: 10px; border: none; background: transparent; font-size: 1.5em; color: red; cursor: pointer;">
+                            <i class="fas fa-times"></i> <!-- Font Awesome X Icon -->
+                        </button>
+
+                        <!-- Product Name and other details -->
+                        <div class="card-title" style="height: 17%; margin-top: 5px;"> <!-- Added margin-top for spacing -->
                             <h6 class="fs-5" style="font-weight: bold;">${product.name}</h6>
                         </div>
                         <div class="card-title" style="height: 40%; font-size: 13px;">
@@ -92,6 +97,47 @@ async function loadCartProducts() {
             document.getElementById(`increase-btn-${item.id}`).addEventListener("click", () => updateQuantity(item.id, "increase"));
             document.getElementById(`quantity-display-${item.id}`).addEventListener("change", (event) => updateQuantity(item.id, "manual", event.target.value));
 
+            // Add event listener for delete button (X icon)
+            document.getElementById(`delete-btn-${item.id}`).addEventListener("click", async () => {
+                // Show confirmation popup
+                document.getElementById('confirmation-popup').style.display = 'flex';
+            
+                // Get the buttons
+                const cancelBtn = document.getElementById('cancel-btn');
+                const confirmBtn = document.getElementById('confirm-btn');
+            
+                // When cancel is clicked, hide the popup
+                cancelBtn.addEventListener('click', () => {
+                    document.getElementById('confirmation-popup').style.display = 'none';
+                });
+            
+                // When confirm is clicked, remove the product and refresh the page
+                confirmBtn.addEventListener('click', async () => {
+                    try {
+                        const removeRes = await fetch(`http://127.0.0.1:8000/api/cart/remove/${item.id}`, {
+                            method: "DELETE",
+                            headers: {
+                                "Authorization": `Bearer ${authToken}`,
+                                "Content-Type": "application/json"
+                            }
+                        });
+            
+                        const removeResult = await removeRes.json();
+            
+                        // ✅ Fix: use removeResult instead of result
+                        if (removeResult.success || removeResult.message === "Item removed from cart") {
+                            document.getElementById('confirmation-popup').style.display = 'none';
+                            location.reload(); // Refresh page after removal
+                        } else {
+                            console.warn("Failed to remove:", removeResult.message);
+                        }
+                    } catch (error) {
+                        console.error("❌ Error removing product:", error);
+                    }
+                });
+            });
+            
+            
             // Add the current item's total price to the cart total
             totalCartPrice += parseFloat(totalPrice);
         });
@@ -104,6 +150,8 @@ async function loadCartProducts() {
         document.getElementById("product-container").innerHTML = "<p class='text-center text-danger'>Failed to load cart products. Please try again later.</p>";
     }
 }
+
+
 let updateTimeout; // Global variable to manage debounce
 
 async function updateQuantity(cartItemId, action, manualValue = null) {
@@ -276,8 +324,8 @@ document.getElementById('order-button').addEventListener('click', async function
         const paymentResult = await paymentRes.json();
 
         if (paymentResult.success) {
-            // ✅ Payment saved — open receipt
-            window.open('../Receipt/receipt.html', '_blank');
+            // ✅ Payment saved — open receipt in a new tab
+            window.open('../Receipt/receipt.html', '_blank'); // This opens a new tab
         } else {
             alert("❌ Payment failed: " + paymentResult.message);
         }
@@ -285,4 +333,5 @@ document.getElementById('order-button').addEventListener('click', async function
         console.error("❌ Error:", error);
         alert("Something went wrong!");
     }
+
 });
