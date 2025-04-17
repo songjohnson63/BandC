@@ -101,55 +101,129 @@ document.addEventListener("DOMContentLoaded", async function () {
         }          
     }
 
-    // 🔁 Load Payment Modal from API Order Products
-    async function loadPaymentModal(products = []) {
-        console.log("🛒 Updating Payment Modal from order-history...");
-
+    // async function loadPaymentModal(paymentId) {
+    //     console.log("🛒 Updating Payment Modal...");
+    
+    //     const paymentTableBody = document.querySelector("#payment-table tbody");
+    //     paymentTableBody.innerHTML = ""; // Clear previous modal content
+    //     let totalPaymentAmount = 0;
+    
+    //     try {
+    //         // Fetch payment details from the server
+    //         const response = await fetch(`http://127.0.0.1:8000/api/payment/${paymentId}`, {
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             }
+    //         });
+    
+    //         const data = await response.json();
+    
+    //         if (data.status === "success") {
+    //             // Loop through the payment details and display them
+    //             data.data.forEach(product => {
+    //                 const productImage = product.image || "/images/default.jpg"; // Default fallback image
+    //                 const productName = product.product_name || "Unnamed Product";
+    //                 const quantity = product.quantity || 1;
+    //                 const price = parseFloat(product.price) || 0;
+    //                 const totalPrice = (price * quantity).toFixed(2);
+    
+    //                 totalPaymentAmount += parseFloat(totalPrice);
+    
+    //                 const row = `
+    //                     <tr>
+    //                         <td>
+    //                             <img src="${productImage}" alt="${productName}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+    //                             ${productName}
+    //                         </td>
+    //                         <td>${quantity}</td>
+    //                         <td>$${price.toFixed(2)}</td>
+    //                         <td>$${totalPrice}</td>
+    //                     </tr>
+    //                 `;
+    //                 paymentTableBody.innerHTML += row;
+    //             });
+    
+    //             // Update total amount
+    //             document.getElementById("total-amount").innerText = `Total: $${totalPaymentAmount.toFixed(2)}`;
+    //         } else {
+    //             console.error("Failed to load payment details.");
+    //             paymentTableBody.innerHTML = "<tr><td colspan='4'>Failed to load payment details.</td></tr>";
+    //         }
+    //     } catch (error) {
+    //         console.error("Error loading payment details:", error);
+    //         paymentTableBody.innerHTML = "<tr><td colspan='4'>Error loading payment details. Please try again later.</td></tr>";
+    //     }
+    // }
+    
+    async function loadAllPayments() {
+        console.log("🛒 Loading All Payments...");
+    
         const paymentTableBody = document.querySelector("#payment-table tbody");
         paymentTableBody.innerHTML = ""; // Clear previous modal content
         let totalPaymentAmount = 0;
-
-        products.forEach(product => {
-            const productImage = product.image || "/images/default.jpg"; // fallback image
-            const productName = product.name || "Unnamed";
-            const quantity = product.quantity ?? 1; // default quantity to 1 if null
-            const price = parseFloat(product.price || 0);
-            const totalPrice = (price * quantity).toFixed(2);
-
-            totalPaymentAmount += parseFloat(totalPrice);
-
-            const row = `
-                <tr>
-                    <td>
-                        <img src="${productImage}" alt="${productName}" 
-                            style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
-                        ${productName}
-                    </td>
-                    <td>${quantity}</td>
-                    <td>$${price.toFixed(2)}</td>
-                    <td>$${totalPrice}</td>
-                </tr>
-            `;
-            paymentTableBody.innerHTML += row;
-        });
-
-        // Update total amount
-        document.getElementById("total-amount").innerText = `Total: $${totalPaymentAmount.toFixed(2)}`;
-
-        // Optionally show address input field if hidden or empty
-        const addressField = document.getElementById("payment-address");
-        if (addressField) {
-            addressField.value = ""; // or pre-fill if needed
-            addressField.style.display = "block";
+    
+        const token = localStorage.getItem("authToken");
+    
+        if (!token) {
+            console.error("User is not authenticated");
+            return;
+        }
+    
+        try {
+            // Fetch all payments for the logged-in user
+            const response = await fetch("http://127.0.0.1:8000/api/payments", {
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            });
+    
+            const data = await response.json();
+    
+            if (data.status === "success") {
+                data.data.forEach(payment => {
+                    payment.payment_items.forEach(product => {
+                        const productImage = product.img || "/images/default.jpg"; // Use full URL directly
+                        const productName = product.product_name;
+                        const quantity = product.quantity || 1;
+                        const price = parseFloat(product.price) || 0;
+                        const totalPrice = (price * quantity).toFixed(2);
+    
+                        totalPaymentAmount += parseFloat(totalPrice);
+    
+                        const row = `
+                            <tr>
+                                <td>
+                                    <img src="${productImage}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                                    ${productName}
+                                </td>
+                                <td>${quantity}</td>
+                                <td>$${price.toFixed(2)}</td>
+                                <td>$${totalPrice}</td>
+                            </tr>
+                        `;
+                        paymentTableBody.innerHTML += row;
+                    });
+                });
+    
+                // Update total amount
+                document.getElementById("total-amount").innerText = `Total: $${totalPaymentAmount.toFixed(2)}`;
+            } else {
+                console.error("Failed to load payments.");
+                paymentTableBody.innerHTML = "<tr><td colspan='4'>Failed to load payment details.</td></tr>";
+            }
+        } catch (error) {
+            console.error("Error loading payments:", error);
+            paymentTableBody.innerHTML = "<tr><td colspan='4'>Error loading payment details. Please try again later.</td></tr>";
         }
     }
-
+    
     document.querySelectorAll('.reorder-button').forEach(button => {
         button.addEventListener('click', function () {
             console.log("Re-Order Button clicked!");
     
             // Load the payment modal
-            loadPaymentModal();
+            loadAllPayments();
             
             // Trigger modal using Bootstrap's JavaScript API
             const myModal = new bootstrap.Modal(document.getElementById('paymentModal'));
