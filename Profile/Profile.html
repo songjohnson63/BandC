@@ -10,84 +10,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Homepage/hompage.css">
     <link rel="stylesheet" href="Profile.css"> 
+    <link rel="stylesheet" href="../OrderHistory/OrderHistory.css">
 </head>
 
 <body>
   <div id="navbar-container"></div>
 
-  <div class="container-fluid-div">
+  <div class="content">
     <div class="box-sight">
       <div class="icon">
         <i class="fa-solid fa-user"></i>
-        <a href="">Profile</a>
+        <a href="../Profile/Profile.html">Profile</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-cart-shopping"></i>
-        <a href="">Your Cart</a>
+        <a href="../Cart/cart.html">Your Cart</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-heart"></i>
-        <a href="">Your Favorite</a>
+        <a href="../favorite/favorite.html">Your Favorite</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-clock-rotate-left"></i>
-        <a href="">Order History</a>
+        <a href="../OrderHistory/OrderHistory.html">Order History</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-right-to-bracket"></i>
-        <a href="">Log Out</a>
+        <a href="../Login/login.html">Log Out</a>
       </div>
     </div>
-    <div class="box-info"> 
-      <i class="fa-solid fa-pen-to-square"></i>
-      <form action="#" class="input-form">
-        <div class="tt-ss">
-          <div class="input">
-            <p>First Name</p>
-            <input type="text" placeholder="Enter Your Name">
-          </div>
-          <div class="input">
-            <p>Email</p>
-            <input type="text" placeholder="Your Email">
-          </div>
-          <div class="input">
-            <p>Contact Number</p>
-            <input type="text" placeholder="Phone Number">
-          </div>
+    
+    <div class="container">
+      <h2>Profile</h2>
+      <div class="box-info">
+        <div class="box">
+          <label for="fullName">Full Name</label><br>
+          <input type="text" id="fullName">
         </div>
-        <div class="tt-tt">
-          <div class="input">
-            <p>Last Name</p>
-            <input type="text" placeholder="Enter Your Name">
-          </div>
-        
-          <div class="input">
-            <p>Birth Date</p>
-            <input type="text" placeholder="DD/MM/YYYY">
-          </div>
-
-          <div class="input">
-            <p>Address Detail</p>
-            <input type="text" placeholder=" Input your Address ">
+      
+        <div class="box">
+          <label for="contactNumber">Contact Number</label><br>
+          <input type="text" id="contactNumber">
         </div>
-        <div class="input">
-            <p>City/Province</p>
-            <input type="text" placeholder="Enter your city">
+      
+        <div class="box">
+          <label for="password">Password</label><br>
+          <input type="password" id="password">
         </div>
+      
+        <!-- <div class="box">
+          <label for="city">City/Province</label><br>
+          <input type="text" id="city">
+         
+        </div> -->
+      
+        <div class="box">
+          <label for="address">Latest Pickup Address</label><br>
+          <input type="text" id="address" name="address">
         </div>
-        
-       
-
-      </form>
-    </div>
+      </div>
+      
+    </div>  
+    
 
   </div>
+
+  <div id="footer-container"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPath = window.location.pathname;
+      const iconLinks = document.querySelectorAll(".box-sight .icon a");
+  
+      iconLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+  
+        if (currentPath === linkPath) {
+          link.parentElement.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+  <script src="../Profile/profile.js"></script>
+
 </body>
 
-<!-- ========= Call product from JSON  -->
-<script type="module" src="../products/homepage.js"></script>
-
-<!-- ========= Call Navbar and Footer -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     fetch("../Navbar/navbar.html")
@@ -101,12 +109,55 @@
       .then((html) => {
         if (html) {
           document.getElementById("navbar-container").innerHTML = html;
+         
+          console.log("Navbar loaded successfully.");
+
+          // Load navbar.js dynamically (so search works)
+          const script = document.createElement("script");
+          script.src = "../Navbar/navbar.js";
+          script.onload = () => {
+            console.log("Navbar script loaded successfully.");
+            initializeNavbar(); // Now call the function after navbar.js is loaded
+          };
+          script.onerror = (error) => {
+            console.error("Failed to load navbar.js:", error);
+          };
+          document.body.appendChild(script);
         }
       })
       .catch((error) => console.error("Error loading navbar:", error));
-  });
 
-  
+      
+    function initializeNavbar() {
+      console.log("Initializing navbar...");
+    
+      const userGreeting = document.getElementById("userGreeting");
+      const userName = localStorage.getItem("userName");
+      const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+    
+      console.log("Stored userName:", userName);
+      console.log("Stored loggedIn:", isLoggedIn);
+    
+      if (userGreeting) {
+        if (isLoggedIn && userName) {
+          // Show Hello, Name -> link to OrderHistory
+          userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../OrderHistory/OrderHistory.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+
+        
+        } else {
+          // Not logged in, show icon link to login
+          userGreeting.innerHTML = `
+            <a class="nav-link fs-4 mx-2" href="../Login/login.html">
+              <i class="fa-regular fa-user"></i>
+            </a>
+          `;
+        }
+      } else {
+        console.error("userGreeting element not found!");
+      }
+    }
+  }); 
+
     fetch("../Footer/footer.html")
       .then((response) => {
         if (!response.ok) {
@@ -123,3 +174,4 @@
       .catch((error) => console.error("Error loading footer:", error));
  
 </script>
+</html>

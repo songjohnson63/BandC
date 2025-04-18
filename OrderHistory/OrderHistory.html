@@ -18,23 +18,23 @@
     <div class="box-sight">
       <div class="icon">
         <i class="fa-solid fa-user"></i>
-        <a href="">Profile</a>
+        <a href="../Profile/Profile.html">Profile</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-cart-shopping"></i>
-        <a href="">Your Cart</a>
+        <a href="../Cart/cart.html">Your Cart</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-heart"></i>
-        <a href="">Your Favorite</a>
+        <a href="../favorite/favorite.html">Your Favorite</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-clock-rotate-left"></i>
-        <a href="">Order History</a>
+        <a href="../OrderHistory/OrderHistory.html">Order History</a>
       </div>
       <div class="icon">
         <i class="fa-solid fa-right-to-bracket"></i>
-        <a href="">Log Out</a>
+        <a href="../Login/login.html">Log Out</a>
       </div>
     </div>
   
@@ -101,7 +101,23 @@
 
 </div>
   <div id="footer-container"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPath = window.location.pathname;
+      const iconLinks = document.querySelectorAll(".box-sight .icon a");
+  
+      iconLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+  
+        if (currentPath === linkPath) {
+          link.parentElement.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
+
 <script src="../OrderHistory/orderhistory.js"></script>
 
 <script>
@@ -117,6 +133,7 @@
         .then((html) => {
           if (html) {
             document.getElementById("navbar-container").innerHTML = html;
+           
             console.log("Navbar loaded successfully.");
   
             // Load navbar.js dynamically (so search works)
@@ -148,7 +165,7 @@
         if (userGreeting) {
           if (isLoggedIn && userName) {
             // Show Hello, Name -> link to OrderHistory
-            userGreeting.innerHTML = `<a href="../OrderHistory/OrderHistory.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../OrderHistory/OrderHistory.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+            userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../OrderHistory/OrderHistory.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
 
           
           } else {
@@ -163,8 +180,7 @@
           console.error("userGreeting element not found!");
         }
       }
-    });         
-  
+    }); 
   
       fetch("../Footer/footer.html")
         .then((response) => {
