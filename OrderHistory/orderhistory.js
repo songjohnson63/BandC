@@ -173,5 +173,56 @@ document.addEventListener("DOMContentLoaded", async function () {
             paymentTableBody.innerHTML = "<tr><td colspan='4'>Error loading data.</td></tr>";
         }
     }
+
+    document.getElementById('order-button').addEventListener('click', async function () {
+        const address = document.getElementById('address').value;
+        const token = localStorage.getItem("authToken");
+    
+        if (!address) {
+            alert("Please enter your pick-up address!");
+            return;
+        }
+    
+        try {
+            const cartRes = await fetch("http://127.0.0.1:8000/api/cart", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                }
+            });
+    
+            const cartData = await cartRes.json();
+            const cartItemIds = cartData.data.cart_items.map(item => item.id);
+            const total = cartData.data.total;
+    
+            const paymentRes = await fetch("http://127.0.0.1:8000/api/payment", {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    total: total,
+                    pick_up_address: address,
+                    payment_method: "ABA KHQR", // Static for now
+                    cart_item_ids: cartItemIds
+                })
+            });
+    
+            const paymentResult = await paymentRes.json();
+    
+            if (paymentResult.success) {
+                // ✅ Payment saved — open receipt in a new tab
+                window.open('../Receipt/receipt.html', '_blank'); // This opens a new tab
+            } else {
+                alert("❌ Payment failed: " + paymentResult.message);
+            }
+        } catch (error) {
+            console.error("❌ Error:", error);
+            alert("Something went wrong!");
+        }
+    
+    });
+    
     
 });
