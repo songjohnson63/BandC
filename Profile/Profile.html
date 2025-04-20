@@ -45,17 +45,17 @@
       <div class="box-info">
         <div class="box">
           <label for="fullName">Full Name</label><br>
-          <input type="text" id="fullName">
+          <input type="text" id="fullName" readonly>
         </div>
       
         <div class="box">
           <label for="contactNumber">Contact Number</label><br>
-          <input type="text" id="contactNumber">
+          <input type="text" id="contactNumber" readonly>
         </div>
       
         <div class="box">
           <label for="password">Password</label><br>
-          <input type="password" id="password">
+          <input type="password" id="password" readonly>
         </div>
       
         <!-- <div class="box">
@@ -66,7 +66,7 @@
       
         <div class="box">
           <label for="address">Latest Pickup Address</label><br>
-          <input type="text" id="address" name="address">
+          <input type="text" id="address" name="address" readonly>
         </div>
       </div>
       
@@ -141,7 +141,7 @@
       if (userGreeting) {
         if (isLoggedIn && userName) {
           // Show Hello, Name -> link to OrderHistory
-          userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../OrderHistory/OrderHistory.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+          userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
 
         
         } else {
