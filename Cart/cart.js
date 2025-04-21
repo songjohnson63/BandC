@@ -272,7 +272,19 @@ async function loadPaymentModal() {
     document.getElementById("total-amount").innerText = `Total: $${totalPaymentAmount.toFixed(2)}`;
 }
 
+// document.getElementById('order-button').addEventListener('click', function () {
+//     const address = document.getElementById('address').value;
 
+//     if (!address) {
+//         alert('Please enter your pick-up address!');
+//         return;
+//     }
+
+//     // Optional: You can save to database here if needed
+
+//     // Redirect to Receipt page in a new tab
+//     window.open('../Receipt/receipt.html', '_blank'); // Change '/receipt' to your actual route
+// });
 
 document.getElementById('order-button').addEventListener('click', async function () {
     const address = document.getElementById('address').value;

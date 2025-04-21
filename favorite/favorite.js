@@ -71,7 +71,6 @@ async function loadFavoriteProducts() {
                                     <h5 class="mx-2 text-danger">$${product.price_after_discount}</h5>
                                 </div>
                                 <button class="border-0 fs-4 bg-transparent mb-3">
-                                    <i class="fa-solid fa-cart-shopping" data-cateName="${product.cateName}" data-id="${product.id}"></i>
                                     <i class="fa-solid fa-heart" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)" style="color: red;"></i>
                                 </button>
                             </div>
