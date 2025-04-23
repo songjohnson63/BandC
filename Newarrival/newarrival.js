@@ -64,36 +64,36 @@ function loadProducts(url, categoryName) {
         // Limit to the first 8 items (latest ones)
         const latestData = sortedData.slice(0, 8);
   
-        latestData.forEach(item => {
+        latestData.forEach(product => {
           const card = document.createElement('div');
-          card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-6', 'col-lg-3');
+          card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-4', 'col-lg-3');
   
 
           
           card.innerHTML = `
-            <div class="card shadow-lg">
-            <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
-              <img class="rounded" src="${item.img}" alt="${item.name}">
+           <div class="card shadow-lg">
+            <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
+                <img class="card-img-top rounded" src="${product.img}" alt="${product.name}">
             </a>
-              <div class="card-body">
-                <div class="card-title">
-                  <h5>${item.name}</h5>
-                </div>
-                <div class="card-text">
-                  <p>${item.description}</p>
-                </div>
-                <div class="card-price d-flex" style="justify-content: space-between;">
-                  <div class="price d-flex mt-4">
-                    <h5 class="text-decoration-line-through">$${parseFloat(item.price * 1.25).toFixed(2)}</h5>
-                    <h5 class="mx-2 text-danger">$${item.price}</h5>
+                <div class="card-body">
+                    <div class="card-title  text-center">
+                        <h5>${product.name}</h5>
+                    </div>
+                    <div class="card-text">
+                        <p>${product.description}</p>
+                    </div>
+                    <div class="card-price d-flex justify-content-between ">
+                  <div class="price d-flex align-items-center align-items-center ">
+                    <h6 class="text-decoration-line-through mt-2 button-cart-font">$${product["ori-price"]}</h6>
+                    <h6 class="mx-2 text-danger mt-2 button-cart-font">$${product.price}</h6>
                   </div>
-                  <button class="border-0 bg-transparent fs-4">
-                    <i class="fa-solid fa-cart-shopping mx-3" id="heart-${item.id}" data-cateName="${item.cateName}" data-id="${item.id}" data-favorite="${item.IsFavorite}" onclick="toggleFavorite(event)"></i>
-                    <i class="fa-solid fa-heart heart-icon" id="heart-${item.id}" data-cateName="${item.cateName}" data-id="${item.id}" data-favorite="${item.IsFavorite}" onclick="toggleFavorite(event)"></i>
+                  <button class=" border-0 bg-transparent d-flex justify-content-between align-items-center button-cart-font">
+                    <i class="fa-solid fa-cart-shopping mx-3 mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+                    <i class="fa-solid fa-heart heart-icon mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
 
                   </button>
                 </div>
-              </div>
+                </div>
             </div>
           `;
           container.appendChild(card);

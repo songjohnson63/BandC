@@ -11,14 +11,10 @@
 footer{
     justify-content: space-between;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4,4fr);
-    height: 50vh;
     letter-spacing: 1px;
    
 }
 footer h1{
-    
     font-weight: 500;
     margin-bottom: 5%;
     color: rgb(255, 255, 255);
@@ -62,4 +58,17 @@ footer .footer2 i{
     display: inline-block;
    
 }
-
+.footer1{
+    width: 25%;
+}
+.footer-info{
+    width: 70%;
+}
+@media (max-width: 991.98px) {
+    .footer1{
+        width: 50%;
+    }
+    .footer-info{
+        width: 100%;
+    }
+}

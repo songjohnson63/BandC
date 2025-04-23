@@ -1,0 +1,23 @@
+.responHeader{ 
+ margin-top: 2rem;
+  }
+  @media (max-width: 1200px) {
+    .responHeader{ 
+        margin-top: 3rem;
+         }
+   }
+@media (max-width: 991.98px) { 
+    .responHeader{ 
+        margin-top: 2.6rem;
+         }
+}
+@media (max-width: 767.98px){
+    .responHeader{ 
+        margin-top: 3.5rem;
+         }
+}
+@media (max-width: 575.98px){
+    .responHeader{ 
+        margin-top: 4.3rem;
+         }
+}

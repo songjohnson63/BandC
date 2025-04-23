@@ -127,29 +127,30 @@ function displayCategoryProducts(category, products) {
   container.innerHTML = '';
     products.forEach(product => {
         const productDiv = document.createElement('div');
-        productDiv.classList.add('cart', 'col-sm-6', 'col-md-6', 'col-lg-3', 'mt-5');
+        productDiv.classList.add('cart', 'col-sm-6', 'col-md-4', 'col-lg-3', 'mt-5');
         productDiv.innerHTML = `
             <div class="card shadow-lg">
             <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
-                <img class="rounded" src="${product.img}" alt="${product.name}">
+                <img class="card-img-top rounded" src="${product.img}" alt="${product.name}">
             </a>
                 <div class="card-body">
-                    <div class="card-title">
+                    <div class="card-title  text-center">
                         <h5>${product.name}</h5>
                     </div>
                     <div class="card-text">
                         <p>${product.description}</p>
                     </div>
-                    <div class="card-price d-flex" style="justify-content: space-between;">
-                        <div class="price d-flex mt-4">
-                            <h5 class="text-decoration-line-through">$${(parseFloat(product.price) * 1.2).toFixed(2)}</h5>
-                            <h5 class="mx-2 text-danger">$${product.price}</h5>
-                        </div>
-                        <button class="border-0 bg-transparent fs-4">
-                            <i class="fa-solid fa-cart-shopping mx-3" id="heart-${product.id}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
-                            <i class="fa-solid fa-heart heart-icon" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
-                        </button>
-                    </div>
+                    <div class="card-price d-flex justify-content-between ">
+                  <div class="price d-flex align-items-center align-items-center ">
+                    <h6 class="text-decoration-line-through mt-2 button-cart-font">$${product["ori-price"]}</h6>
+                    <h6 class="mx-2 text-danger mt-2 button-cart-font">$${product.price}</h6>
+                  </div>
+                  <button class=" border-0 bg-transparent d-flex justify-content-between align-items-center button-cart-font">
+                    <i class="fa-solid fa-cart-shopping mx-3 mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+                    <i class="fa-solid fa-heart heart-icon mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+
+                  </button>
+                </div>
                 </div>
             </div>
         `;

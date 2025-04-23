@@ -20,8 +20,7 @@ async function FavProducts() {
     container.innerHTML = '';
   allFavoriteProducts.forEach(product=>{
     const productDiv = document.createElement('div');
-        productDiv.classList.add('cart', 'col-sm-6', 'col-md-6', 'col-lg-3', 'mt-5');
-        productDiv.style.width = '49%';
+        productDiv.classList.add('cart', 'col-12', 'col-lg-6','mt-5');
         productDiv.innerHTML = `
                 <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
 

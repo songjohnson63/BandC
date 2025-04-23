@@ -10,68 +10,44 @@
     text-decoration: none;
     transform: all .2s linear;
 }
- 
 h1{
     text-align: center;
     font-size: 30px;
     font-weight: 600;
 }
 
- .content-mession{
+ /* .content-mession{
     display: grid;
     grid-template-columns: (2,3fr);
-    align-items: center; /* Aligns content vertically */
-    justify-content: space-between; /* Space between text and image */
-
-}
+    align-items: center; 
+    justify-content: space-between; 
+} */
 
 .m-s{
     width: 100%;
     display: flex;
     align-items: center;
-    /* background-image: url(../Homepage/images/slide5.jpg); */
-    height: 85vh;
-    /* margin-top:14%; */
 }
-.m-s image{
-    /* object-fit: cover; */
-    height: 90vh;
-    /* position: relative;  Establish a positioning context for the text */
-    /* display: block; */
+.m-s .content-mession{ 
+    width: 100%;
+    max-height: 40rem;
+   background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    overflow: hidden;
+ 
 }
-.text-overlay {
-    position: absolute;  /* Position text over the image */
-    top: 40;
-    left: 0;
-    width: 100%;  /* Full width for overflow visibility */
-    height: 100%;
-    padding: 60px;
-    box-sizing: border-box;
-    color: white;  /* Text color for visibility */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;  /* Align text to the top */
-    overflow: visible;  /* Allow text overflow */
-  }
-  
-.content{
-    display: flex;
-    align-items: center; /* Aligns content vertically */
-    justify-content: space-between; /* Space between text and image */
+.m-s .content-mession .m-s-textContent{
+    width: 100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.273);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
-
-.text {
-    /* flex: 1; Allow text to take up remaining space */
-    margin-right: 20px; /* Add spacing between text and image */
-    font-size: 20px;
-       
-}
-
-.text li{
+.m-s .content-mession .m-s-textContent p{
+    font-size: 1.4rem;
     color: white;
 }
-
-/* Mentor Card */
 .container {
     display: flex;
     justify-content: center;
@@ -182,4 +158,25 @@ h1{
 .card-container{
     display: flex;
     justify-content: center;
+}
+@media (max-width: 991.98px) { 
+    .m-s .content-mession{
+        max-height: 45rem;
+    }
+    .m-s .content-mession .m-s-textContent p{
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 767.98px){
+    .m-s .content-mession{
+        max-height: 50rem;
+    }
+    .m-s .content-mession .m-s-textContent p{
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 575.98px){
+    .m-s .content-mession{
+        max-height: 60rem;
+    }
 }

@@ -444,7 +444,7 @@ async function toggleFavorite(event) {
 
 
   function displayProductsBySection(section, containerClass) {
-    const productContainer = document.querySelector(`.${containerClass}`);
+    const productContainer = document.querySelector(`.${containerClass}`);// Add Bootstrap row class for layout
     productContainer.innerHTML = ''; // Clear existing content
   
     const filteredProducts = products.filter(product => product.section === section);
@@ -458,16 +458,16 @@ async function toggleFavorite(event) {
               <img class="card-img-top rounded" src="${product.img}" alt="${product.name}">
             </a>
               <div class="card-body">
-                <h5 class="card-title">${product.name}</h5>
-                <p class="card-text">${product.description}</p>
-                <div class="card-price d-flex justify-content-between">
-                  <div class="price d-flex mt-4">
-                    <h5 class="text-decoration-line-through">$${product["ori-price"]}</h5>
-                    <h5 class="mx-2 text-danger">$${product.price}</h5>
+                <h5 class="card-title text-center">${product.name}</h5>
+                <p class="card-text" >${product.description}</p>
+                <div class="card-price d-flex justify-content-between ">
+                  <div class="price d-flex align-items-center align-items-center ">
+                    <h6 class="text-decoration-line-through mt-2 button-cart-font">$${product["ori-price"]}</h6>
+                    <h6 class="mx-2 text-danger mt-2 button-cart-font">$${product.price}</h6>
                   </div>
-                  <button class="border-0 bg-transparent fs-4">
-                    <i class="fa-solid fa-cart-shopping mx-3" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
-                    <i class="fa-solid fa-heart heart-icon" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+                  <button class=" border-0 bg-transparent d-flex justify-content-between align-items-center button-cart-font">
+                    <i class="fa-solid fa-cart-shopping mx-3 mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+                    <i class="fa-solid fa-heart heart-icon mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
 
                   </button>
                 </div>
@@ -480,11 +480,69 @@ async function toggleFavorite(event) {
     });
   }
   
-  // Call the function for each section
-  displayProductsBySection('new-arrival', 'new-arrival');
-  displayProductsBySection('best-seller', 'best-seller');
-  displayProductsBySection('promotions', 'promotions');
-  displayProductsBySection('all-product', 'all-product');
-
-
+  //function to fetch new arrival and best seller product from JSON file
+  function displayNewArrivalOrBestSeller(section) {
+    const productContainer = document.querySelector(".NewArrival-BestSell");
   
+    // Clear previous carousel-inner if exists
+    productContainer.innerHTML = '';
+    const filteredProducts = products.filter(product => product.section === section);
+  
+    filteredProducts.forEach((product, index) => {
+      const isActive = index === 0 ? 'active' : '';
+      const productCard = `
+        <div class="cart carousel-item ${isActive} d-flex justify-content-center py-4">
+          <div class="card" style="width:94%">
+            <a href="../Detail/detail.html?id=${product.id}" class="text-decoration-none text-dark">
+              <img class="card-img-top rounded" src="${product.img}" alt="${product.name}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title text-center">${product.name}</h5>
+              <p class="card-text">${product.description}</p>
+              <div class="card-price d-flex justify-content-between">
+                <div class="price d-flex align-items-center">
+                  <h6 class="text-decoration-line-through mt-2 button-cart-font">$${product["ori-price"]}</h6>
+                  <h6 class="mx-2 text-danger mt-2 button-cart-font">$${product.price}</h6>
+                </div>
+                <button class="border-0 bg-transparent d-flex align-items-center button-cart-font">
+                  <i class="fa-solid fa-cart-shopping mx-3 mt-0" id="cart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}"></i>
+                  <i class="fa-solid fa-heart heart-icon mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      productContainer.innerHTML += productCard;
+    });
+  }
+  
+//code for change the button to it's corresponding page when click on tab at the home page of new arrival and best seller 
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.newArrival-head h3');
+  const buttons = {
+    'New Arrival': document.querySelector('a[href*="arrival.html"]'),
+    'Best Seller': document.querySelector('a[href*="sample.html"]')
+  };
+
+  displayNewArrivalOrBestSeller('new-arrival');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const section = tab.textContent.trim() === 'New Arrival' ? 'new-arrival' : 'best-seller';
+      displayNewArrivalOrBestSeller(section);
+
+      buttons['New Arrival'].classList.toggle('d-none', section !== 'new-arrival');
+      buttons['Best Seller'].classList.toggle('d-none', section !== 'best-seller');
+    });
+  });
+});
+  //end code for change the button to it's corresponding page when click on tab
+
+  // Call the function for each section
+ // displayProductsBySection('new-arrival', 'new-arrival');
+  //displayProductsBySection('best-seller', 'best-seller');
+  displayProductsBySection('promotions', 'promotions');
+ // displayProductsBySection('all-product', 'all-product');

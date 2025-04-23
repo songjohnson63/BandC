@@ -25,10 +25,17 @@
             <span>Khmer New year 15% discount</span>
             <span>Khmer New year 15% discount</span>
         </div>
+        <div class="text">
+            <span>Khmer New year 15% discount</span>
+            <span>Khmer New year 15% discount</span>
+            <span>Khmer New year 15% discount</span>
+            <span>Khmer New year 15% discount</span>
+        </div>
     </div>
-    
-    <nav class="navbar navbar-expand-lg px-5 fixed-top" style="box-shadow: 1px 1px 2px 1px rgb(155, 155, 155); background-color:white; height:90px;">
-      <div class="container-fluid ">
+
+    <nav class=" navbar navbar-expand-lg px-2 px-lg-5 position-fixed fixed-top" >
+        
+        <div class="container-fluid position-relative"> 
         <!-- LOGO -->
           <div class="logo">
               <ul class="navbar-nav">
@@ -40,29 +47,31 @@
               </ul>
           </div>
           
-          <button class="navbar-toggler btn position-absolute " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" ></span> 
+          <button class="navbar-toggler btn position-absolute"  id="toggleBtn" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span  id="iconWrapper"><span class="navbar-toggler-icon" ></span> </span>
           </button>
-
-          <div class=" navbar-collapse " id="navbarSupportedContent">
-              <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium p-sm-3">
+          <div class="search position-absolute" style="left:3.5rem"> <a class="nav-link fs-4 d-block d-lg-none ml-5" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+          </div>
+         
+          <div class="collapse navbar-collapse glass-background" id="navbarSupportedContent" >
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium p-sm-3 " >
                   <!-- All Products Link and Dropdown -->
-                  <li class="nav-item dropdown">
-                      <a class="nav-link fs-5 mx-3" href="../AllProduct/allproduct.html">
-                          All Products
-                      </a>
+                  <li class="nav-item position-relative">
+                      <button class="nav-link fs-5 mx-3 dropdown-click" href="../AllProduct/allproduct.html" data-bs-toggle="dropdown" aria-expanded="false">
+                     All Products<i class="fa-solid fa-caret-down " style="color: #434343; "></i>
+                      </button>
                       <!-- Dropdown Menu -->
-                      <ul class="dropdown-menu fs-6">
+                      <ul class="dropdown-menu fs-6 ">
                           <li><a class="dropdown-item" href="../Newarrival/arrival.html">New Arrival</a></li>
                           <li><a class="dropdown-item" href="../Bestseller/sample.html">Best Seller</a></li>
                       </ul>
                   </li>
 
                   <!-- Categories Link and Dropdown -->
-                  <li class="nav-item dropdown">
-                      <a class="nav-link fs-5 mx-3" href="#" data-bs-toggle="dropdown">
-                          Categories
-                      </a>
+                  <li class="nav-item  position-relative ">
+                      <button class="nav-link fs-5 mx-3 dropdown-click" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categories  <i class="fa-solid fa-caret-down" style="color: #434343;"></i>
+                      </button>
                       <ul class="dropdown-menu fs-6">
                           <li><a class="dropdown-item bg-white" href="../category/category.html?category=Sunscreen">Sunscreen</a></li>
                           <li><a class="dropdown-item bg-white" href="../category/category.html?category=Toner">Toner</a></li>
@@ -77,24 +86,17 @@
                       <a class="nav-link fs-5 mx-3" href="../AboutUs/aboutus.html">About Us</a>
                   </li> 
               </ul>
-
-              <!-- Right Side Icons -->
-              <!-- <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex flex-column flex-lg-row">
-                  <li><a class="nav-link fs-4 mx-2" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                  <li><a class="nav-link fs-4 mx-2" href="../favorite/favorite.html"><i class="fa-regular fa-heart"></i></a></li>
-                  <li><a class="nav-link fs-4 mx-2" href="../Cart/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                  <li><a class="nav-link fs-4 mx-2" href="#"><i class="fa-regular fa-user"></i></a></li>
-              </ul> -->
           </div> 
         
-          <ul class="right-side-nav d-sm-flex mb-2 mb-lg-0">
-            <li><a class="nav-link fs-4 mx-2" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+          <ul class="right-side-nav d-flex m-0">
+            <li><a class="nav-link fs-4 mx-2 d-none d-lg-block" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
             <li><a class="nav-link fs-4 mx-2" href="../favorite/favorite.html"><i class="fa-regular fa-heart"></i></a></li>
             <li><a class="nav-link fs-4 mx-2" href="../Cart/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
             <li><a class="nav-link fs-4 mx-2" href="#"><i class="fa-regular fa-user"></i></a></li>
         </ul>
       </div>
   </nav>
-  
 </body>
 </html>
+<script src="navbar.js"></script>
+<!-- all the navbar.js code is only for animation of icon  -->

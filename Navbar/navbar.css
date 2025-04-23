@@ -1,4 +1,9 @@
+
+
 /* Promotion Bar */
+ul li{
+  list-style-type: none;
+}
 .promotion {
     background-color: white; /* Set a background to ensure visibility */
     padding: 8px;
@@ -13,12 +18,18 @@
     z-index: 1050; /* Higher than the navbar */
     border-bottom: 1px solid #ddd; /* Optional for separation */
 }
+.navbar{
+  width: 100%;
+  box-shadow: 1px 1px 2px 1px rgb(155, 155, 155); 
+  background-color:white;
+   margin-top: 35px;
+}
 .logo{
   width: 11%;
 }
 
 /* Promotion Text Animation */
-.promotion .text {
+.promotion .text{
     display: flex;
     animation: animate_text 25s linear infinite;
 }
@@ -26,19 +37,14 @@
 .promotion .text span {
     letter-spacing: 1.8px;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 14px;
     color: rgb(67, 67, 67);
     margin-right: 40px;
 }
 
-.navbar {
-    margin-top: 40px;
-    position: fixed; /* Sticks below the promotion bar */
-    width: 100%; /* Full width */
-    box-shadow: 1px 1px 2px 1px rgb(155, 155, 155);
-    background-color: white; /* Background for clarity */
+.nav-link {
+  color: rgb(67, 67, 67);
 }
-
 @keyframes animate_text {
      from {
        transform: translate3d(0, 0, 0);
@@ -50,32 +56,58 @@
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
 }
-
 .dropdown-menu {
   margin-top: 0; 
 }
-
+.navbar-nav .nav-item  .dropdown-menu-list{
+  top: 100%;
+  width: 100%;
+}
+#iconWrapper {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 @media (max-width: 991.98px) { 
+  .navbar{
+    margin-top: 35px;
+    justify-content: space-between;
+    z-index: 1000;
+  }
   .right-side-nav {
       position: absolute;
-      top: 10px;
-      right: 10px; 
+      top: 50%;
+      right: 0; 
+      transform: translate(0, -50%);
   }
   .logo{
-    width: 15%;
+    width: 7rem;
     margin-left: 50%; 
     transform: translate(-50%,0);
   }
   .navbar-collapse{
-    background-color: red;
     position: absolute;
-    width:30vw;
+    width:50vw;
     top:100%;
-    left:0;
+    margin-top: 0.5rem;
+    left:-1rem;
   }
   .btn{
+    left:0;
     top:50%;
     transform: translate(0,-50%);
-
+    box-shadow: none !important; 
+    outline: none !important;
+    border: none !important;
   }
+  .glass-background{
+    background: rgba(255, 255, 255, 0.426);
+    box-shadow:  inset 0 2px 1px  rgb(155, 155, 155), 0 5px 10px rgba(0, 0, 0, 0.185);   
+    backdrop-filter: blur(7.7px);
+    -webkit-backdrop-filter: blur(5px);
+    }
+   .navbar-collapse .navbar-nav {
+    height: 100vh;
+   }
+   .navbar-nav .nav-item .nav-link  i{
+   margin-left: 1rem;
+   }
 }

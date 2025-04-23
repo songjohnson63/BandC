@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Homepage/hompage.css">
     <link rel="stylesheet" href="bestseller.css">
+    <link rel="stylesheet" href="../responsive/responHeader.css">
 </head>
 <body>
   <div id="navbar-container"></div>
 
 
 <!-- --------------------------------------------- -->
-  <div class="content">
-    <div class="container-fluid" style="width: 85%;">
-      <h2 class="text-center fs-3 fw-bold mt-5">Best Sellers</h2>
+  <div class="content  responHeader">
+    <div class="container" >
+      <h2 class="text-center fs-3 fw-bold">Best Sellers</h2>
     <div class="row best-seller" id="products"></div>
   </div>
   
@@ -46,6 +47,9 @@
       .then((html) => {
         if (html) {
           document.getElementById("navbar-container").innerHTML = html;
+          const script = document.createElement('script');
+        script.src = '../Navbar/navbar.js';
+        document.body.appendChild(script);
         }
       })
       .catch((error) => console.error("Error loading navbar:", error));

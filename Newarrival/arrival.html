@@ -15,6 +15,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../Homepage/hompage.css">
   <link rel="stylesheet" href="../Newarrival/arrivle.css">
+  <link rel="stylesheet" href="../responsive/responHeader.css">
 
 </head>
 
@@ -23,8 +24,8 @@
 
   <div id="navbar-container"></div>
   <!-- --------------------------------------------- -->
-  <div class="content">
-    <div class="container-fluid" style="width:85%;">
+  <div class="conten responHeader">
+    <div class="container">
       <h2 class="text-center fs-3 fw-bold mt-5">New Arrival</h2>
       <!-- <p class="text-center fs-5 mt-4">Happy shopping with all products in B&C Shop</p> -->
 
@@ -52,6 +53,9 @@
       .then((html) => {
         if (html) {
           document.getElementById("navbar-container").innerHTML = html;
+          const script = document.createElement('script');
+        script.src = '../Navbar/navbar.js';
+        document.body.appendChild(script);
         }
       })
       .catch((error) => console.error("Error loading navbar:", error));
