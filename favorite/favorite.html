@@ -8,6 +8,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Homepage/hompage.css">
+    
+    <style>
+      .text-truncate-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Limits text to 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        min-height: 3rem; /* Ensures a fixed height for consistency */
+      }
+      .text-truncate-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Limits to 3 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+      }
+      .price {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Space between original and discounted price */
+        white-space: nowrap; /* Prevent line breaks */
+      }
+      .icon-large {
+        font-size: 24px; /* Adjust size as needed */
+        cursor: pointer;
+      }
+    
+    
+    
+    
+    </style>
 </head>
 <body>
   <div id="navbar-container"></div>
@@ -15,18 +49,18 @@
   <div class="content mt-4">
     <div class="container-fluid" style="width: 85%;">
       <h2 class="text-center fs-2 fw-bold" id="category-title">YOUR FAVORITES</h2>
-      <div class="row"  id="product-container">
-
+      <div class="row" id="product-container">
+        <!-- 🛒 Products will be loaded here dynamically -->
       </div>
-      </div>
+    </div>
   </div>
    
-<div id="footer-container"></div>
-</body>
-<script src="favorite.js"></script>
-<script src="../category/cateJS.js"></script>
-<script src="../products/homepage.js"></script>
-<script>
+  <div id="footer-container"></div>
+
+  <!-- ✅ Add favorite.js at the end -->
+  <script src="favorite.js"></script>
+
+  <script>
   document.addEventListener("DOMContentLoaded", function () {
     fetch("../Navbar/navbar.html")
       .then((response) => {
@@ -56,6 +90,7 @@
       })
       .catch((error) => console.error("Error loading navbar:", error));
 
+      
       function initializeNavbar() {
         console.log("Initializing navbar...");
       
@@ -68,22 +103,24 @@
       
         if (userGreeting) {
           if (isLoggedIn && userName) {
-            // Convert "Hello, Name" into a clickable link
-            userGreeting.innerHTML = `<a href="../Login/login.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Login/login.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
-            console.log("User logged in: ", userName);
+            // Show Hello, Name -> link to OrderHistory
+            userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+
+          
           } else {
-            userGreeting.innerHTML = `<a class="nav-link fs-4 mx-2" href="../Login/login.html">
-                <i id="userIcon" class="fa-regular fa-user"></i>
-            </a>`;
-            console.log("User not logged in");
+            // Not logged in, show icon link to login
+            userGreeting.innerHTML = `
+              <a class="nav-link fs-4 mx-2" href="../Login/login.html">
+                <i class="fa-regular fa-user"></i>
+              </a>
+            `;
           }
         } else {
           console.error("userGreeting element not found!");
         }
       }
-    });      
+    });    
 
-  
     fetch("../Footer/footer.html")
       .then((response) => {
         if (!response.ok) {
@@ -100,5 +137,5 @@
       .catch((error) => console.error("Error loading footer:", error));
  
 </script>
-
+</body>
 </html>

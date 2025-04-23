@@ -260,6 +260,7 @@
       })
       .catch((error) => console.error("Error loading navbar:", error));
 
+      
       function initializeNavbar() {
         console.log("Initializing navbar...");
       
@@ -272,20 +273,23 @@
       
         if (userGreeting) {
           if (isLoggedIn && userName) {
-            // Convert "Hello, Name" into a clickable link
-            userGreeting.innerHTML = `<a href="../Login/login.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Login/login.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
-            console.log("User logged in: ", userName);
+            // Show Hello, Name -> link to OrderHistory
+            userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+
+          
           } else {
-            userGreeting.innerHTML = `<a class="nav-link fs-4 mx-2" href="../Login/login.html">
-                <i id="userIcon" class="fa-regular fa-user"></i>
-            </a>`;
-            console.log("User not logged in");
+            // Not logged in, show icon link to login
+            userGreeting.innerHTML = `
+              <a class="nav-link fs-4 mx-2" href="../Login/login.html">
+                <i class="fa-regular fa-user"></i>
+              </a>
+            `;
           }
         } else {
           console.error("userGreeting element not found!");
         }
       }
-    });      
+    });    
 
   
     fetch("../Footer/footer.html")
