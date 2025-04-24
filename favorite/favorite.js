@@ -1,54 +1,27 @@
-document.addEventListener("DOMContentLoaded", async function () {
-    console.log("🚀 Page Loaded - Fetching Favorite Products...");
-    await loadFavoriteProducts();
-});
 
-async function loadFavoriteProducts() {
-    try {
-        const apiURL = "http://127.0.0.1:8000/api/favorites"; // Replace with your actual API endpoint
-
-        // 🔑 Retrieve authentication token from localStorage
-        const authToken = localStorage.getItem("authToken");
-
-        if (!authToken) {
-            console.error("⚠️ No authentication token found. User might not be logged in.");
-            document.getElementById("product-container").innerHTML = "<p class='text-center text-danger'>Please log in to view your favorite products.</p>";
-            return;
-        }
-        
-        console.log("🔍 Fetching from API:", apiURL);
-
-        const response = await fetch(apiURL, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${authToken}` // 🔑 Include token for authentication
+async function FavProducts() {
+    const allFavoriteProducts = [];
+    for (const [category, path] of Object.entries(productFiles)) {
+        try {
+            const categoryProducts = await fetchJSON(path);
+            for (let i = 0; i < 3; i++) {
+                if (categoryProducts[i]) {
+                    categoryProducts[i].IsFavorite = !categoryProducts[i].IsFavorite;
+                }
             }
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP Error! Status: ${response.status}`);
+            const favoriteProducts = categoryProducts.filter(product => product.IsFavorite === true);
+            // Add the filtered products to the allFavoriteProducts array
+            allFavoriteProducts.push(...favoriteProducts);
+        } catch (error) {
+            console.error(error);
         }
-
-        const result = await response.json();
-        console.log("✅ API Response:", result);
-
-        if (!result.data || result.data.length === 0) {
-            console.warn("⚠️ No favorite products found.");
-            document.getElementById("product-container").innerHTML = "<p class='text-center'>No favorite products found.</p>";
-            return;
-        }
-
-        const container = document.getElementById("product-container");
-        container.innerHTML = ""; // Clear previous content
-
-        result.data.forEach(product => {
-
-            const productDiv = document.createElement("div");
-            productDiv.classList.add("cart", "col-sm-6", "col-md-6", "col-lg-3", "mt-5");
-            productDiv.style.width = "49%";
-
-            productDiv.innerHTML = `
+    }
+    const container = document.getElementById('product-container');
+    container.innerHTML = '';
+  allFavoriteProducts.forEach(product=>{
+    const productDiv = document.createElement('div');
+        productDiv.classList.add('cart', 'col-12', 'col-lg-6', 'mt-5');
+        productDiv.innerHTML = `
                 <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
                     <div class="card shadow-lg" style="flex-direction: row;">
                         <img class="rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="Product Image" style="width: 30%; height: 40vh">

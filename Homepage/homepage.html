@@ -11,12 +11,60 @@
     <link rel="stylesheet" href="../Homepage/hompage.css">
     
 </head>
+<style>
+  .product-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .product-card {
+    min-width: 200px;
+    max-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    background: #f8f9fa;
+    text-align: center;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .scroll-btn.left {
+    left: 0;
+  }
+
+  .scroll-btn.right {
+    right: 0;
+  }
+  .carousel .carousel-inner{
+    display: flex;
+  }
+</style>
 
 <body>
   <div id="navbar-container"></div>
-
   <!-- --------------------------------------------------- -->
-  <div class="slideshow">
+  <div class="slideshow" >
     <div class="container-fluid">
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -55,75 +103,92 @@
       </div>
     </div>
   </div>
-
 <!-- --------------------------------------------- -->
-<div class="content">
-
-  <div class="container-fluid" style="width: 85%;">
-    <h2 class="text-center fs-3 fw-bold mt-5">Popular Now</h2>
-    <div class="row all-product"></div>
+<div class="container home-newArrival mt-5">
+  <div class="newArrival-head d-flex justify-content-center gap-5 ">
+    <h3 class=" fw-bold active">New Arrival</h3>
+    <h3 class="  fw-bold">Best Seller</h3>
   </div>
-  <div class="d-grid gap-2 col-1 mx-auto mt-5" style="height: 50px;">
-      <!-- <button class="btn btn-secondary fs-6 w-auto" type="button">
-          New Arrival <i class="fa-solid fa-arrow-right text-white"></i>
-      </button> -->
+  <div class="newArrival-content">
+    <div class="container mt-5">
+      <div id="carousel-new-arrival" class="carousel" data-bs-ride="carousel" >
+        <div class="NewArrival-BestSell carousel-inner d-flex content ">
+          <!-- <div class="carousel-item active">
+            <div class="card m-2">
+              <img src="../products/img/cleanser/03.webp" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            </div>
+          -->
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="p-2 rounded-circle d-flex" style="background-color: #AAAAAA"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" >
+          <span  class="p-2 rounded-circle d-flex" style="background-color: #AAAAAA"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+        </button>
+      </div>
+    </div>
   </div>
-
-  <div class="container-fluid" style="width: 85%;">
-    <h2 class="text-center fs-3 fw-bold ">Mega Sale Up to 70% Off</h2>
-    <div class="row promotions"></div>
-  </div>
-  <div class="d-grid gap-2 col-1 mx-auto" style="height: 50px;">
-      <!-- <button class="btn btn-secondary fs-6 w-auto" type="button">
-          Promotions <i class="fa-solid fa-arrow-right text-white"></i>
-      </button> -->
-  </div>
-
-
-  <div class="container-fluid" style="width: 85%;">
-      <h2 class="text-center fs-3 fw-bold mt-5">Best Sellers</h2>
-      <div class="row best-seller" ></div>
-  </div>
-  <div class="d-grid gap-2 col-1 mx-auto mt-5 mb-5" style="height: 50px;">
-    <a href="../Bestseller/sample.html" class="btn btn-secondary fs-6 w-auto" type="button" style="padding-top: 10px;">Best Sellers <i class="fa-solid fa-arrow-right text-white"></i></a>
-      <!-- <button class="btn btn-secondary fs-6 w-auto" type="button">
-          
-      </button> -->
-  </div>
-
-
-  <div class="container-fluid" style="width: 85%;">
-    <h2 class="text-center fs-3 fw-bold">New Arrival</h2>
-    <div class="row new-arrival"></div>
-  </div>
-  <div class="d-grid gap-2 col-1 mx-auto mt-5 mb-5" style="height: 50px;">
+  <div class="container d-flex justify-content-center mt-4">
     <a href="../Newarrival/arrival.html" class="btn btn-secondary fs-6 w-auto" type="button" style="padding-top: 10px;">New Arrival <i class="fa-solid fa-arrow-right text-white"></i></a>
-      <!-- <button class="btn btn-secondary fs-6 w-auto" type="button">
-          
-      </button> -->
+    <a href="../Bestseller/sample.html" class="btn btn-secondary fs-6 w-auto d-none" type="button" style="padding-top: 10px;">Best Sellers <i class="fa-solid fa-arrow-right text-white"></i></a>
   </div>
-  </div>
+</div>
 
+<div class="container-fluid mega-sale mt-5 d-flex justify-content-center align-items-center overflow-hidden">
+  <img src="images/mega sale.png" alt="">
+</div>
+
+
+  <div class="content container-fluid p-5">
+  <div class="container" >
+    <div class="row promotions pb-4"></div>
+  </div>
+</div>
 
   <div class="brand container-fluid" style="width: 85%;">
-    <h2 class="text-center fs-3 fw-bold mt-5">Our Brands</h2>
-    <img src="../Homepage/images/brands.png" alt="">
+    <h2 class="text-center fs-3 fw-bold mt-5">View your favorite products by its category</h2>
+    <div class="container my-5" >
+      <div class=" viewByCategory d-flex row p-0 m-0" style="width: 100%;">
+        <div class="top d-flex " style=" width:100%">
+          <div class="top-item" style="background-image: url(images/sunscreenTexture.jfif);"><a class="w-100 h-100 d-flex justify-content-center align-items-center text-decoration-none fs-6 fw-bold" href="../category/category.html?category=Sunscreen">Sunscreen</a></div>
+          <div class="top-item" style="background-image: url(images/moisturizerTexture.webp);"><a class="w-100 h-100 d-flex justify-content-center align-items-center text-decoration-none fs-6 fw-bold"  href="../category/category.html?category=Moisturizer">Moisturizer</a></div>
+          <div class="top-item" style="background-image: url(images/cleanserTexture.webp);"><a class="w-100 h-100 d-flex justify-content-center align-items-center text-decoration-none fs-6 fw-bold"  href="../category/category.html?category=Cleanser">Cleaner</a></div>
+        </div>
+
+        <div class="bottom d-flex" style="width: 100%">
+          <div class="bottom-item" style="background-image: url(images/serumTexture.webp);"><a class="w-100 h-100 d-flex justify-content-center align-items-center text-decoration-none fs-6 fw-bold"   href="../category/category.html?category=Serum">Serum</a></div>
+          <div class="bottom-item" style="background-image: url(images/tonerTexture.jpg);"><a class="w-100 h-100 d-flex justify-content-center align-items-center text-decoration-none fs-6 fw-bold"  href="../category/category.html?category=Toner">Toner</a></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-
   
-<div id="footer-container"></div>
+<div class="brand container-fluid" style="width: 90%;">
+  <h2 class="text-center fs-3 fw-bold mt-5">Our brands</h2>
+  <img src="../Homepage/images/brands.png" alt="">
+</div>
+  
 
+  <div id="footer-container"></div>
 </body>
 
+
 <!-- ========= Call product from JSON  -->
-<script type="module" src="../products/homepage.js"></script>
 
 <!-- ========= Call Navbar and Footer -->
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("../Navbar/navbar.html")
-      .then((response) => {
+    //load navbar script
+    fetch("../Navbar/navbar.html").then((response) => {
         if (!response.ok) {
           console.error("Failed to load navbar:", response.status, response.statusText);
           return;
@@ -195,6 +260,45 @@
         }
       })
       .catch((error) => console.error("Error loading footer:", error));
- 
+
+
+      
+// code below is for click show next and previous in new arrival and best seller
+const carousel = document.querySelector('#carousel-new-arrival .carousel-inner');
+let scrollPosition = 0;
+//this function for get the size of the scroll width as a real time calculation 
+function getSizes() {
+  const carouselItem = carousel.querySelector('#carousel-new-arrival .carousel-inner .carousel-item');
+  return {
+    totalScrollWidth: carousel.scrollWidth,
+    visibleWidth: carousel.offsetWidth,
+    itemWidth: carouselItem ? carouselItem.offsetWidth : 0
+  };
+}
+// the function for the direcrtion when click next or previous
+function scrollCarousel(direction) {
+  const { totalScrollWidth, visibleWidth, itemWidth } = getSizes();
+  
+  if (direction === 'next') {
+    if (scrollPosition < totalScrollWidth - visibleWidth) {
+      scrollPosition += itemWidth;
+    }
+  } else if (direction === 'prev') {
+    if (scrollPosition > 0) {
+      scrollPosition -= itemWidth;
+    }
+  }
+  carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+}
+document.querySelector('#carousel-new-arrival .carousel-control-next').addEventListener('click', () => scrollCarousel('next'));
+document.querySelector('#carousel-new-arrival .carousel-control-prev').addEventListener('click', () => scrollCarousel('prev'));
+//this is for the resize of the screen when the screen is resize it will go back to the first item
+  window.addEventListener('resize', () => {
+  scrollPosition = 0;
+  carousel.scrollTo({ left: scrollPosition, behavior: 'auto' });
+});
+//end script for click show next and previous in new arrival and best seller
+
 </script>
+<script type="module" src="../products/homepage.js"></script>
 </html>
