@@ -30,7 +30,7 @@ async function toggleFavorite(event) {
     }
 }
 
-// Fetch a single product by ID (assuming API has full data)
+// Fetch a single product by ID
 async function fetchProductById(productId) {
     const response = await fetch(`http://localhost:8000/api/products/${productId}`);
     if (!response.ok) {
@@ -39,7 +39,7 @@ async function fetchProductById(productId) {
     return await response.json();
 }
 
-// Load and display best-selling products
+// Load and display best-selling products with responsiveness and grouping
 async function loadBestSellers() {
     try {
         const response = await fetch('http://localhost:8000/api/best-sellers');
@@ -47,57 +47,65 @@ async function loadBestSellers() {
         const products = result.data || [];
 
         const container = document.getElementById('products');
-  
-        // Create the title element and append it to the container
-        const titleElement = document.createElement('div');
-        titleElement.classList.add('container', 'line-title');
-        titleElement.innerHTML = `
-          
-          <div class="text mt-5">${categoryName}</div>
-          <div class="line"></div>
-        `;
-        container.appendChild(titleElement);
-  
-        // Sort the products by 'id' in descending order (newest products first)
-        const sortedData = data.sort((a, b) => b.id - a.id); // Sort by ID (descending)
-  
-        // Limit to the first 8 items (latest ones)
-        const latestData = sortedData.slice(0,4);
-  
-        latestData.forEach(product => {
-          const card = document.createElement('div');
-          // Use Bootstrap's responsive grid classes
-          card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-4', 'col-lg-3'); // These classes will handle responsiveness
-  
-          card.innerHTML = `
-            <div class="card shadow-lg">
-            <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
-                <img class="card-img-top rounded" src="${product.img}" alt="${product.name}">
-            </a>
-                <div class="card-body">
-                    <div class="card-title  text-center">
-                        <h5>${product.name}</h5>
-                    </div>
-                    <div class="card-text">
-                        <p>${product.description}</p>
-                    </div>
-                    <div class="card-price d-flex justify-content-between ">
-                  <div class="price d-flex align-items-center align-items-center ">
-                    <h6 class="text-decoration-line-through mt-2 button-cart-font">$${product["ori-price"]}</h6>
-                    <h6 class="mx-2 text-danger mt-2 button-cart-font">$${product.price}</h6>
-                  </div>
-                  <button class=" border-0 bg-transparent d-flex justify-content-between align-items-center button-cart-font">
-                    <i class="fa-solid fa-cart-shopping mx-3 mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
-                    <i class="fa-solid fa-heart heart-icon mt-0" id="heart-${product.id}" data-cateName="${product.cateName}" data-id="${product.id}" data-favorite="${product.IsFavorite}" onclick="toggleFavorite(event)"></i>
+        container.innerHTML = ''; // Clear previous content
 
-                  </button>
-                </div>
-                </div>
-            </div>
-          `;
-  
-          // Append the card to the container
-          container.appendChild(card);
+        // Group by product type
+        const groupedByType = {};
+        products.forEach(product => {
+            const type = product.type || 'Others';
+            if (!groupedByType[type]) {
+                groupedByType[type] = [];
+            }
+            groupedByType[type].push(product);
+        });
+
+        Object.entries(groupedByType).forEach(([type, items]) => {
+            // Section title
+            const titleElement = document.createElement('div');
+            titleElement.classList.add('container', 'line-title');
+            titleElement.innerHTML = `
+                <div class="text mt-5">${type}</div>
+                <div class="line"></div>
+            `;
+
+            const row = document.createElement('div');
+            row.classList.add('row', 'mt-3');
+
+            // Display up to 4 items per type
+            items.slice(0, 4).forEach(item => {
+                const card = document.createElement('div');
+                // Responsive Bootstrap classes
+                card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-4', 'col-lg-3');
+
+                card.innerHTML = `
+                    <div class="card shadow-lg">
+                        <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
+                            <img class="card-img-top rounded" src="http://127.0.0.1:8000/storage/${item.img}" alt="${item.name}">
+                        </a>
+                        <div class="card-body">
+                            <div class="card-title text-center">
+                                <h5>${item.name}</h5>
+                            </div>
+                            <div class="card-text">
+                                <p>${item.description ?? ''}</p>
+                            </div>
+                            <div class="card-price d-flex justify-content-between align-items-center">
+                                <div class="price d-flex align-items-center">
+                                    <h6 class="text-decoration-line-through mt-2 button-cart-font">$${parseFloat(item.price).toFixed(2)}</h6>
+                                    <h6 class="mx-2 text-danger mt-2 button-cart-font">$${item.price_after_discount ?? item.price}</h6>
+                                </div>
+                                <button class="border-0 bg-transparent d-flex align-items-center">
+                                    <i class="fa-solid fa-heart heart-icon" id="heart-${item.id}" data-cateName="${item.type}" data-id="${item.id}" data-favorite="false" onclick="toggleFavorite(event)"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                row.appendChild(card);
+            });
+
+            container.appendChild(titleElement);
+            container.appendChild(row);
         });
 
     } catch (error) {

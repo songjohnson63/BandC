@@ -15,7 +15,6 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../Homepage/hompage.css">
   <link rel="stylesheet" href="../Newarrival/arrivle.css">
-  <link rel="stylesheet" href="../responsive/responHeader.css">
 
 </head>
 
@@ -24,8 +23,8 @@
 
   <div id="navbar-container"></div>
   <!-- --------------------------------------------- -->
-  <div class="conten responHeader">
-    <div class="container">
+  <div class="content">
+    <div class="container-fluid" style="width:85%;">
       <h2 class="text-center fs-3 fw-bold mt-5">New Arrival</h2>
       <!-- <p class="text-center fs-5 mt-4">Happy shopping with all products in B&C Shop</p> -->
 
@@ -53,9 +52,19 @@
       .then((html) => {
         if (html) {
           document.getElementById("navbar-container").innerHTML = html;
-          const script = document.createElement('script');
-        script.src = '../Navbar/navbar.js';
-        document.body.appendChild(script);
+          console.log("Navbar loaded successfully.");
+
+          // Load navbar.js dynamically (so search works)
+          const script = document.createElement("script");
+          script.src = "../Navbar/navbar.js";
+          script.onload = () => {
+            console.log("Navbar script loaded successfully.");
+            initializeNavbar(); // Now call the function after navbar.js is loaded
+          };
+          script.onerror = (error) => {
+            console.error("Failed to load navbar.js:", error);
+          };
+          document.body.appendChild(script);
         }
       })
       .catch((error) => console.error("Error loading navbar:", error));

@@ -31,36 +31,33 @@
         if (product) {
             const container = document.getElementById("product-details");
             container.innerHTML = `
-                <div class="container">
+                <div class="container mt-0">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row d-flex justify-content-center align-items-center">
-                                <div class="col-lg-5 col-sm-6">
-                                    <div class="img text-center" >
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-6">
+                                    <div class="img text-center">
                                         <img src="${product.img}" alt="${product.name}">
                                     </div>
                                 </div>
-                                <div class=" col-lg-7 col-sm-12">
+                                <div class="col-lg-7 col-md-7 col-sm-6">
                                     <h3 class="box-title mt-4">${product.name}</h3>
                                     <div class="price d-flex mt-4">
                                         <h3 class="mx-2 text-danger">$${product.price_after_discount}</h3>
                                         <h3 class="text-decoration-line-through">$${product.price}</h3>
                                     </div>
 
-                                    <div class="number mt-4 row">
-                                    <div class="click d-flex align-items-center justify-content-center col-12 col-md-3"> 
-                                    <button type="button" class="btn btn-secondary rounded-circle button-click" id="decrease-btn">-</button>
-                                        <h1 id="quantity-display" class="mt-2" style="width: 3.4rem">0</h1>
-                                        <button type="button" class="btn btn-secondary rounded-circle button-click" id="increase-btn">+</button>
-                                    </div>
-                                    <div class ="add d-flex justify-content-center align-items-center col-12 col-md-9" >
-                                        <button type="button" class="cart btn btn-secondary mx-2 button-add">
-                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart 
+                                    <div class="number d-flex mt-4">
+                                        <button type="button" class="btn btn-secondary" id="decrease-btn">-</button>
+                                        <h1 id="quantity-display" class="mx-3">1</h1>
+                                        <button type="button" class="btn btn-secondary" id="increase-btn">+</button>
+
+                                        <button type="button" class="cart btn btn-secondary mx-2" id="add-to-cart-btn">
+                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                         </button>
-                                        <button type="button" class="cart btn btn-secondary d-flex button-add">
+                                        <button type="button" class="cart btn btn-secondary">
                                             <i class="fa-regular fa-heart"></i> Add to Favorite
                                         </button>
-                                        </div>
                                     </div>
 
                                     <h5 class="box-title mt-5">Key Ingredients</h5>
@@ -137,4 +134,3 @@
     }
 
     document.addEventListener("DOMContentLoaded", loadProductDetails);
-

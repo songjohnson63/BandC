@@ -226,71 +226,38 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Load Navbar
     fetch("../Navbar/navbar.html")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load navbar:", response.status, response.statusText);
-          return;
-        }
-        return response.text();
-      })
+      .then((res) => res.ok ? res.text() : Promise.reject(res))
       .then((html) => {
-        if (html) {
-          document.getElementById("navbar-container").innerHTML = html;
-          const script = document.createElement('script');
-        script.src = '../Navbar/navbar.js';
+        document.getElementById("navbar-container").innerHTML = html;
+
+        const script = document.createElement("script");
+        script.src = "../Navbar/navbar.js";
+        script.onload = () => initializeNavbar();
         document.body.appendChild(script);
-        }
       })
-      .catch((error) => console.error("Error loading navbar:", error));
+      .catch((err) => console.error("Navbar load error:", err));
 
-      
-      function initializeNavbar() {
-        console.log("Initializing navbar...");
-      
-        const userGreeting = document.getElementById("userGreeting");
-        const userName = localStorage.getItem("userName");
-        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-      
-        console.log("Stored userName:", userName);
-        console.log("Stored loggedIn:", isLoggedIn);
-      
-        if (userGreeting) {
-          if (isLoggedIn && userName) {
-            // Show Hello, Name -> link to OrderHistory
-            userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
 
-          
-          } else {
-            // Not logged in, show icon link to login
-            userGreeting.innerHTML = `
-              <a class="nav-link fs-4 mx-2" href="../Login/login.html">
-                <i class="fa-regular fa-user"></i>
-              </a>
-            `;
-          }
-        } else {
-          console.error("userGreeting element not found!");
-        }
-      }
-    });    
+      fetch("../Footer/footer.html")
+      .then((res) => res.ok ? res.text() : Promise.reject(res))
+      .then((html) => document.getElementById("footer-container").innerHTML = html)
+      .catch((err) => console.error("Footer load error:", err));
+  });
 
-  
-    fetch("../Footer/footer.html")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load footer:", response.status, response.statusText);
-          return;
-        }
-        return response.text();
-      })
-      .then((html) => {
-        if (html) {
-          document.getElementById("footer-container").innerHTML = html;
-        }
-      })
-      .catch((error) => console.error("Error loading footer:", error));
- 
+  function initializeNavbar() {
+    const userGreeting = document.getElementById("userGreeting");
+    const userName = localStorage.getItem("userName");
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+    if (userGreeting) {
+      userGreeting.innerHTML = isLoggedIn && userName
+        ? `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`
+        : `<a class="nav-link fs-4 mx-2" href="../Login/login.html"><i class="fa-regular fa-user"></i></a>`;
+    } else {
+      console.error("userGreeting element not found");
+    }
+  }
 </script>
-
 </html>

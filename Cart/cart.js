@@ -1,29 +1,62 @@
+document.addEventListener("DOMContentLoaded", async function () {
+    console.log("🚀 Page Loaded - Fetching Cart Products...");
+    await loadCartProducts();
 
-async function FavProducts() {
-    const allFavoriteProducts = [];
-    for (const [category, path] of Object.entries(productFiles)) {
-        try {
-            const categoryProducts = await fetchJSON(path);
-            for (let i = 3; i < 7; i++) {
-                if (categoryProducts[i]) {
-                    categoryProducts[i].IsFavorite = !categoryProducts[i].IsFavorite;
-                }
-            }
-            const favoriteProducts = categoryProducts.filter(product => product.IsFavorite === true);
-            // Add the filtered products to the allFavoriteProducts array
-            allFavoriteProducts.push(...favoriteProducts);
-        } catch (error) {
-            console.error(error);
+    await loadCartProducts();
+
+    // Attach event listener for "Purchase Now" button
+    document.querySelector("[data-bs-target='#paymentModal']").addEventListener("click", loadPaymentModal);
+});
+
+async function loadCartProducts() {
+    try {
+        const apiURL = "http://127.0.0.1:8000/api/cart";
+        const authToken = localStorage.getItem("authToken");
+
+        if (!authToken) {
+            console.error("⚠️ No authentication token found. User might not be logged in.");
+            document.getElementById("product-container").innerHTML = "<p class='text-center text-danger'>Please log in to view your cart.</p>";
+            return;
         }
-    }
-    const container = document.getElementById('product-container');
-    container.innerHTML = '';
-  allFavoriteProducts.forEach(product=>{
-    const productDiv = document.createElement('div');
-        productDiv.classList.add('cart', 'col-12', 'col-lg-6','mt-5');
-        productDiv.innerHTML = `
-                <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
 
+        console.log("🔍 Fetching from API:", apiURL);
+
+        const response = await fetch(apiURL, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${authToken}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log("✅ API Response:", result);
+
+        if (!result.data || !result.data.cart_items || result.data.cart_items.length === 0) {
+            console.warn("⚠️ No cart products found.");
+            document.getElementById("product-container").innerHTML = "<p class='text-center'>No cart products found.</p>";
+            return;
+        }
+
+        const container = document.getElementById("product-container");
+        container.innerHTML = "";
+        let totalCartPrice = 0;
+
+        result.data.cart_items.forEach(item => {
+            const product = item.product;
+            const imgPath = product.img.includes('public') ? product.img : `/storage/${product.img}`;
+            const totalPrice = (product.price_after_discount * item.quantity).toFixed(2);
+
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("cart", "col-sm-6", "col-md-6", "col-lg-3", "mt-5");
+            productDiv.style.width = "49%";
+            productDiv.style.position = "relative"; // Set relative positioning for the container
+
+            productDiv.innerHTML = `
                 <div class="card shadow-lg" style="flex-direction: row;">
                     <img class="rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="Product Image" style="width: 30%; height: 40vh">
                     <div class="card-body" style="width: 70%">
@@ -238,20 +271,6 @@ async function loadPaymentModal() {
     // Update total amount in the payment modal
     document.getElementById("total-amount").innerText = `Total: $${totalPaymentAmount.toFixed(2)}`;
 }
-
-// document.getElementById('order-button').addEventListener('click', function () {
-//     const address = document.getElementById('address').value;
-
-//     if (!address) {
-//         alert('Please enter your pick-up address!');
-//         return;
-//     }
-
-//     // Optional: You can save to database here if needed
-
-//     // Redirect to Receipt page in a new tab
-//     window.open('../Receipt/receipt.html', '_blank'); // Change '/receipt' to your actual route
-// });
 
 document.getElementById('order-button').addEventListener('click', async function () {
     const address = document.getElementById('address').value;
