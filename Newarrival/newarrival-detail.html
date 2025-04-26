@@ -213,7 +213,7 @@
         if (userGreeting) {
           if (isLoggedIn && userName) {
             // Convert "Hello, Name" into a clickable link
-            userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+            userGreeting.innerHTML = `<a href="../Login/login.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Login/login.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
             console.log("User logged in: ", userName);
           } else {
             userGreeting.innerHTML = `<a class="nav-link fs-4 mx-2" href="../Login/login.html">

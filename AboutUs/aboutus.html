@@ -9,40 +9,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Homepage/hompage.css">
     <link rel="stylesheet" href="../AboutUs/aboutus.css">
-   
+    <link rel="stylesheet" href="../responsive/responHeader.css">
 </head>
 <body>
   <div id="navbar-container"></div>
 
   <!-- OUR Mession start-->
   
-  <div class="m-s">
-    <div class="content-mession" >
-        <p> 
-          <img src="../Homepage/images/slide.jpg" alt="" width="100%", height="">
-          
-          <div class="text-overlay">
-            <ul class="text" style="width: 45%; margin-top:20px; color:rgb(255, 255, 255)">
-              <h1 style="font-size: 40px; font-weight:700; " class="mt-5">Our Mission</h1>
-              <li>Focused on Natural Ingredients:
-                We empower individuals to achieve radiant skin through the power of nature, offering clean, effective, and sustainable skincare solutions.
-                We inspire a love for natural beauty by providing high-quality, ethically sourced skincare products that nourish and rejuvenate the skin.</li>
-              <li>Focused on Science-Backed Solutions:
-                We deliver cutting-edge skincare solutions, backed by science, that address specific skin concerns and promote long-
-                lasting results.
-                We are the trusted source for innovative skincare, combining advanced technology with natural ingredients to enhance skin health and beauty.</li>
-              <li>Focused on  holistic approach: ensures that our customers achieve optimal results for their skin health and overall wellness.</li>
-          </ul>  
-          </div>
-          
-        
+  <div class="m-s responHeader container-fluid">
+    <div class="content-mession" style="background-image: url(../Homepage/images/slide.jpg);" >
+        <div class="px-4 py-5 m-s-textContent">
+          <h1  class="fs-2  pb-4"  style=" font-weight:700;color: rgb(255, 255, 255)" >Our Mission</h1>
+          <p>Focused on Natural Ingredients:</p>
+          <p>We empower individuals to achieve radiant skin through the power of nature, offering clean, effective, and sustainable skincare solutions.
+            We inspire a love for natural beauty by providing high-quality, ethically sourced skincare products that nourish and rejuvenate the skin.</li>
+         </p>
+         <p>Focused on Science-Backed Solutions:</p>
+         <p> We deliver cutting-edge skincare solutions, backed by science, that address specific skin concerns and promote long-
+          lasting results. We are the trusted source for innovative skincare, combining advanced technology with natural ingredients to enhance skin health and beauty.</li>
         </p>
+        <p>Focused on  holistic approach: ensures that our customers achieve optimal results for their skin health and overall wellness. </p>
+        </div>
+
     </div>
   </div>
     <!-- OUR Mession end-->
 
   <!-- Mentor -->
-  <h1 style="font-size: 30px; font-weight:700;" class="mt-5">Our Mentor</h1>
+  <h1  class="fs-2 mt-5"  style=" font-weight:700;" class="mt-5">Our Mentor</h1>
   <div class="container">
     <div class="card">
       <img src="./img/card-item/professor.jpg" alt="Mentor" width="20%", height="100%"><br>
@@ -61,8 +55,8 @@
   </div>
   <br>
   <!-- member start -->
-  <h1 style="font-size: 30px; font-weight:700;">Our Members</h1>
-    <div class="menu-pro"> 
+  <h1 class="fs-2" style=" font-weight:700;">Our Members</h1>
+    <div class="menu-pro container"> 
 
       <!--Leader  -->
       <div class="box">
@@ -232,81 +226,38 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Load Navbar
     fetch("../Navbar/navbar.html")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load navbar:", response.status, response.statusText);
-          return;
-        }
-        return response.text();
-      })
+      .then((res) => res.ok ? res.text() : Promise.reject(res))
       .then((html) => {
-        if (html) {
-          document.getElementById("navbar-container").innerHTML = html;
-          console.log("Navbar loaded successfully.");
+        document.getElementById("navbar-container").innerHTML = html;
 
-          // Load navbar.js dynamically (so search works)
-          const script = document.createElement("script");
-          script.src = "../Navbar/navbar.js";
-          script.onload = () => {
-            console.log("Navbar script loaded successfully.");
-            initializeNavbar(); // Now call the function after navbar.js is loaded
-          };
-          script.onerror = (error) => {
-            console.error("Failed to load navbar.js:", error);
-          };
-          document.body.appendChild(script);
-        }
+        const script = document.createElement("script");
+        script.src = "../Navbar/navbar.js";
+        script.onload = () => initializeNavbar();
+        document.body.appendChild(script);
       })
-      .catch((error) => console.error("Error loading navbar:", error));
+      .catch((err) => console.error("Navbar load error:", err));
 
-      
-      function initializeNavbar() {
-        console.log("Initializing navbar...");
-      
-        const userGreeting = document.getElementById("userGreeting");
-        const userName = localStorage.getItem("userName");
-        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-      
-        console.log("Stored userName:", userName);
-        console.log("Stored loggedIn:", isLoggedIn);
-      
-        if (userGreeting) {
-          if (isLoggedIn && userName) {
-            // Show Hello, Name -> link to OrderHistory
-            userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
 
-          
-          } else {
-            // Not logged in, show icon link to login
-            userGreeting.innerHTML = `
-              <a class="nav-link fs-4 mx-2" href="../Login/login.html">
-                <i class="fa-regular fa-user"></i>
-              </a>
-            `;
-          }
-        } else {
-          console.error("userGreeting element not found!");
-        }
-      }
-    });    
+      fetch("../Footer/footer.html")
+      .then((res) => res.ok ? res.text() : Promise.reject(res))
+      .then((html) => document.getElementById("footer-container").innerHTML = html)
+      .catch((err) => console.error("Footer load error:", err));
+  });
 
-  
-    fetch("../Footer/footer.html")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load footer:", response.status, response.statusText);
-          return;
-        }
-        return response.text();
-      })
-      .then((html) => {
-        if (html) {
-          document.getElementById("footer-container").innerHTML = html;
-        }
-      })
-      .catch((error) => console.error("Error loading footer:", error));
- 
+  function initializeNavbar() {
+    const userGreeting = document.getElementById("userGreeting");
+    const userName = localStorage.getItem("userName");
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+    if (userGreeting) {
+      userGreeting.innerHTML = isLoggedIn && userName
+        ? `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`
+        : `<a class="nav-link fs-4 mx-2" href="../Login/login.html"><i class="fa-regular fa-user"></i></a>`;
+    } else {
+      console.error("userGreeting element not found");
+    }
+  }
 </script>
-
 </html>
