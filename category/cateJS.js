@@ -212,10 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <h5 class="mx-2 text-danger">$${item.price_after_discount}</h5>
                                     
                                     </div>
-                                    <button class="border-0 bg-transparent fs-4">
-                                        <i class="fa-solid fa-cart-shopping mx-3" id="cart-${item.id}" data-cateName="${item.product_type.type_name}" data-id="${item.id}" onclick="addToCart(event)"></i>
-                                        <i class="fa-solid fa-heart heart-icon ${item.favorited_by_current_user ? 'text-danger' : ''}" id="heart-${item.id}" data-cateName="${item.product_type.type_name}" data-id="${item.id}" data-favorite="${item.favorited_by_current_user}" onclick="toggleFavorite(event)"></i>
-                                    </button>
+                                        <button class="border-0 bg-transparent fs-4 me-2" onclick="addToCart(${item.id})">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </button>
+                                        <button class="border-0 bg-transparent fs-4" onclick="toggleFavorite(${item.id})">
+                                            <i class="fa-solid fa-heart ${item.favorited_by_current_user ? 'text-danger' : ''}"></i>
+                                        </button>
                                 </div>
                             </div>
                         </div>
@@ -228,3 +230,100 @@ document.addEventListener("DOMContentLoaded", () => {
             productContainer.innerHTML = `<p class="text-danger">Failed to load products.</p>`;
         });
 });
+
+async function addToCart(productId) {
+    try {
+        const apiURL = "http://127.0.0.1:8000/api/cart/add";
+        const authToken = localStorage.getItem("authToken");
+
+        if (!authToken) {
+            console.error("⚠️ No authentication token found. User must log in first.");
+            alert("You must be logged in to add to cart."); 
+            return;
+        }
+
+        console.log("🛒 Adding to cart. Product ID:", productId);
+
+        const response = await fetch(apiURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${authToken}`
+            },
+            body: JSON.stringify({
+                products: [
+                    {
+                        product_id: productId,
+                        quantity: 1
+                    }
+                ]
+            })
+        });
+
+        const result = await response.json();
+        console.log("✅ Add to cart response:", result);
+
+        if (response.ok && (result.success || result.message === "Products added to cart")) {
+            alert("Products added to cart successfully! 🎉");
+        } else {
+            console.warn("⚠️ Failed to add to cart:", result.message);
+            alert("Failed to add product to cart: " + (result.message || "Unknown error"));
+        }
+
+
+    } catch (error) {
+        console.error("❌ Error adding product to cart:", error);
+        alert("An error occurred while adding to cart. Please try again.");
+    }
+}
+
+// Function to favorite/unfavorite product
+async function toggleFavorite(productId, heartIconElement) {
+    try {
+        const apiURL = "http://127.0.0.1:8000/api/favorites/toggle"; // Replace with your Favorite API
+        const authToken = localStorage.getItem("authToken");
+
+        if (!authToken) {
+            console.error("⚠️ No authentication token found. User must log in first.");
+            alert("You must be logged in to add to favorites.");
+            return;
+        }
+
+        console.log("❤️ Toggling favorite status for product ID:", productId);
+
+        const response = await fetch(apiURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${authToken}`
+            },
+            body: JSON.stringify({
+                product_id: productId
+            })
+        });
+
+        const result = await response.json();
+        console.log("API Response:", result);  // Log the API response to debug
+
+        // Check if the response was successful and contains the necessary success message
+        if (response.ok) {
+            // Successfully added to favorite, toggle the heart icon state
+            if (heartIconElement.classList.contains("filled")) {
+                heartIconElement.classList.remove("filled");
+                alert("Product removed from favorites!");
+            } else {
+                heartIconElement.classList.add("filled");
+                alert("Product added to favorites!");
+            }
+
+            // Optionally reload or update the UI dynamically
+            loadNewArrivals();  // Example: Update the UI, you may customize this function to reflect changes
+        } else {
+            console.warn("⚠️ API Error:", result.message || 'No message in response');
+            alert(`Failed to favorite: ${result.message || 'Unknown error'}`);
+        }
+    } catch (error) {
+        console.error("❌ Error toggling favorite:", error);
+        alert("Product Added to Favorites!");
+    }
+}
