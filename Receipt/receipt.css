@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+.page{
+    width: 30%;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    min-height: 80vh; /* Ensures full height */
+    margin-top: 10px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+}
+.page h2{
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 0px;
+    font-size: 28px;
+}
+.page h3{
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    
+}
+.page h5{
+    font-size: 22px;
+    font-weight: 600;
+    padding: 10px;
+    
+    text-align: center;
+}
+.product{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: rgb(104, 104, 104);
+}
+.discount{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 18px;
+}
+.price{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 18px;
+    flex-grow: 1; /* Pushes "THANK YOU" to the bottom */
+
+}
+.bottom{
+    
+    text-align: center;
+}
+.bottom p{
+    margin-bottom: 10px;
+}
+

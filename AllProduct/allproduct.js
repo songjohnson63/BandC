@@ -1,81 +1,31 @@
-const favProduct = {};
-let favoriteIdCounter = 1;
-async function fetchProductData(category,productId) {
-    const filePath = `../products/${category}.json`;
-    const response = await fetch(filePath);
+async function loadProductsFromAPI() {
+  try {
+    const response = await fetch("http://127.0.0.1:8000/api/product"); // Ensure the API endpoint is correct
     if (!response.ok) {
-        throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
+      throw new Error("Failed to fetch products");
     }
+    const responseData = await response.json(); // Fetch the entire response
 
-    const categoryProducts = await response.json();
-    return categoryProducts.find(p => p.id === parseInt(productId));
-}
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//this function below is about when click on each product then it's create an object that store all the product with IsFavorite= true
-//toggle icon to be red or gray
-async function toggleFavorite(event) {
-    const heartIcon = event.target;
-    const cateName = heartIcon.getAttribute('data-cateName');
-    const productId = heartIcon.getAttribute('data-id');
-    let isFavorite = heartIcon.getAttribute('data-favorite') === 'true';
-    isFavorite = !isFavorite;
-    heartIcon.setAttribute('data-favorite', isFavorite);
-    heartIcon.style.color =isFavorite? 'red':'gray';
-    try {
-        const product = await fetchProductData(cateName,productId);
-        if (product) {
-            if (isFavorite) {
-// Assign a FavoriteId if it's marked as favorite
-                if (!product.FavoriteId) {
-                    product.FavoriteId = favoriteIdCounter++;
-                }
-                favProduct[productId] = product;
-            } else {
-                delete product.FavoriteId;
-                delete favProduct[productId];
-            }
-            console.log(favProduct); 
-           
-        }
-    } catch (error) {
-        console.error(`Error fetching product data for ID ${productId}:`, error);
-    }
-    }
+    // Log the entire response to check its structure
+    console.log(responseData);
 
+    // Access the 'data' array from the response
+    const data = responseData.data;
 
-function loadProducts(url, categoryName) {
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('products-container');
+    // Check if 'data' is an array before proceeding with forEach
+    if (Array.isArray(data)) {
+      const container = document.getElementById("products-container");
+      container.innerHTML = ''; // Clear any existing content
 
-      const titleElement = document.createElement('div');
-      titleElement.classList.add('container', 'line-title');
-      titleElement.innerHTML = `
-        <div class="time-deal-container mt-5">
-          <div class="line"></div>
-          <div class="text" style="font-size:25px; color:#717171;">${categoryName}</div>
-          <div class="line"></div>
-        </div>
-
-      `;
-      container.appendChild(titleElement);
-
-      // Sort the products by 'id' in ascending order
-      const sortedData = data.sort((a, b) => a.id - b.id);
-
-      // Render all products
-      sortedData.forEach(item => {
-        const card = document.createElement('div');
-        card.classList.add('cart', 'mt-5', 'col-sm-6', 'col-md-6', 'col-lg-3');
-        
+      data.forEach((item) => {
+        const card = document.createElement("div");
+        card.classList.add("cart", "mt-5", "col-sm-6", "col-md-6", "col-lg-3");
 
         card.innerHTML = `
           <div class="card shadow-lg">
-          <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
-
-            <img class="rounded" src="${item.img}" alt="${item.name}">
-          </a>
+            <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
+              <img class="rounded" src="${item.img}" alt="${item.name}">
+            </a>
             <div class="card-body">
               <div class="card-title">
                 <h5>${item.name}</h5>
@@ -85,13 +35,12 @@ function loadProducts(url, categoryName) {
               </div>
               <div class="card-price d-flex" style="justify-content: space-between;">
                 <div class="price d-flex mt-4">
-                  <h5 class="text-decoration-line-through">$${parseFloat(item.price * 1.25).toFixed(2)}</h5>
-                  <h5 class="mx-2 text-danger">$${item.price}</h5>
+                  <h5 class="text-decoration-line-through">$${item.price}</h5>
+                  <h5 class="mx-2 text-danger">$${item.price_after_discount}</h5>
                 </div>
                 <button class="border-0 bg-transparent fs-4">
                   <i class="fa-solid fa-cart-shopping mx-3" id="heart-${item.id}" data-cateName="${item.cateName}" data-id="${item.id}" data-favorite="${item.IsFavorite}" onclick="toggleFavorite(event)"></i>
                   <i class="fa-solid fa-heart heart-icon" id="heart-${item.id}" data-cateName="${item.cateName}" data-id="${item.id}" data-favorite="${item.IsFavorite}" onclick="toggleFavorite(event)"></i>
-
                 </button>
               </div>
             </div>
@@ -99,18 +48,12 @@ function loadProducts(url, categoryName) {
         `;
         container.appendChild(card);
       });
-    })
-    .catch(error => console.error('Error loading JSON:', error));
+    } else {
+      console.error("API response data is not an array:", data);
+    }
+  } catch (error) {
+    console.error("Error loading products:", error);
+  }
 }
 
-const jsonFiles = [
-  ['../products/cleanser.json', 'Cleanser'],
-  ['../products/sunscreen.json', 'Sunscreen'],
-  ['../products/serum.json', 'Serum'],
-  ['../products/toner.json', 'Toner'],
-  ['../products/moisturizer.json', 'Moisturizer']
-];
-
-jsonFiles.forEach(([url, categoryName]) => {
-  loadProducts(url, categoryName);
-});
+loadProductsFromAPI(); // Call the function to load products when the page loads

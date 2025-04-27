@@ -8,15 +8,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Homepage/hompage.css">
-    <link rel="stylesheet" href="../Detail/detail.css">
+    <!-- <link rel="stylesheet" href="../Detail/detail.css"> -->
+    <link rel="stylesheet" href="../responsive/responHeader.css">
+    <link rel="stylesheet" href="../Newarrival/newarrival-detail.css">
+
 </head>
 <body>
 
     <!-- Navbar Placeholder -->
     <div id="navbar-container"></div>
-
-    <!-- Product Details Section -->
-    <div id="product-details" class="container mt-5"></div> 
+    
+    <div class="responHeader" id="product-details"></div> 
 
     <script type="module" src="../Newarrival/newarrival-detail.js"></script> <!-- Load product details -->
 
@@ -38,19 +40,9 @@
         .then((html) => {
           if (html) {
             document.getElementById("navbar-container").innerHTML = html;
-            console.log("Navbar loaded successfully.");
-  
-            // Load navbar.js dynamically (so search works)
-            const script = document.createElement("script");
-            script.src = "../Navbar/navbar.js";
-            script.onload = () => {
-              console.log("Navbar script loaded successfully.");
-              initializeNavbar(); // Now call the function after navbar.js is loaded
-            };
-            script.onerror = (error) => {
-              console.error("Failed to load navbar.js:", error);
-            };
-            document.body.appendChild(script);
+            const script = document.createElement('script');
+        script.src = '../Navbar/navbar.js';
+        document.body.appendChild(script);
           }
         })
         .catch((error) => console.error("Error loading navbar:", error));

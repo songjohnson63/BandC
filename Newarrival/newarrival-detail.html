@@ -1,26 +1,172 @@
+<!-- newarrival-detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="../Newarrival/newarrival-detail.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="../Newarrival/arrivle.css"> -->
-    <link rel="stylesheet" href="../Newarrival/newarrival-detail.css">
-
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- FontAwesome for icons -->
 </head>
 <body>
+  <div id="navbar-container"></div>
 
-    <div id="navbar-container"></div>
+
+    <div id="product-details" class="container mt-5"></div> 
+
+    <script>
+        async function fetchProductDetails(productId) {
+            const apiURL = `http://127.0.0.1:8000/api/product/${productId}`; // Fetch product by ID
+
+            try {
+                const response = await fetch(apiURL);
+                if (!response.ok) {
+                    throw new Error(`HTTP Error! Status: ${response.status}`);
+                }
+                const result = await response.json();
+                return result.data; // Assuming the product is inside the "data" property
+            } catch (error) {
+                console.error("Error fetching product details:", error);
+                return null;
+            }
+        }
+
+        async function loadProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id')); // Get the product ID from the URL
+
+            if (isNaN(productId)) {
+                document.getElementById("product-details").innerHTML = "<p class='text-danger'>Product not found!</p>";
+                return;
+            }
+
+            const product = await fetchProductDetails(productId);
+
+            if (product) {
+                const container = document.getElementById("product-details");
+                container.innerHTML = `
+                    <div class="container mt-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-5 col-sm-6">
+                                        <div class="img text-center">
+                                            <img src="${product.img}" alt="${product.name}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-6">
+                                        <h3 class="box-title mt-4">${product.name}</h3>
+                                        <div class="price d-flex mt-4">
+                                            <h3 class="mx-2 text-danger">$${product.price_after_discount}</h3>
+                                            <h3 class="text-decoration-line-through">$${product.price}</h3>
+                                            <h4 class="mx-4 mt-1"> | Saved ${product.discount}%</h4>
+
+                                        </div>
+
+                                        <div class="number d-flex mt-4">
+                                            <button type="button" class="btn btn-secondary" id="decrease-btn">-</button>
+                                            <h1 id="quantity-display" class="mx-3">0</h1>
+                                            <button type="button" class="btn btn-secondary" id="increase-btn">+</button>
+
+                                            <button type="button" class="cart btn btn-secondary mx-2" id="add-to-cart-btn">
+                                                <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                            </button>
+                                            <button type="button" class="cart btn btn-secondary">
+                                                <i class="fa-regular fa-heart"></i> Add to Favorite
+                                            </button>
+                                        </div>
+
+                                        <h5 class="box-title mt-5">Brand</h5>
+                                        <p>${product.brand}</p>
+
+                                        <h5 class="box-title mt-5">Key Ingredients</h5>
+                                        <p>${product.key_ingredient}</p>
+
+                                        <h5 class="box-title mt-4">Description</h5>
+                                        <p>${product.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Event listeners for quantity controls
+                let quantity = 0; // Initial quantity
+                const quantityDisplay = document.getElementById("quantity-display");
+                const increaseBtn = document.getElementById("increase-btn");
+                const decreaseBtn = document.getElementById("decrease-btn");
+
+                increaseBtn.addEventListener("click", () => {
+                    quantity++;
+                    quantityDisplay.textContent = quantity;
+                });
+
+                decreaseBtn.addEventListener("click", () => {
+                    if (quantity > 0) {
+                        quantity--;
+                        quantityDisplay.textContent = quantity;
+                    }
+                });
+
+                const addToCartBtn = document.getElementById("add-to-cart-btn");
+
+                addToCartBtn.addEventListener("click", async () => {
+                    const authToken = localStorage.getItem("authToken");
+                    if (!authToken) {
+                        alert("Please log in first.");
+                        return;
+                    }
+
+                    if (quantity < 1) {
+                        alert("Please select at least 1 item before adding to cart.");
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch("http://127.0.0.1:8000/api/cart/add", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${authToken}`,
+                            },
+                            body: JSON.stringify({
+                                products: [
+                                    {
+                                        product_id: product.id,
+                                        quantity: quantity,
+                                    }
+                                ]
+                            }),
+                        });
+
+                        const result = await response.json();
+                        console.log("Cart response:", result);
+
+                        if (response.ok) {
+                            alert("Added to cart successfully! 🛒");
+                        } else {
+                            alert("Failed to add to cart: " + (result.message || "Unknown error"));
+                        }
+                    } catch (error) {
+                        console.error("Error adding to cart:", error);
+                        alert("Something went wrong while adding to cart.");
+                    }
+                });
+
+            } else {
+                document.getElementById("product-details").innerHTML = "<p class='text-danger'>Product not found!</p>";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProductDetails);
+    </script>
     
-    <div id="product-details"></div> 
 
- 
-    <script type="module" src="../Newarrival/newarrival-detail.js"></script> <!-- Load product details -->
-
-  <div id="footer-container"></div>
+    <div id="footer-container"></div>
 
 </body>
 
@@ -81,21 +227,22 @@
       }
     });      
 
+      // Load Footer
       fetch("../Footer/footer.html")
-        .then((response) => {
-          if (!response.ok) {
-            console.error("Failed to load footer:", response.status, response.statusText);
-            return;
-          }
-          return response.text();
-        })
-        .then((html) => {
-          if (html) {
-            document.getElementById("footer-container").innerHTML = html;
-          }
-        })
-        .catch((error) => console.error("Error loading footer:", error));
-   
-  </script>
+          .then((response) => {
+              if (!response.ok) {
+                  console.error("Failed to load footer:", response.status, response.statusText);
+                  return;
+              }
+              return response.text();
+          })
+          .then((html) => {
+              if (html) {
+                  document.getElementById("footer-container").innerHTML = html;
+              }
+          })
+          .catch((error) => console.error("Error loading footer:", error));
   
+</script>
+
 </html>
