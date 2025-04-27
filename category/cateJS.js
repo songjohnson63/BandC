@@ -194,12 +194,12 @@ document.addEventListener("DOMContentLoaded", () => {
             productContainer.innerHTML = products.map(item => {
                 const imageUrl = item.img || 'path/to/fallback-image.jpg'; // Use fallback if no image URL
                 return `
-                    <div class="col-sm-6 col-md-6 col-lg-3 mb-4">
-                        <div class="card shadow-lg">
+                    <div class=" col-sm-6 col-md-6 col-lg-3 mt-5">
+                        <div class="cart shadow-lg ">
                             <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
                                 <img class="card-img-top rounded w-100" style="height: 200px; object-fit: cover;" src="${imageUrl}" alt="${item.name}">
                             </a>
-                            <div class="card-body">
+                            <div class="card-body p-3">
                                 <div class="card-title">
                                     <h5>${item.name}</h5>
                                 </div>
@@ -212,12 +212,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <h5 class="mx-2 text-danger">$${item.price_after_discount}</h5>
                                     
                                     </div>
+                                    <div class="d-flex align-items-center gap-3">
                                         <button class="border-0 bg-transparent fs-4 me-2" onclick="addToCart(${item.id})">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </button>
                                         <button class="border-0 bg-transparent fs-4" onclick="toggleFavorite(${item.id})">
                                             <i class="fa-solid fa-heart ${item.favorited_by_current_user ? 'text-danger' : ''}"></i>
                                         </button>
+                                        </div>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,356 @@
+{
+    "data": [
+      {
+        "id": 2,
+        "name": "Anessa Perfect UV Sunscreen Skincare Milk SPF50+ PA++++",
+        "brand": "Shiseido Anessa",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "A durable, water-resistant Japanese sunscreen ideal for outdoor activities, enriched with skincare ingredients.",
+        "volume": "60ml",
+        "key_ingredient": "Super Hyaluronic Acid, Collagen, Green Tea Extract",
+        "best_seller": 1,
+        "price": "30.00",
+        "discount": 5,
+        "price_after_discount": 28.50,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/anessa.jpg",
+        "created_at": "2025-04-26T12:00:00.000000Z",
+        "updated_at": "2025-04-26T12:00:00.000000Z"
+      },
+      {
+        "id": 3,
+        "name": "Round Lab Birch Juice Moisturizing Sun Cream",
+        "brand": "Round Lab",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Hydrating Korean sunscreen with birch sap and hyaluronic acid, offering SPF50+ PA++++ protection.",
+        "volume": "50ml",
+        "key_ingredient": "Birch Sap, Hyaluronic Acid",
+        "best_seller": 1,
+        "price": "21.00",
+        "discount": 0,
+        "price_after_discount": 21.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/roundlab.jpg",
+        "created_at": "2025-04-26T12:01:00.000000Z",
+        "updated_at": "2025-04-26T12:01:00.000000Z"
+      },
+      {
+        "id": 4,
+        "name": "Skin Aqua UV Super Moisture Gel SPF50+ PA++++",
+        "brand": "Rohto Mentholatum",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Light, watery Japanese sunscreen for daily use, enriched with hyaluronic acid and collagen.",
+        "volume": "110g",
+        "key_ingredient": "Hyaluronic Acid, Amino Acids",
+        "best_seller": 0,
+        "price": "12.00",
+        "discount": 0,
+        "price_after_discount": 12.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/skinaqua.jpg",
+        "created_at": "2025-04-26T12:02:00.000000Z",
+        "updated_at": "2025-04-26T12:02:00.000000Z"
+      },
+      {
+        "id": 5,
+        "name": "Biore UV Aqua Rich Watery Essence SPF50+ PA++++",
+        "brand": "Biore",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Refreshing Japanese sunscreen with a watery texture that absorbs quickly without leaving a white cast.",
+        "volume": "70ml",
+        "key_ingredient": "Royal Jelly Extract, Hyaluronic Acid",
+        "best_seller": 1,
+        "price": "14.00",
+        "discount": 0,
+        "price_after_discount": 14.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/biore.jpg",
+        "created_at": "2025-04-26T12:03:00.000000Z",
+        "updated_at": "2025-04-26T12:03:00.000000Z"
+      },
+      {
+        "id": 6,
+        "name": "Isntree Hyaluronic Acid Watery Sun Gel",
+        "brand": "Isntree",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Moisturizing Korean sunscreen loaded with hyaluronic acids to deeply hydrate while protecting skin from UV rays.",
+        "volume": "50ml",
+        "key_ingredient": "Hyaluronic Acid, Ceramide NP",
+        "best_seller": 1,
+        "price": "18.00",
+        "discount": 0,
+        "price_after_discount": 18.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/isntree.jpg",
+        "created_at": "2025-04-26T12:04:00.000000Z",
+        "updated_at": "2025-04-26T12:04:00.000000Z"
+      },
+      {
+        "id": 7,
+        "name": "Missha All Around Safe Block Aqua Sun Gel SPF50+ PA++++",
+        "brand": "Missha",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Lightweight Korean sunscreen that hydrates and refreshes the skin, perfect for hot and humid weather.",
+        "volume": "50ml",
+        "key_ingredient": "Antozone-Rose Extract, Thanaka Extract",
+        "best_seller": 0,
+        "price": "13.00",
+        "discount": 0,
+        "price_after_discount": 13.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/missha.jpg",
+        "created_at": "2025-04-26T12:05:00.000000Z",
+        "updated_at": "2025-04-26T12:05:00.000000Z"
+      },
+      {
+        "id": 8,
+        "name": "Purito Daily Go-To Sunscreen SPF50+ PA++++",
+        "brand": "Purito",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Gentle, moisturizing Korean sunscreen suited for sensitive skin with a fragrance-free formula.",
+        "volume": "60ml",
+        "key_ingredient": "Centella Asiatica, Tocopherol",
+        "best_seller": 1,
+        "price": "18.00",
+        "discount": 0,
+        "price_after_discount": 18.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/purito.jpg",
+        "created_at": "2025-04-26T12:06:00.000000Z",
+        "updated_at": "2025-04-26T12:06:00.000000Z"
+      },
+      {
+        "id": 9,
+        "name": "Canmake Mermaid Skin Gel UV SPF50+ PA++++",
+        "brand": "Canmake",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Light, watery Japanese sunscreen that doubles as a makeup base, giving a smooth finish.",
+        "volume": "40g",
+        "key_ingredient": "Aloe Vera Leaf Extract, Hyaluronic Acid",
+        "best_seller": 0,
+        "price": "10.00",
+        "discount": 0,
+        "price_after_discount": 10.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/canmake.jpg",
+        "created_at": "2025-04-26T12:07:00.000000Z",
+        "updated_at": "2025-04-26T12:07:00.000000Z"
+      },
+      {
+        "id": 10,
+        "name": "Dr. G Green Mild Up Sun SPF50+ PA++++",
+        "brand": "Dr. G",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Mild, non-irritating Korean mineral sunscreen ideal for sensitive skin types.",
+        "volume": "50ml",
+        "key_ingredient": "Centella Asiatica Extract, Madecassoside",
+        "best_seller": 0,
+        "price": "23.00",
+        "discount": 0,
+        "price_after_discount": 23.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/drg.jpg",
+        "created_at": "2025-04-26T12:08:00.000000Z",
+        "updated_at": "2025-04-26T12:08:00.000000Z"
+      },
+      {
+        "id": 11,
+        "name": "Etude House Sunprise Mild Airy Finish Sun Milk SPF50+ PA+++",
+        "brand": "Etude House",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Lightweight Korean mineral sunscreen that controls oil and sebum for a matte finish.",
+        "volume": "55ml",
+        "key_ingredient": "Aloe Vera, Acai Berry Extract",
+        "best_seller": 0,
+        "price": "10.00",
+        "discount": 0,
+        "price_after_discount": 10.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/etudehouse.jpg",
+        "created_at": "2025-04-26T12:09:00.000000Z",
+        "updated_at": "2025-04-26T12:09:00.000000Z"
+      },
+      {
+        "id": 12,
+        "name": "Make P:rem UV Defense Me Blue Ray Sun Fluid SPF50+ PA++++",
+        "brand": "Make P:rem",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Cooling Korean sunscreen that soothes heat-irritated skin while providing strong UV protection.",
+        "volume": "75ml",
+        "key_ingredient": "Centella Asiatica Extract, Antarcticine",
+        "best_seller": 0,
+        "price": "28.00",
+        "discount": 0,
+        "price_after_discount": 28.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/makeprem.jpg",
+        "created_at": "2025-04-26T12:10:00.000000Z",
+        "updated_at": "2025-04-26T12:10:00.000000Z"
+      },
+      {
+        "id": 13,
+        "name": "Hada Labo Perfect UV Gel SPF50+ PA++++",
+        "brand": "Hada Labo",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "Moisturizing Japanese sunscreen with a gel texture for deep hydration without stickiness.",
+        "volume": "90g",
+        "key_ingredient": "Hyaluronic Acid, Vitamin C",
+        "best_seller": 0,
+        "price": "17.00",
+        "discount": 0,
+        "price_after_discount": 17.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/hadalabo.jpg",
+        "created_at": "2025-04-26T12:11:00.000000Z",
+        "updated_at": "2025-04-26T12:11:00.000000Z"
+      },
+      {
+        "id": 14,
+        "name": "Allie Extra UV Gel SPF50+ PA++++",
+        "brand": "Kanebo Allie",
+        "product_type": {
+          "id": 1,
+          "type_name": "Sunscreen"
+        },
+        "description": "High-performance Japanese sunscreen gel resistant to sweat, water, and friction.",
+        "volume": "90g",
+        "key_ingredient": "Hyaluronic Acid, Collagen",
+        "best_seller": 1,
+        "price": "28.00",
+        "discount": 0,
+        "price_after_discount": 28.00,
+        "favorited_by_current_user": false,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/allie.jpg",
+        "created_at": "2025-04-26T12:12:00.000000Z",
+        "updated_at": "2025-04-26T12:12:00.000000Z"
+      },
+      {
+        "id": 15,
+        "name": "Madagascar Centella Air-Fit Suncream Plus SPF50+ PA++++",
+        "brand": "Skin1004",
+        "description": "Lightweight, non-sticky sunscreen with Centella Asiatica to soothe and protect sensitive skin.",
+        "IsCart": false,
+        "IsFavorite": false,
+        "volume": "50ml",
+        "KeyIngredient": "Centella Asiatica Extract, Madecassoside",
+        "BestSeller": 1,
+        "price": "22.00",
+        "discount": 0,
+        "priceAfterDiscount": 22.00,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/skin1004-airfit.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Madagascar Centella Hyalu-Cica Water-Fit Sun Serum SPF50+ PA++++",
+        "brand": "Skin1004",
+        "description": "Serum-type sunscreen with Hyaluronic Acid and Cica for deep hydration and UV protection.",
+        "IsCart": false,
+        "IsFavorite": false,
+        "volume": "50ml",
+        "KeyIngredient": "Centella Asiatica, Hyaluronic Acid",
+        "BestSeller": 1,
+        "price": "23.00",
+        "discount": 0,
+        "priceAfterDiscount": 23.00,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/skin1004-hyalucica.jpg"
+      },
+      {
+        "id": 17,
+        "name": "Aloe Soothing Sun Cream SPF50+ PA+++",
+        "brand": "COSRX",
+        "description": "Moisturizing sun cream with aloe vera to calm the skin while shielding against UV rays.",
+        "IsCart": false,
+        "IsFavorite": false,
+        "volume": "50ml",
+        "KeyIngredient": "Aloe Vera Leaf Extract",
+        "BestSeller": 1,
+        "price": "18.00",
+        "discount": 0,
+        "priceAfterDiscount": 18.00,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/cosrx-aloe.jpg"
+      },
+      {
+        "id": 18,
+        "name": "Vitamin E Vitalizing Sunscreen SPF50+ PA++++",
+        "brand": "COSRX",
+        "description": "Antioxidant-rich sunscreen with Vitamin E that helps protect the skin from environmental stressors.",
+        "IsCart": false,
+        "IsFavorite": false,
+        "volume": "50ml",
+        "KeyIngredient": "Vitamin E (Tocopherol), Panthenol",
+        "BestSeller": 0,
+        "price": "21.00",
+        "discount": 0,
+        "priceAfterDiscount": 21.00,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/cosrx-vitamin-e.jpg"
+      },
+      {
+        "id": 19,
+        "name": "Airy Sun Stick: Mugwort+Camelia SPF50+ PA++++",
+        "brand": "Beauty of Joseon",
+        "description": "A lightweight, non-greasy sun stick formulated with mugwort and camellia to calm and protect skin from UV rays.",
+        "IsCart": false,
+        "IsFavorite": false,
+        "volume": "18g",
+        "KeyIngredient": "Mugwort Extract, Camellia Extract",
+        "BestSeller": 1,
+        "price": "20.00",
+        "discount": 0,
+        "priceAfterDiscount": 20.00,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/boj-airy-sunstick.jpg"
+      },
+      {
+        "id": 20,
+        "name": "Comfy Water Sun Block SPF50+ PA++++",
+        "brand": "Purito",
+        "description": "Water-based sunscreen with a soft texture that soothes sensitive skin while providing high UV protection without white cast.",
+        "IsCart": false,
+        "IsFavorite": false,
+        "volume": "60ml",
+        "KeyIngredient": "Centella Asiatica, Hyaluronic Acid",
+        "BestSeller": 0,
+        "price": "18.00",
+        "discount": 0,
+        "priceAfterDiscount": 18.00,
+        "img": "http://127.0.0.1:8000/storage/IMAGES/purito-comfy-water.jpg"
+      }
+      
+    ]
+  }
+  

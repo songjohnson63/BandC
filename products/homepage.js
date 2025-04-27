@@ -439,7 +439,24 @@ async function toggleFavorite(event) {
     }
 }
 
-function displayProductsBySection(section, containerClass) {
+async  function displayProductsBySection(section, containerClass) {
+  
+  let apiUrl = '';
+  if (section === 'new-arrival') {
+    apiUrl = 'http://127.0.0.1:8000/api/new-arrival';
+  } else if (section === 'best-seller') {
+    apiUrl = 'http://127.0.0.1:8000/api/best-sellers';
+  }
+
+  console.log(`Fetching data from ${apiUrl}`); // Debugging line
+
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error(`API fetch error: ${response.statusText}`);
+
+    const products = await response.json();
+    console.log('Fetched products:', products); // Debugging line
+
   const productContainer = document.querySelector(`.${containerClass}`);
   productContainer.innerHTML = '';
 
@@ -472,6 +489,10 @@ function displayProductsBySection(section, containerClass) {
     `;
     productContainer.innerHTML += productCard;
   });
+} catch (error) {
+  console.error("Failed to load products from API:", error);
+  productContainer.innerHTML = `<p class="text-center text-danger">Failed to load products. Please try again later.</p>`;
+}
 }
 
 async function displayNewArrivalOrBestSeller(section) {
