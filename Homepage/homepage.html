@@ -111,26 +111,20 @@
   </div>
   <div class="newArrival-content">
     <div class="container mt-5">
-      <div id="carousel-new-arrival" class="carousel" data-bs-ride="carousel" >
-        <div class="NewArrival-BestSell carousel-inner d-flex content ">
-          <!-- <div class="carousel-item active">
-            <div class="card m-2">
-              <img src="../products/img/cleanser/03.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            </div>
-          -->
+      <div id="carousel-new-arrival" class="carousel" data-bs-ride="carousel">
+        <div class="NewArrival-BestSell carousel-inner d-flex content">
+          <!-- Dynamic Content goes here -->
         </div>
         
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="p-2 rounded-circle d-flex" style="background-color: #AAAAAA"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+          <span class="p-2 rounded-circle d-flex" style="background-color: #AAAAAA">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" >
-          <span  class="p-2 rounded-circle d-flex" style="background-color: #AAAAAA"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="p-2 rounded-circle d-flex" style="background-color: #AAAAAA">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </span>
         </button>
       </div>
     </div>
@@ -145,10 +139,9 @@
   <img src="images/mega sale.png" alt="">
 </div>
 
-
   <div class="content container-fluid p-5">
   <div class="container" >
-    <div class="row promotions pb-4"></div>
+    <div class="row promotions pb-4" id="discounted-products"></div>
   </div>
 </div>
 
@@ -175,15 +168,13 @@
   <h2 class="text-center fs-3 fw-bold mt-5">Our brands</h2>
   <img src="../Homepage/images/brands.png" alt="">
 </div>
-  
 
   <div id="footer-container"></div>
+
+
+  <script src="../products/homepage.js"></script>
+
 </body>
-
-
-<!-- ========= Call product from JSON  -->
-
-<!-- ========= Call Navbar and Footer -->
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -260,45 +251,44 @@
         }
       })
       .catch((error) => console.error("Error loading footer:", error));
-
-
       
-// code below is for click show next and previous in new arrival and best seller
-const carousel = document.querySelector('#carousel-new-arrival .carousel-inner');
-let scrollPosition = 0;
-//this function for get the size of the scroll width as a real time calculation 
-function getSizes() {
-  const carouselItem = carousel.querySelector('#carousel-new-arrival .carousel-inner .carousel-item');
-  return {
-    totalScrollWidth: carousel.scrollWidth,
-    visibleWidth: carousel.offsetWidth,
-    itemWidth: carouselItem ? carouselItem.offsetWidth : 0
-  };
-}
-// the function for the direcrtion when click next or previous
-function scrollCarousel(direction) {
-  const { totalScrollWidth, visibleWidth, itemWidth } = getSizes();
-  
-  if (direction === 'next') {
-    if (scrollPosition < totalScrollWidth - visibleWidth) {
-      scrollPosition += itemWidth;
+    
+      
+  // code below is for click show next and previous in new arrival and best seller
+    const carousel = document.querySelector('#carousel-new-arrival .carousel-inner');
+    let scrollPosition = 0;
+    //this function for get the size of the scroll width as a real time calculation 
+    function getSizes() {
+      const carouselItem = carousel.querySelector('#carousel-new-arrival .carousel-inner .carousel-item');
+      return {
+        totalScrollWidth: carousel.scrollWidth,
+        visibleWidth: carousel.offsetWidth,
+        itemWidth: carouselItem ? carouselItem.offsetWidth : 0
+      };
     }
-  } else if (direction === 'prev') {
-    if (scrollPosition > 0) {
-      scrollPosition -= itemWidth;
+    // the function for the direcrtion when click next or previous
+    function scrollCarousel(direction) {
+      const { totalScrollWidth, visibleWidth, itemWidth } = getSizes();
+      
+      if (direction === 'next') {
+        if (scrollPosition < totalScrollWidth - visibleWidth) {
+          scrollPosition += itemWidth;
+        }
+      } else if (direction === 'prev') {
+        if (scrollPosition > 0) {
+          scrollPosition -= itemWidth;
+        }
+      }
+      carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
     }
-  }
-  carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-}
-document.querySelector('#carousel-new-arrival .carousel-control-next').addEventListener('click', () => scrollCarousel('next'));
-document.querySelector('#carousel-new-arrival .carousel-control-prev').addEventListener('click', () => scrollCarousel('prev'));
-//this is for the resize of the screen when the screen is resize it will go back to the first item
-  window.addEventListener('resize', () => {
-  scrollPosition = 0;
-  carousel.scrollTo({ left: scrollPosition, behavior: 'auto' });
-});
-//end script for click show next and previous in new arrival and best seller
+    document.querySelector('#carousel-new-arrival .carousel-control-next').addEventListener('click', () => scrollCarousel('next'));
+    document.querySelector('#carousel-new-arrival .carousel-control-prev').addEventListener('click', () => scrollCarousel('prev'));
+    //this is for the resize of the screen when the screen is resize it will go back to the first item
+      window.addEventListener('resize', () => {
+      scrollPosition = 0;
+      carousel.scrollTo({ left: scrollPosition, behavior: 'auto' });
+    });
+    //end script for click show next and previous in new arrival and best seller
 
-</script>
-<script type="module" src="../products/homepage.js"></script>
+    </script>
 </html>

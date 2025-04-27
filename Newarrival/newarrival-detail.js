@@ -61,7 +61,7 @@
                                     </div>
 
                                     <h5 class="box-title mt-5">Key Ingredients</h5>
-                                    <p>${product.KeyIngredient}</p>
+                                    <p>${product.key_ingredient}</p>
 
                                     <h5 class="box-title mt-4">Description</h5>
                                     <p>${product.description}</p>
