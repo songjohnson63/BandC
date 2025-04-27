@@ -60,4 +60,5 @@ async function FavProducts() {
 }
 document.addEventListener("DOMContentLoaded",async function(){
    FavProducts();
+  
 });
