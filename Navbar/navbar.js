@@ -1,119 +1,155 @@
-// navbar.js
+// ========================
+// Dropdown Caret Animation
+// ========================
+const dropdownButtons = document.querySelectorAll('.dropdown-click');
+dropdownButtons.forEach(button => {
+    const dropdownIcon = button.querySelector('.fa-caret-down');
+    button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded');
+        dropdownIcon.style.transition = 'transform 0.3s ease-in-out';
+        dropdownIcon.style.transform = isExpanded === 'true' ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
 
-// Function to show the search form and overlay
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            if (mutation.attributeName === 'aria-expanded') {
+                const newValue = mutation.target.getAttribute('aria-expanded');
+                dropdownIcon.style.transition = 'transform 0.3s ease-in-out';
+                dropdownIcon.style.transform = newValue === 'true' ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        });
+    });
+
+    observer.observe(button, { attributes: true, attributeFilter: ['aria-expanded'] });
+});
+
+// ===========================
+// Navbar Menu Toggle to "X"
+// ===========================
+const toggleBtn = document.getElementById('toggleBtn');
+const collapseElement = document.getElementById('navbarSupportedContent');
+const iconWrapper = document.getElementById('iconWrapper');
+const bsCollapse = new bootstrap.Collapse(collapseElement, { toggle: false });
+
+function swapIcon(content) {
+    iconWrapper.style.opacity = '0';
+    iconWrapper.style.transform = 'scale(0.8)';
+    setTimeout(() => {
+        iconWrapper.innerHTML = content;
+        iconWrapper.style.opacity = '1';
+        iconWrapper.style.transform = 'scale(1)';
+    }, 200);
+}
+
+collapseElement.addEventListener('show.bs.collapse', () => {
+    swapIcon('<i class="fa-solid fa-xmark fa-lg" style="color: #717171;margin-left: 7px"></i>');
+});
+
+collapseElement.addEventListener('hide.bs.collapse', () => {
+    swapIcon('<span class="navbar-toggler-icon"></span>');
+});
+
+
+// ===========================
+// Search Logic
+// ===========================
 const searchIcon = document.querySelector('.search-icon');
 const searchForm = document.querySelector('.search-form');
 const overlay = document.querySelector('.overlay');
 const searchDropdown = document.getElementById("search-dropdown");
+const searchBox = document.querySelector(".form-control");
 
+let allProducts = [];
+
+// Show search form
 searchIcon.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent default link behavior
+    e.preventDefault();
     searchForm.style.display = 'block';
     overlay.classList.add('active');
+    searchBox.focus();
 });
 
+// Hide search form when clicking overlay
 overlay.addEventListener('click', () => {
     searchForm.style.display = 'none';
     overlay.classList.remove('active');
 });
 
-// Now, we will load the products for search functionality
-
-const jsonFiles = [
-    "../products/cleanser.json",
-    "../products/moisturizer.json",
-    "../products/sunscreen.json",
-    "../products/toner.json",
-    "../products/serum.json"
-];
-
-let allProducts = [];
-
-// Load products from all JSON files
+// Load products from API
 async function loadProducts() {
-    const fetchPromises = jsonFiles.map((file) =>
-        fetch(file)
-            .then((response) => {
-                if (!response.ok) {
-                    console.error(`Failed to load ${file}`);
-                    return [];
-                }
-                return response.json();
-            })
-            .catch((error) => {
-                console.error(`Error loading ${file}:`, error);
-                return [];
-            })
-    );
+    try {
+        const response = await fetch("http://127.0.0.1:8000/api/product");
+        const json = await response.json();
 
-    const results = await Promise.all(fetchPromises);
-    allProducts = results.flat(); // Combine all products into one array
-    console.log("All Products Loaded:", allProducts);
+        // Debug log
+        console.log("API Response:", json);
+
+        allProducts = json.data || [];
+        console.log("Loaded products:", allProducts);
+    } catch (error) {
+        console.error("Failed to fetch products:", error);
+    }
 }
 
-// Function to filter products based on search query
+// Filter by search query
 function filterProducts(query) {
     const lowerCaseQuery = query.toLowerCase();
-    return allProducts.filter((product) =>
-        product.name.toLowerCase().includes(lowerCaseQuery)
+    return allProducts.filter(product =>
+        product.name && product.name.toLowerCase().includes(lowerCaseQuery)
     );
 }
 
-// Function to update the dropdown with the filtered products
-// Function to update the dropdown with the filtered products
+// Update the dropdown with filtered results
 function updateDropdown(filteredProducts) {
-    const dropdown = document.getElementById("search-dropdown");
-    dropdown.innerHTML = ""; // Clear previous results
+    searchDropdown.innerHTML = "";
 
     if (filteredProducts.length === 0) {
-        dropdown.style.display = "none"; // Hide dropdown if no results
+        searchDropdown.style.display = "none";
         return;
     }
 
-    dropdown.style.display = "block"; // Show dropdown
-    filteredProducts.forEach((product) => {
+    searchDropdown.style.display = "block";
+
+    filteredProducts.forEach(product => {
         const listItem = document.createElement("li");
         listItem.style.padding = "5px 10px";
         listItem.style.cursor = "pointer";
 
-        // Create a link element for each product
         const link = document.createElement("a");
-        link.href = `../Newarrival/newarrival-detail.html?id=${product.id}`;  // Product detail page URL
+        link.href = `../Newarrival/newarrival-detail.html?id=${product.id}`;
         link.style.textDecoration = "none";
         link.style.color = "inherit";
 
-        // Add product details inside the link
         link.innerHTML = `
             <img src="${product.img}" alt="${product.name}" style="width: 40px; height: 40px; margin-right: 10px; vertical-align: middle;">
-            <span>${product.name} - $${product.price}</span>
+            <span>${product.name} - $${product.price_after_discount ?? product.price}</span>
         `;
 
         listItem.appendChild(link);
-        dropdown.appendChild(listItem);
+        searchDropdown.appendChild(listItem);
     });
 }
 
-
-// Handle input events in the search box
-const searchBox = document.querySelector(".form-control");
+// Search input behavior
 searchBox.addEventListener("input", (event) => {
     const query = event.target.value.trim();
+    console.log("User typed:", query);
+
     if (query.length > 0) {
-        const filteredProducts = filterProducts(query);
-        updateDropdown(filteredProducts);
+        const filtered = filterProducts(query);
+        console.log("Filtered products:", filtered);
+        updateDropdown(filtered);
     } else {
-        const dropdown = document.getElementById("search-dropdown");
-        dropdown.style.display = "none"; // Hide dropdown if input is empty
+        searchDropdown.style.display = "none";
     }
 });
 
 // Hide dropdown when clicking outside
 document.addEventListener("click", (event) => {
-    const dropdown = document.getElementById("search-dropdown");
-    if (!dropdown.contains(event.target) && event.target !== searchBox) {
-        dropdown.style.display = "none";
+    if (!searchDropdown.contains(event.target) && event.target !== searchBox) {
+        searchDropdown.style.display = "none";
     }
 });
 
 // Load products on page load
-loadProducts().catch((error) => console.error("Error loading products:", error));
+loadProducts();

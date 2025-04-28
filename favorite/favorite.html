@@ -1,104 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B&C</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../Homepage/hompage.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B&C</title>
+
+  <!-- Bootstrap and Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../Homepage/hompage.css"/>
+
+  <style>
+    .text-truncate-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      min-height: 3rem;
+    }
+    .text-truncate-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+    }
+    .price {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .icon-large {
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <div id="navbar-container"></div>
 
-  <div class="content mt-4">
+  <div class="content mt-4 p-5">
     <div class="container-fluid" style="width: 85%;">
       <h2 class="text-center fs-2 fw-bold" id="category-title">YOUR FAVORITES</h2>
-      <div class="row"  id="product-container">
-
-      </div>
-      </div>
+      <div class="row" id="product-container"></div>
+    </div>
   </div>
-   
-<div id="footer-container"></div>
-</body>
-<script src="favorite.js"></script>
-<script src="../category/cateJS.js"></script>
-<script src="../products/homepage.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("../Navbar/navbar.html")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load navbar:", response.status, response.statusText);
-          return;
-        }
-        return response.text();
-      })
-      .then((html) => {
-        if (html) {
-          document.getElementById("navbar-container").innerHTML = html;
-          console.log("Navbar loaded successfully.");
 
-          // Load navbar.js dynamically (so search works)
+
+
+  <div id="footer-container"></div>
+
+  <!-- Load dynamic product content -->
+  <script src="favorite.js"></script>
+
+  <!-- Navbar and footer loading -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Load Navbar
+      fetch("../Navbar/navbar.html")
+        .then((res) => res.ok ? res.text() : Promise.reject(res))
+        .then((html) => {
+          document.getElementById("navbar-container").innerHTML = html;
+
           const script = document.createElement("script");
           script.src = "../Navbar/navbar.js";
-          script.onload = () => {
-            console.log("Navbar script loaded successfully.");
-            initializeNavbar(); // Now call the function after navbar.js is loaded
-          };
-          script.onerror = (error) => {
-            console.error("Failed to load navbar.js:", error);
-          };
+          script.onload = () => initializeNavbar();
           document.body.appendChild(script);
-        }
-      })
-      .catch((error) => console.error("Error loading navbar:", error));
+        })
+        .catch((err) => console.error("Navbar load error:", err));
 
-      function initializeNavbar() {
-        console.log("Initializing navbar...");
-      
-        const userGreeting = document.getElementById("userGreeting");
-        const userName = localStorage.getItem("userName");
-        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-      
-        console.log("Stored userName:", userName);
-        console.log("Stored loggedIn:", isLoggedIn);
-      
-        if (userGreeting) {
-          if (isLoggedIn && userName) {
-            // Convert "Hello, Name" into a clickable link
-            userGreeting.innerHTML = `<a href="../Login/login.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Login/login.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
-            console.log("User logged in: ", userName);
-          } else {
-            userGreeting.innerHTML = `<a class="nav-link fs-4 mx-2" href="../Login/login.html">
-                <i id="userIcon" class="fa-regular fa-user"></i>
-            </a>`;
-            console.log("User not logged in");
-          }
-        } else {
-          console.error("userGreeting element not found!");
-        }
+
+        fetch("../Footer/footer.html")
+        .then((res) => res.ok ? res.text() : Promise.reject(res))
+        .then((html) => document.getElementById("footer-container").innerHTML = html)
+        .catch((err) => console.error("Footer load error:", err));
+    });
+
+    function initializeNavbar() {
+      const userGreeting = document.getElementById("userGreeting");
+      const userName = localStorage.getItem("userName");
+      const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+      if (userGreeting) {
+        userGreeting.innerHTML = isLoggedIn && userName
+          ? `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`
+          : `<a class="nav-link fs-4 mx-2" href="../Login/login.html"><i class="fa-regular fa-user"></i></a>`;
+      } else {
+        console.error("userGreeting element not found");
       }
-    });      
-
-  
-    fetch("../Footer/footer.html")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load footer:", response.status, response.statusText);
-          return;
-        }
-        return response.text();
-      })
-      .then((html) => {
-        if (html) {
-          document.getElementById("footer-container").innerHTML = html;
-        }
-      })
-      .catch((error) => console.error("Error loading footer:", error));
- 
-</script>
-
+    }
+  </script>
+</body>
 </html>

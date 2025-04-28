@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&C</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../OrderHistory/OrderHistory.css">
+    <link rel="stylesheet" href="../Cart/cart.css">  
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+  <div class="content">
+    <div class="box-sight">
+      <div class="icon">
+        <i class="fa-solid fa-user"></i>
+        <a href="../Profile/Profile.html">Profile</a>
+      </div>
+      <div class="icon">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <a href="../Cart/cart.html">Your Cart</a>
+      </div>
+      <div class="icon">
+        <i class="fa-solid fa-heart"></i>
+        <a href="../favorite/favorite.html">Your Favorite</a>
+      </div>
+      <div class="icon">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <a href="../OrderHistory/OrderHistory.html">Order History</a>
+      </div>
+      <div class="icon">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        <a href="../Login/login.html">Log Out</a>
+      </div>
+    </div>
+  
+  <div class="container">
+    <h2>Order History</h2>
+
+    <div class="order-group">
+      <div class="order-date">10 Nov 2024</div>
+
+      <div class="order-item">
+        <div class="order-details">
+          <div class="price">$120.00</div>
+          <div class="description">Purchased : Skin Aqua 50++, Micella Cleasing Water, ...</div>
+        </div>
+        <button class="reorder-button" data-payment-id="${payment.id}">Re-order</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">PAYMENT</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table" id="paymentDetailsTable">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamic Product Rows -->
+            </tbody>
+          </table>
+          <label for="address">Pick up address</label>
+          <input type="text" class="form-control" id="address" required>
+          <hr>
+          <h4 class="fw-bold" id="total-amount">Total: $0.00</h4>
+
+          <div class="mt-3">
+            <hr>
+            <h6 class="fw-bold"><i class="fa-solid fa-wallet"></i> Select Payment</h6>
+            <div class="scan">
+              <img src="../Cart/ImageCart/KHQR-available-here-logo-with-bg-1024x422.png" alt="ABA KHQR" class="img-fluid">
+              <p>ABA KHQR<br>Scan to pay with any banking app.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+          <button type="button" class="btn btn-primary" id="order-button">Buy Now</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <div id="footer-container"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPath = window.location.pathname;
+      const iconLinks = document.querySelectorAll(".box-sight .icon a");
+  
+      iconLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+  
+        if (currentPath === linkPath) {
+          link.parentElement.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+
+<script src="../OrderHistory/orderhistory.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("../Navbar/navbar.html")
+        .then((response) => {
+          if (!response.ok) {
+            console.error("Failed to load navbar:", response.status, response.statusText);
+            return;
+          }
+          return response.text();
+        })
+        .then((html) => {
+          if (html) {
+            document.getElementById("navbar-container").innerHTML = html;
+           
+            console.log("Navbar loaded successfully.");
+  
+            // Load navbar.js dynamically (so search works)
+            const script = document.createElement("script");
+            script.src = "../Navbar/navbar.js";
+            script.onload = () => {
+              console.log("Navbar script loaded successfully.");
+              initializeNavbar(); // Now call the function after navbar.js is loaded
+            };
+            script.onerror = (error) => {
+              console.error("Failed to load navbar.js:", error);
+            };
+            document.body.appendChild(script);
+          }
+        })
+        .catch((error) => console.error("Error loading navbar:", error));
+  
+        
+      function initializeNavbar() {
+        console.log("Initializing navbar...");
+      
+        const userGreeting = document.getElementById("userGreeting");
+        const userName = localStorage.getItem("userName");
+        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+      
+        console.log("Stored userName:", userName);
+        console.log("Stored loggedIn:", isLoggedIn);
+      
+        if (userGreeting) {
+          if (isLoggedIn && userName) {
+            // Show Hello, Name -> link to OrderHistory
+            userGreeting.innerHTML = `<a href="../Profile/Profile.html" class="fs-6 fw-bold text-decoration-none" style="color: inherit; margin-left:15px;">Hello, </br><a href="../Profile/Profile.html" style="font-weight:bold; margin-left:15px; text-decoration:none; color:inherit;">${userName}</a></a>`;
+
+          
+          } else {
+            // Not logged in, show icon link to login
+            userGreeting.innerHTML = `
+              <a class="nav-link fs-4 mx-2" href="../Login/login.html">
+                <i class="fa-regular fa-user"></i>
+              </a>
+            `;
+          }
+        } else {
+          console.error("userGreeting element not found!");
+        }
+      }
+    }); 
+  
+      fetch("../Footer/footer.html")
+        .then((response) => {
+          if (!response.ok) {
+            console.error("Failed to load footer:", response.status, response.statusText);
+            return;
+          }
+          return response.text();
+        })
+        .then((html) => {
+          if (html) {
+            document.getElementById("footer-container").innerHTML = html;
+          }
+        })
+        .catch((error) => console.error("Error loading footer:", error));
+   
+  </script>
+</html>
