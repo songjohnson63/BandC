@@ -58,8 +58,8 @@ async function loadCartProducts() {
 
             productDiv.innerHTML = `
                 <div class="card shadow-lg" style="flex-direction: row;">
-                    <img class="rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="Product Image" style="width: 30%; height: 40vh">
-                    <div class="card-body" style="width: 70%">
+                    <img class="rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="Product Image" style="width: 40%; height: 40vh">
+                    <div class="card-body" style="width: 70%; padding:30px;">
                         <button type="button" class="btn" id="delete-btn-${item.id}" style="position: absolute; top: 1px; left: 10px; border: none; background: transparent; font-size: 1.5em; color: red; cursor: pointer;">
                             <i class="fas fa-times"></i> <!-- Font Awesome X Icon -->
                         </button>
@@ -90,6 +90,7 @@ async function loadCartProducts() {
                     </div>
                 </div>
             `;
+
 
             container.appendChild(productDiv);
 

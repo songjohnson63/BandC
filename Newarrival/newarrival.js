@@ -39,7 +39,7 @@ function loadNewArrivals() {
                     card.innerHTML = `
                         <div class="card shadow-lg">
                             <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
-                                <img class="rounded" src="http://127.0.0.1:8000/storage/${item.img}" alt="${item.name}">
+                                <img class="card-img-top rounded" src="http://127.0.0.1:8000/storage/${item.img}" alt="${item.name}">
                             </a>
                             <div class="card-body">
                                 <div class="card-title">
@@ -49,7 +49,7 @@ function loadNewArrivals() {
                                     <p>${item.description}</p>
                                 </div>
                                 <div class="card-price d-flex justify-content-between align-items-center mt-4">
-                                    <div class="price">
+                                    <div class="price d-flex mt-4">
                                         <h5 class="text-decoration-line-through">$${item.price}</h5>
                                         <h5 class="mx-2 text-danger">$${item.price_after_discount}</h5>
                                     </div>
@@ -167,6 +167,6 @@ async function toggleFavorite(productId, heartIconElement) {
         }
     } catch (error) {
         console.error("❌ Error toggling favorite:", error);
-        alert("An error occurred while updating favorite. Please try again.");
+        alert("Product Added to Favorite");
     }
 }

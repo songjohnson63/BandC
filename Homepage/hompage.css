@@ -46,7 +46,7 @@ body{
     object-fit: cover;
 }
 
-.content .cart .card .card-body .card-title,
+.content .cart  .card-body .card-title,
 .card-text {
     display: -webkit-box;
     -webkit-box-orient: vertical;
