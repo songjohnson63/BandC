@@ -175,7 +175,7 @@ function renderProductCard(product) {
   const productCard = `
     <div class="cart carousel-item d-flex justify-content-center py-4">
       <div class="card" style="width:94%">
-        <a href="../Detail/detail.html?id=${product.id}" class="text-decoration-none text-dark">
+        <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
           <img class="card-img-top rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="${product.name}">
         </a>
         <div class="card-body">
@@ -248,7 +248,7 @@ fetch('http://127.0.0.1:8000/api/discounted')
         productCard.innerHTML = `
           <div class="cart carousel-item d-flex justify-content-center py-4">
       <div class="card" style="width:94%">
-        <a href="../Detail/detail.html?id=${product.id}" class="text-decoration-none text-dark">
+        <a href="../Newarrival/newarrival-detail.html?id=${product.id}" class="text-decoration-none text-dark">
           <img class="card-img-top rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="${product.name}">
         </a>
         <div class="card-body">
