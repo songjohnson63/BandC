@@ -160,6 +160,17 @@ h1{
     display: flex;
     justify-content: center;
 }
+
+
+
+#footer-container {
+    min-width: 99.1vw !important; /* Use vw, not vh */
+    /* background-color: red !important; */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
 @media (max-width: 991.98px) { 
     .m-s .content-mession{
         max-height: 45rem;

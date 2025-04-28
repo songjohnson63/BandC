@@ -29,49 +29,36 @@
         const product = await fetchProductDetails(productId);
 
         if (product) {
-            const container = document.getElementById("product-details");
-            container.innerHTML = `
-                <div class="container mt-0">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-5 col-sm-6">
-                                    <div class="img text-center">
-                                        <img src="${product.img}" alt="${product.name}">
-                                    </div>
+            const card = document.getElementById("product-details");
+            card.innerHTML = `
+                        <div class="card shadow-lg">
+                            <a href="../Newarrival/newarrival-detail.html?id=${item.id}" class="text-decoration-none text-dark">
+                                <img class="rounded" src="http://127.0.0.1:8000/storage/${item.img}" alt="${item.name}">
+                            </a>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h5>${item.name}</h5>
                                 </div>
-                                <div class="col-lg-7 col-md-7 col-sm-6">
-                                    <h3 class="box-title mt-4">${product.name}</h3>
-                                    <div class="price d-flex mt-4">
-                                        <h3 class="mx-2 text-danger">$${product.price_after_discount}</h3>
-                                        <h3 class="text-decoration-line-through">$${product.price}</h3>
+                                <div class="card-text">
+                                    <p>${item.description}</p>                      
+                                </div>
+                                <div class="card-price d-flex justify-content-between align-items-center mt-4">
+                                    <div class="price">
+                                        <h5 class="text-decoration-line-through">$${item.price}</h5>
+                                        <h5 class="mx-2 text-danger">$${item.price_after_discount}</h5>
                                     </div>
-
-                                    <div class="number d-flex mt-4">
-                                        <button type="button" class="btn btn-secondary" id="decrease-btn">-</button>
-                                        <h1 id="quantity-display" class="mx-3">1</h1>
-                                        <button type="button" class="btn btn-secondary" id="increase-btn">+</button>
-
-                                        <button type="button" class="cart btn btn-secondary mx-2" id="add-to-cart-btn">
-                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                    <div class="d-flex align-items-center">
+                                        <button class="border-0 bg-transparent fs-4 me-2" onclick="addToCart(${item.id})">
+                                            <i class="fa-solid fa-cart-shopping"></i>
                                         </button>
-                                        <button type="button" class="cart btn btn-secondary">
-                                            <i class="fa-regular fa-heart"></i> Add to Favorite
+                                        <button class="border-0 bg-transparent fs-4" onclick="toggleFavorite(${item.id})">
+                                            <i class="fa-solid fa-heart ${item.favorited_by_current_user ? 'text-danger' : ''}"></i>
                                         </button>
                                     </div>
-
-                                    <h5 class="box-title mt-5">Key Ingredients</h5>
-                                    <p>${product.key_ingredient}</p>
-
-                                    <h5 class="box-title mt-4">Description</h5>
-                                    <p>${product.description}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            `;
-
+                    `;
             // Quantity logic
             let quantity = 1;
             const quantityDisplay = document.getElementById("quantity-display");

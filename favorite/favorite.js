@@ -50,8 +50,8 @@ async function loadFavoriteProducts() {
             const heartColor = 'red';
 
             productDiv.innerHTML = `
-            <div class="card shadow-lg" style="flex-direction: row; cursor: pointer;" onclick="window.location.href='../Newarrival/newarrival-detail.html?id=${product.id}'">
-                <img class="rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="Product Image" style="width: 30%; height: 40vh">
+            <div class="card shadow-lg" style="flex-direction: row; cursor: pointer; backgroundcolor : red; " onclick="window.location.href='../Newarrival/newarrival-detail.html?id=${product.id}'">
+                <img class="card-img-top rounded" src="http://127.0.0.1:8000/storage/${product.img}" alt="Product Image" style="width: 50%; height: 40vh ; objectfit:cover;">
                 
                 <div class="card-body" style="width: 70%">
                 

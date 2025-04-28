@@ -73,6 +73,17 @@ body{
 #product-details{
     padding-top: 120px;
 }
+
+
+.card{
+    overflow: hidden !important;
+}
+/* img{
+    width: 100% !important;
+    object-fit: cover !important;
+
+} */
+
 @media (max-width: 1200px) {
     .number .button-click{
         font-size:  1rem;
